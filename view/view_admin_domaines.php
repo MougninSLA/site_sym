@@ -70,7 +70,7 @@
                           <td>
                             <button name=""><i class="fa fa-binoculars" aria-hidden="true"></i></button>
                             &nbsp;
-                            <button name=""><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button name="" ><i class="fa fa-pencil" aria-hidden="true"></i></button>
                             &nbsp;
                             <button name=""><i class="fa fa-trash" aria-hidden="true"></i></button>
                             &nbsp;

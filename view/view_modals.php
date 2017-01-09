@@ -180,3 +180,166 @@
   </div>
 </div>
 <!--------------------------------------------------------------------------------------------------------------------->
+
+<!----------------------------------------- Ajout de blacklist ---------------------------------------------------->
+<div class="modal fade" id="add_blacklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <center><h4 class="modal-title" id="myModalLabel"> Ajout de blacklist </h4></center>
+      </div>
+      <div class="modal-body">
+        <center>
+        <form action="" method="POST">
+        <table width="500">
+          <tr>
+            <th>
+              <label>Le nom de la blacklist</label>
+            </th>
+            <th>
+              <input type="textbox" name="nom">
+             </th>
+          </tr>
+          <tr>
+            <th>
+              <label>L'adresse de la blacklist</label>
+            </th>
+            <th>
+              <input type="textbox" name="adresse">
+             </th>
+          </tr>
+          <tr>
+            <th>
+              <label>Le pays de la blacklist</label>
+            </th>
+            <th>
+              <input type="textbox" name="pays">
+             </th>
+          </tr>
+          <tr>
+            <th>
+              <label>La ville de la blacklist</label>
+            </th>
+            <th>
+              <input type="textbox" name="ville">
+             </th>
+          </tr>
+        </table>
+        </center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary" name="confirmer">Ajouter</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<!----------------------------------------- Ajout de whitelist ---------------------------------------------------->
+<div class="modal fade" id="add_whitelist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <center><h4 class="modal-title" id="myModalLabel"> Ajout de whitelist </h4></center>
+      </div>
+      <div class="modal-body">
+        <center>
+        <form action="" method="POST">
+        <table width="500">
+          <tr>
+            <th>
+              <label>Le nom de la whitelist</label>
+            </th>
+            <th>
+              <input type="textbox" name="nom">
+             </th>
+          </tr>
+          <tr>
+            <th>
+              <label>L'adresse de la whitelist</label>
+            </th>
+            <th>
+              <input type="textbox" name="adresse">
+             </th>
+          </tr>
+          <tr>
+            <th>
+              <label>Le pays de la whitelist</label>
+            </th>
+            <th>
+              <input type="textbox" name="pays">
+             </th>
+          </tr>
+          <tr>
+            <th>
+              <label>La ville de la whitelist</label>
+            </th>
+            <th>
+              <input type="textbox" name="ville">
+             </th>
+          </tr>
+        </table>
+        </center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary" name="confirmer">Ajouter</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<!----------------------------------------- Modification de domaine ---------------------------------------------------->
+<div class="modal fade" id="modif_domain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <center><h4 class="modal-title" id="myModalLabel"> Modification de domaine </h4></center>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------ Confirmation de suppression de domaine ---------------------------------------------->
+<div class="modal fade" id="suppr_domain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <center><h4 class="modal-title" id="myModalLabel"> Confirmer la suppression de domaine </h4></center>
+      </div>
+      <div class="modal-body">
+        <center>
+        <form action="" method="POST">
+        <table width="500">
+          <tr>
+            <th>
+              <center>
+                <label>Confirmer la suppression du domaine {msg} ?</label>
+              </center>
+            </th>
+          </tr>
+        </table>
+        </center>
+      </div>
+      <div class="modal-footer">
+        <center>
+          <button type="button" class="btn btn-default" data-dismiss="modal">NON</button>
+          <button type="submit" class="btn btn-primary" name="oui">OUI</button>
+        </center>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------->

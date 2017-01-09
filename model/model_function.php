@@ -108,6 +108,32 @@
 
 
 	//-------------------------------------------------------------------------------------------------------------
+	//Fonction qui retrouve un compte
+	function select_domain($domain)
+	{
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT * FROM domains WHERE domains.id_domain = :domain");
+
+		$req->execute(array("domain"=>$domain));
+
+		while($results = $req->fetch()){
+
+			$_SESSION['id_domain_result'] = $results["id_domain"];
+			$_SESSION['nom_domain_result']= $results["nom_domain"];
+			$_SESSION['adresse_ip_result'] = $results["adresse_ip"];
+			$_SESSION['pays_domain_result'] = $results["pays_domain"];
+			$_SESSION['ville_domain_result'] = $results["ville_domain"];
+			$_SESSION['id_createur_domain_result'] = $results["id_createur"];
+			$_SESSION['affichage_result'] = $results["affichage_domain"];
+		}
+		
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
 	//Fonction pour ajouter un utilisateur dans notre BDD
 	function add_user($nom,$prenom,$login,$mail,$mdp)
 	{
@@ -124,22 +150,6 @@
 							));
 		$req->closeCursor();
 	
-	}
-	//-------------------------------------------------------------------------------------------------------------
-
-
-	//-------------------------------------------------------------------------------------------------------------
-	//Fonction pour supprimer un utilisateur de notre BDD
-	function del_user($login)
-	{
-		global $bdd;
-
-		//REQUETE SUR LA BASE DE DONNEES
-		$req = $bdd->prepare("DELETE users FROM users WHERE users.login = :login");
-
-		$req->execute(array(
-							'login'=>$login));		
-		$req->closeCursor();
 	}
 	//-------------------------------------------------------------------------------------------------------------
 
@@ -164,6 +174,108 @@
 	}
 	//-------------------------------------------------------------------------------------------------------------
 
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction pour ajouter une blacklist dans notre BDD
+	function add_whitelist($nom,$adresse,$pays,$ville,$createur)
+	{
+		global $bdd;
+
+		//REQUETE SUR LA BASE DE DONNEES
+		$req = $bdd->prepare("INSERT INTO `whitelists` (`nom_whitelist`,`adresse_whitelist`,`pays_whitelist`,`ville_whitelist`,`id_createur`,`affichage_whitelist`) values (:nom,:adresse,:pays,:ville,:createur,1);");
+		$req->execute(array(
+							'nom'=>$nom,
+							'adresse'=>$adresse,
+							'pays'=>$pays,
+							'ville'=>$ville,
+							'createur'=>$createur
+							));
+		$req->closeCursor();
+	
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction pour ajouter une blacklist dans notre BDD
+	function add_blacklist($nom,$adresse,$pays,$ville,$createur)
+	{
+		global $bdd;
+
+		//REQUETE SUR LA BASE DE DONNEES
+		$req = $bdd->prepare("INSERT INTO `blacklists` (`nom_blacklist`,`adresse_blacklist`,`pays_blacklist`,`ville_blacklist`,`id_createur`,`affichage_blacklist`) values (:nom,:adresse,:pays,:ville,:createur,1);");
+		$req->execute(array(
+							'nom'=>$nom,
+							'adresse'=>$adresse,
+							'pays'=>$pays,
+							'ville'=>$ville,
+							'createur'=>$createur
+							));
+		$req->closeCursor();
+
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction pour supprimer un utilisateur de notre BDD
+	function del_user($login)
+	{
+		global $bdd;
+
+		//REQUETE SUR LA BASE DE DONNEES
+		$req = $bdd->prepare("DELETE users FROM users WHERE users.login = :login");
+
+		$req->execute(array(
+							'login'=>$login));		
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction pour supprimer un domaine de notre BDD
+	function del_domain($domaine)
+	{
+		global $bdd;
+
+		//REQUETE SUR LA BASE DE DONNEES
+		$req = $bdd->prepare("DELETE domains FROM domains WHERE domains.id_domain = :domaine");
+
+		$req->execute(array(
+							'domaine'=>$domaine));		
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction pour supprimer une blacklist de notre BDD
+	function del_blacklist($blacklist)
+	{
+		global $bdd;
+
+		//REQUETE SUR LA BASE DE DONNEES
+		$req = $bdd->prepare("DELETE blacklists FROM blacklists WHERE blacklists.id_blacklist = :blacklist");
+
+		$req->execute(array(
+							'blacklist'=>$blacklist));		
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction pour supprimer une whitelist de notre BDD
+	function del_whitelist($whitelist)
+	{
+		global $bdd;
+
+		//REQUETE SUR LA BASE DE DONNEES
+		$req = $bdd->prepare("DELETE whitelists FROM whitelists WHERE whitelists.id_whitelist = :whitelist");
+
+		$req->execute(array(
+							'whitelist'=>$whitelist));		
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
 
 	//-------------------------------------------------------------------------------------------------------------
 	//Mis à jour des utilisateurs

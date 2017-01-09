@@ -65,6 +65,14 @@
 					}
 					break;
 
+				case "view_load_domain":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_load_domain.php");
+					}
+					break;
+
 				case "view_table":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
