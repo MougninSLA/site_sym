@@ -29,4 +29,10 @@
 		}
 	}
 
+	$domaine = $_SESSION['domaine'];
+
+	if (isset($_POST['oui'])) {
+		del_domain($domaine);
+	}
+	
 ?>

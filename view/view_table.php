@@ -51,13 +51,12 @@
 		                                        	<td><?php echo $datas['ville_domain']; ?></td>
 													<td class="text-primary"><?php echo $datas['adresse_ip']; ?></td>
 													<td class="td-actions text-right">
-														<a href="#" data-toggle="modal" data-target="#modif_domain" id="domain" rel="<?php echo $datas['id_domain']; ?>" class="charger">
+														<a href="#" data-toggle="modal" data-target="#modif_domain" rel="<?php echo $datas['id_domain']; ?>" class="charger">
 															<i title="Modifier le domaine" class="btn btn-primary btn-simple btn-xs material-icons">edit</i>
 														</a>
-
-														<button type="button" target="_blank" href="#suppr_domain" data-toggle="modal" rel="<?php echo $datas['id_domain']; ?>" title="Supprimer le domaine" class="btn btn-danger btn-simple btn-xs">
-															<i class="material-icons">close</i>
-														</button>
+														<a href="#" data-toggle="modal" data-target="#suppr_domain" rel="<?php echo $datas['id_domain']; ?>" class="supprimer">
+															<i title="Supprimer le domaine" class="btn btn-primary btn-simple btn-xs material-icons">close</i>
+														</a>
 													</td>
 		                                        </tr>
 	                                        </form>
@@ -94,7 +93,7 @@
 </body>
 
 	<?php include ('./asset/includes/dashboard_js.php'); ?>
-	
+
 	<?php include ('view_modals.php'); ?>
 
 </html>

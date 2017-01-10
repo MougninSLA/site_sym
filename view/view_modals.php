@@ -316,29 +316,70 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <center><h4 class="modal-title" id="myModalLabel"> Confirmer la suppression de domaine </h4></center>
+        <center><h4 class="modal-title" id="myModalLabel"> Confirmer la suppression du domaine </h4></center>
       </div>
       <div class="modal-body">
-        <center>
-        <form action="" method="POST">
-        <table width="500">
-          <tr>
-            <th>
-              <center>
-                <label>Confirmer la suppression du domaine {msg} ?</label>
-              </center>
-            </th>
-          </tr>
-        </table>
-        </center>
       </div>
-      <div class="modal-footer">
-        <center>
-          <button type="button" class="btn btn-default" data-dismiss="modal">NON</button>
-          <button type="submit" class="btn btn-primary" name="oui">OUI</button>
-        </center>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<!----------------------------------------- Modification de whiteliste ---------------------------------------------------->
+<div class="modal fade" id="modif_whitelist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <center><h4 class="modal-title" id="myModalLabel"> Modification de la whitelist </h4></center>
       </div>
-    </form>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------ Confirmation de suppression de whiteliste ---------------------------------------------->
+<div class="modal fade" id="suppr_whitelist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <center><h4 class="modal-title" id="myModalLabel"> Confirmer la suppression de la whitelist </h4></center>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<!----------------------------------------- Modification de blackliste ---------------------------------------------------->
+<div class="modal fade" id="modif_blacklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <center><h4 class="modal-title" id="myModalLabel"> Modification de la blacklist </h4></center>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------ Confirmation de suppression de blackliste ---------------------------------------------->
+<div class="modal fade" id="suppr_blacklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <center><h4 class="modal-title" id="myModalLabel"> Confirmer la suppression de la blacklist </h4></center>
+      </div>
+      <div class="modal-body">
+      </div>
     </div>
   </div>
 </div>

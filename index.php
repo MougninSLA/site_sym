@@ -73,6 +73,46 @@
 					}
 					break;
 
+				case "view_load_whitelist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_load_whitelist.php");
+					}
+					break;
+
+				case "view_load_blacklist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_load_blacklist.php");
+					}
+					break;
+
+				case "view_supprimer_domain":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_supprimer_domain.php");
+					}
+					break;
+
+				case "view_supprimer_whitelist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_supprimer_whitelist.php");
+					}
+					break;
+
+				case "view_supprimer_blacklist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_supprimer_blacklist.php");
+					}
+					break;
+
 				case "view_table":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");

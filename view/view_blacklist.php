@@ -51,13 +51,12 @@
 		                                        	<td><?php echo $datas['ville_blacklist']; ?></td>
 													<td class="text-primary"><?php echo $datas['adresse_blacklist']; ?></td>
 													<td class="td-actions text-right">
-														<a href="#" data-toggle="modal" data-target="#modif_blacklist" id="blacklist" rel="<?php echo $datas['id_blacklist']; ?>" class="charger">
+														<a href="#" data-toggle="modal" data-target="#modif_blacklist" rel="<?php echo $datas['id_blacklist']; ?>" class="charger_blacklist">
 															<i title="Modifier la blacklist" class="btn btn-primary btn-simple btn-xs material-icons">edit</i>
 														</a>
-
-														<button type="button" target="_blank" href="#suppr_blacklist" data-toggle="modal" rel="<?php echo $datas['id_blacklist']; ?>" title="Supprimer la blacklist" class="btn btn-danger btn-simple btn-xs">
-															<i class="material-icons">close</i>
-														</button>
+														<a href="#" data-toggle="modal" data-target="#suppr_blacklist" rel="<?php echo $datas['id_blacklist']; ?>" class="supprimer_blacklist">
+															<i title="Supprimer la blacklist" class="btn btn-primary btn-simple btn-xs material-icons">close</i>
+														</a>
 													</td>
 		                                        </tr>
 	                                        </form>

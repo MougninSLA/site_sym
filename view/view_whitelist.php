@@ -51,13 +51,12 @@
 		                                        	<td><?php echo $datas['ville_whitelist']; ?></td>
 													<td class="text-primary"><?php echo $datas['adresse_whitelist']; ?></td>
 													<td class="td-actions text-right">
-														<a href="#" data-toggle="modal" data-target="#modif_whitelist" id="whitelist" rel="<?php echo $datas['id_whitelist']; ?>" class="charger">
+														<a href="#" data-toggle="modal" data-target="#modif_whitelist" rel="<?php echo $datas['id_whitelist']; ?>" class="charger_whitelist">
 															<i title="Modifier la whitelist" class="btn btn-primary btn-simple btn-xs material-icons">edit</i>
 														</a>
-
-														<button type="button" target="_blank" href="#suppr_whitelist" data-toggle="modal" rel="<?php echo $datas['id_whitelist']; ?>" title="Supprimer la whitelist" class="btn btn-danger btn-simple btn-xs">
-															<i class="material-icons">close</i>
-														</button>
+														<a href="#" data-toggle="modal" data-target="#suppr_whitelist" rel="<?php echo $datas['id_whitelist']; ?>" class="supprimer_whitelist">
+															<i title="Supprimer la whitelist" class="btn btn-primary btn-simple btn-xs material-icons">close</i>
+														</a>
 													</td>
 		                                        </tr>
 	                                        </form>
