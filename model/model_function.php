@@ -74,13 +74,85 @@
 
 
 	//-------------------------------------------------------------------------------------------------------------
+	//Fonction qui verifie si une blacklist existe
+	function blacklist($adresse)
+	{
+
+	    global $bdd;
+
+	    //REQUETE SUR LA BASE DE DONNEES
+	    $connection = 'SELECT * FROM blacklists';
+
+	    try {
+	        $requete = $bdd->query($connection);
+	        while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+
+	            if ($adresse === $datas['adresse_blacklist']) {
+	                $testLog = "true";
+	                break;
+
+	            } elseif ($adresse !== $datas['adresse_blacklist']) {
+	                $testLog = "false";
+	                
+	            } else {
+	                $testLog = "false";
+	                break;
+	            }
+	        }
+	    } catch (PDOException $error) {
+	        echo "<script language=\"javascript\">";
+	        echo "alert('ERREUR DE CONNECTION A LA BASE DE DONNEES')";
+	        echo "</script>";
+	    }
+
+	    return $testLog;
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction qui verifie si une blacklist existe
+	function whitelist($adresse)
+	{
+
+	    global $bdd;
+
+	    //REQUETE SUR LA BASE DE DONNEES
+	    $connection = 'SELECT * FROM whitelists';
+
+	    try {
+	        $requete = $bdd->query($connection);
+	        while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+
+	            if ($adresse === $datas['adresse_whitelist']) {
+	                $testLog = "true";
+	                break;
+
+	            } elseif ($adresse !== $datas['adresse_whitelist']) {
+	                $testLog = "false";
+	                
+	            } else {
+	                $testLog = "false";
+	                break;
+	            }
+	        }
+	    } catch (PDOException $error) {
+	        echo "<script language=\"javascript\">";
+	        echo "alert('ERREUR DE CONNECTION A LA BASE DE DONNEES')";
+	        echo "</script>";
+	    }
+
+	    return $testLog;
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
 	//Fonction qui retrouve un compte
 	function select_user($login)
 	{
 		global $bdd;
-
 		$req = $bdd->prepare("SELECT * FROM users WHERE users.login = :login");
-
 		$req->execute(array("login"=>$login));
 
 		while($results = $req->fetch()){
@@ -112,9 +184,7 @@
 	function select_domain($domain)
 	{
 		global $bdd;
-
 		$req = $bdd->prepare("SELECT * FROM domains WHERE domains.id_domain = :domain");
-
 		$req->execute(array("domain"=>$domain));
 
 		while($results = $req->fetch()){
@@ -139,9 +209,7 @@
 		global $bdd;
 
 		$req = $bdd->prepare("SELECT * FROM whitelists WHERE whitelists.id_whitelist = :whitelist");
-
 		$req->execute(array("whitelist"=>$whitelist));
-
 		while($results = $req->fetch()){
 
 			$_SESSION['id_whitelist_result'] = $results["id_whitelist"];
@@ -162,9 +230,7 @@
 	function select_blacklist($blacklist)
 	{
 		global $bdd;
-
 		$req = $bdd->prepare("SELECT * FROM blacklists WHERE blacklists.id_blacklist = :blacklist");
-
 		$req->execute(array("blacklist"=>$blacklist));
 
 		while($results = $req->fetch()){
@@ -262,6 +328,42 @@
 							));
 		$req->closeCursor();
 
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction pour modifier un domaine dans notre BDD
+	function update_domain($nom,$adresse,$pays,$ville,$domaine)
+	{
+		global $bdd;
+
+		$req = $bdd->query("UPDATE domains SET nom_domain='$nom', adresse_ip='$adresse', pays_domain='$pays', ville_domain='$ville' WHERE id_domain='$domaine'");
+	
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction pour modifier une blacklist dans notre BDD
+	function update_blacklist($nom,$adresse,$pays,$ville,$domaine)
+	{
+		global $bdd;
+
+		$req = $bdd->query("UPDATE blacklists SET nom_blacklist='$nom', adresse_blacklist='$adresse', pays_blacklist='$pays', ville_blacklist='$ville' WHERE id_blacklist='$domaine'");
+	
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction pour modifier une whitelist dans notre BDD
+	function update_whitelist($nom,$adresse,$pays,$ville,$domaine)
+	{
+		global $bdd;
+
+		$req = $bdd->query("UPDATE whitelists SET nom_whitelist='$nom', adresse_whitelist='$adresse', pays_whitelist='$pays', ville_whitelist='$ville' WHERE id_whitelist='$domaine'");
+	
 	}
 	//-------------------------------------------------------------------------------------------------------------
 

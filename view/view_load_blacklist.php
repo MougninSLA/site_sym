@@ -39,6 +39,6 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal" onclick="window.location.reload()">Fermer</button>
-    <button type="submit" class="btn btn-primary" name="confirmer">Modifier</button>
+    <button type="submit" class="btn btn-primary" name="modifier">Modifier</button>
   </div>
 </form>

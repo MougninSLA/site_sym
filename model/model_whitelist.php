@@ -10,7 +10,7 @@
 		$createur=$_SESSION['id_user_result'];
 		#-----------------------------------------------------------------------------------------#
 
-		$existe = domain($adresse);
+		$existe = whitelist($adresse);
 		
 		if($existe == "true"){
 			echo "<script language=\"javascript\">";
@@ -28,5 +28,32 @@
         	echo "</script>";
 		}
 	}
+	
+	if(isset($_POST['modifier'])) {
+
+		#-------------------------------- Variables de conexion ----------------------------------#
+		$nom=$_POST['nom'];
+		$adresse=$_POST['adresse'];
+		$pays=$_POST['pays'];
+		$ville=$_POST['ville'];
+		$domaine=$_SESSION['id_whitelist_result'];
+		#-----------------------------------------------------------------------------------------#
+
+		update_whitelist($nom,$adresse,$pays,$ville,$domaine);
+		echo "<script language=\"javascript\">";
+    	echo "alert('Le domaine a bien été modifié')";
+    	echo "</script>";
+	}
+
+	if (isset($_SESSION['whitelist'])) {
+		$whitelist = $_SESSION['whitelist'];
+	}
+
+	if (isset($_POST['oui'])) {
+		del_whitelist($whitelist);
+		echo "<script language=\"javascript\">";
+    	echo "alert('La whitelist a bien été supprimée')";
+    	echo "</script>";
+}
 
 ?>

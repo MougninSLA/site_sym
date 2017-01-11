@@ -10,7 +10,7 @@
 		$createur=$_SESSION['id_user_result'];
 		#-----------------------------------------------------------------------------------------#
 
-		$existe = domain($adresse);
+		$existe = blacklist($adresse);
 		
 		if($existe == "true"){
 			echo "<script language=\"javascript\">";
@@ -27,6 +27,31 @@
         	echo "alert('La blacklist a bien été ajoutée')";
         	echo "</script>";
 		}
+	}
+	
+	if(isset($_POST['modifier'])) {
+
+		#-------------------------------- Variables de conexion ----------------------------------#
+		$nom=$_POST['nom'];
+		$adresse=$_POST['adresse'];
+		$pays=$_POST['pays'];
+		$ville=$_POST['ville'];
+		$domaine=$_SESSION['id_blacklist_result'];
+		#-----------------------------------------------------------------------------------------#
+
+		update_blacklist($nom,$adresse,$pays,$ville,$domaine);
+		echo "<script language=\"javascript\">";
+    	echo "alert('Le domaine a bien été modifié')";
+    	echo "</script>";
+	}
+	
+	$blacklist = $_SESSION['blacklist'];
+
+	if (isset($_POST['oui'])) {
+		del_blacklist($blacklist);
+		echo "<script language=\"javascript\">";
+    	echo "alert('La blacklist a bien été supprimée')";
+    	echo "</script>";
 	}
 
 ?>

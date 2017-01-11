@@ -21,9 +21,10 @@
 		update_users($login,$nom,$prenom,$email,$entreprise,$poste,$adresse,$ville,$pays,$code_postal,$a_propos);
 
 		echo "<script language=\"javascript\">";
-    	echo "alert('Utilisateur mis à jour')";
+    	echo "alert('Votre profil a été mis à jour')";
     	echo "</script>";
     	header("Refresh:0");
+    	$msg = "Votre profil a été mis à jour";
 
 	}
 	

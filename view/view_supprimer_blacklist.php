@@ -6,6 +6,7 @@
           <label>
             Confirmer la suppression de la blacklist <?php echo $_SESSION['nom_blacklist_result']; ?> ?
           </label>
+          <hidden></hidden>
         </center>
       </th>
     </tr>
