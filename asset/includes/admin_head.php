@@ -7,6 +7,7 @@
 
 <!-- start: Css -->
 <link rel="stylesheet" type="text/css" href="./asset/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./asset/css/password.css">
 
 <!-- plugins -->
 <link rel="stylesheet" type="text/css" href="./asset/css/plugins/font-awesome.min.css"/>

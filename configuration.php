@@ -10,6 +10,8 @@
 		session_start();
 		include("./model/model_bdd.php");
 		include("./model/model_function.php");
+		include("./model/model_admin_domaines.php");
+		include("./model/model_admin_users.php");
 	}
 	
 	//Inclusion de tous les modèles

@@ -108,8 +108,8 @@
 
 
 	//-------------------------------------------------------------------------------------------------------------
-	//Fonction pour ajouter un utilisateur dans notre BDD
-	function add_user($nom,$prenom,$login,$mail,$mdp)
+	//Fonction pour ajouter un utilisateur dans notre BDD:*
+/*	function add_user($nom,$prenom,$login,$mail,$mdp)
 	{
 		global $bdd;
 
@@ -124,7 +124,7 @@
 							));
 		$req->closeCursor();
 	
-	}
+	} */
 	//-------------------------------------------------------------------------------------------------------------
 
 

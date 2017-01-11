@@ -103,6 +103,62 @@
 					} else {
 						include("./controller/deconnexion.php");
 					}
+					break;				
+				case "show_edit_domain":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_show_edit_domain.php");
+					}
+					break;				
+				case "edit_domain":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_edit_domain.php");
+					}
+					break;				
+				case "del_domain":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_del_domain.php");
+					}
+					break;				
+				case "show_user":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_show_user.php");
+					}
+					break;				
+				case "show_edit_user":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_show_edit_user.php");
+					}
+					break;				
+				case "edit_user":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_edit_user.php");
+					}
+					break;				
+				case "add_user":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_add_user.php");
+					}
+					break;				
+				case "del_user":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_del_user.php");
+					}
 					break;
 
 				default:
