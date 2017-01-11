@@ -19,14 +19,20 @@
 		} elseif ($existe == "false") {
 			add_domain($nom,$adresse,$pays,$ville,$createur);
 			echo "<script language=\"javascript\">";
-	    	echo "alert('Domaine créé')";
+	    	echo "alert('Le domaine a bien été ajouté')";
 	    	echo "</script>";
 		} else {
 			add_domain($nom,$adresse,$pays,$ville,$créateur);
 			echo "<script language=\"javascript\">";
-        	echo "alert('Utilisateur créé')";
+        	echo "alert('Le domaine a bien été ajouté')";
         	echo "</script>";
 		}
 	}
 
+	$domaine = $_SESSION['domaine'];
+
+	if (isset($_POST['oui'])) {
+		del_domain($domaine);
+	}
+	
 ?>

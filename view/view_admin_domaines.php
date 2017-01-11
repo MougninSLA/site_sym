@@ -76,7 +76,6 @@
 										<input type="hidden" name="id_domain" value="<?php echo $datas['id_domain']; ?>">
 										<button type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
 							</form> 
-                            &nbsp;
                           </td> 
                         </tr>
 

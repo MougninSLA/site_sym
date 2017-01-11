@@ -36,7 +36,7 @@
 												$x=0;
 
 												//REQUETE SUR LA BASE DE DONNEES
-												$connection = 'SELECT * FROM domains where id_createur = '.$_SESSION['id_user_result'].'';
+												$connection = 'SELECT * FROM domains where id_createur = '.$_SESSION['id_user_result'].' and affichage_domain = 1';
 
 												try {
 													$requete = $bdd->query($connection);
@@ -44,20 +44,22 @@
 													$x++;
 											?>
 
-	                                        <tr>
-	                                        	<td><?php echo "<small>".$datas['nom_domain']."</small>"; ?></td>
-	                                        	<td><?php echo "<small>".$datas['pays_domain']."</small>"; ?></td>
-	                                        	<td><?php echo "<small>".$datas['ville_domain']."</small>"; ?></td>
-												<td class="text-primary"><?php echo "<small>".$datas['adresse_ip']."</small>"; ?></td>
-												<td class="td-actions text-right">
-													<button type="button" rel="tooltip" title="Modifier le domaine" class="btn btn-primary btn-simple btn-xs">
-														<i class="material-icons">edit</i>
-													</button>
-													<button type="button" rel="tooltip" title="Supprimer le domaine" class="btn btn-danger btn-simple btn-xs">
-														<i class="material-icons">close</i>
-													</button>
-												</td>
-	                                        </tr>
+											<form method="GET" name="formulaire">
+		                                        <tr>
+		                                        	<td><?php echo $datas['nom_domain']; ?></td>
+		                                        	<td><?php echo $datas['pays_domain']; ?></td>
+		                                        	<td><?php echo $datas['ville_domain']; ?></td>
+													<td class="text-primary"><?php echo $datas['adresse_ip']; ?></td>
+													<td class="td-actions text-right">
+														<a href="#" data-toggle="modal" data-target="#modif_domain" rel="<?php echo $datas['id_domain']; ?>" class="charger">
+															<i title="Modifier le domaine" class="btn btn-primary btn-simple btn-xs material-icons">edit</i>
+														</a>
+														<a href="#" data-toggle="modal" data-target="#suppr_domain" rel="<?php echo $datas['id_domain']; ?>" class="supprimer">
+															<i title="Supprimer le domaine" class="btn btn-primary btn-simple btn-xs material-icons">close</i>
+														</a>
+													</td>
+		                                        </tr>
+	                                        </form>
 
 	                                        <?php          
 					                                  }
@@ -90,25 +92,7 @@
 
 </body>
 
-	<!--   Core JS Files   -->
-	<script src="./asset/js/jquery-3.1.0.min.js" type="text/javascript"></script>
-	<script src="./asset/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="./asset/js/material.min.js" type="text/javascript"></script>
-
-	<!--  Charts Plugin -->
-	<script src="./asset/js/chartist.min.js"></script>
-
-	<!--  Notifications Plugin    -->
-	<script src="./asset/js/bootstrap-notify.js"></script>
-
-	<!--  Google Maps Plugin    -->
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
-	<!-- Material Dashboard javascript methods -->
-	<script src="./asset/js/material-dashboard.js"></script>
-
-	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-	<script src="./asset/js/demo.js"></script>
+	<?php include ('./asset/includes/dashboard_js.php'); ?>
 
 	<?php include ('view_modals.php'); ?>
 
