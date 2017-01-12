@@ -180,6 +180,30 @@
 
 
 	//-------------------------------------------------------------------------------------------------------------
+	//Fonction qui retrouve une notification
+	function select_notif($notification)
+	{
+		global $bdd;
+		$req = $bdd->prepare("SELECT * FROM notifications WHERE notifications.id_notif_admin = :notification");
+		$req->execute(array("notification"=>$notification));
+
+		while($results = $req->fetch()){
+
+			// $_SESSION['id_notif_admin'] = $results["id_notif_admin"];
+			$_SESSION['type']= $results["type"];
+			// $_SESSION['contenu_notif'] = $results["contenu_notif"];
+			// $_SESSION['id_expediteur'] = $results["id_expediteur"];
+			// $_SESSION['id_destinataire'] = $results["id_destinataire"];
+			$_SESSION['adresse_domaine'] = $results["adresse_domaine"];
+			// $_SESSION['affichage']= $results["affichage"];
+		}
+		
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
 	//Fonction qui retrouve un compte
 	function select_domain($domain)
 	{
@@ -492,17 +516,18 @@
 
 	//--------------------------------------------------------------------------------------------------------------
 	//Fonction ajouter notification création de domaine
-	function add_notification($type, $contenu, $expediteur, $destinataire, $affichage)
+	function add_notification($type, $contenu, $expediteur, $destinataire, $domaine, $affichage)
 	{
 		global $bdd;
 
 		//REQUETE SUR LA BASE DE DONNEES
-		$req = $bdd->prepare("INSERT INTO `notifications` (`type`,`contenu_notif`,`id_expediteur`,`id_destinataire`,`affichage`) values (:type,:contenu,:expediteur,:destinataire,:affichage);");
+		$req = $bdd->prepare("INSERT INTO `notifications` (`type`,`contenu_notif`,`id_expediteur`,`id_destinataire`,`adresse_domaine`,`affichage`) values (:type,:contenu,:expediteur,:destinataire,:domaine,:affichage);");
 		$req->execute(array(
 							'type'=>$type,
 							'contenu'=>$contenu,
 							'expediteur'=>$expediteur,
 							'destinataire'=>$destinataire,
+							'domaine'=>$domaine,
 							'affichage'=>$affichage
 							));
 		$req->closeCursor();
@@ -526,11 +551,30 @@
 	//Accepter les domaines
 	function accept_domain($notification)
 	{
-		global $bdd;
+		select_notif($notification);
 
-		$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+		$domaine = $_SESSION['adresse_domaine'];
 
-		$req->closeCursor();
+		if ($_SESSION['type'] == "Ajout de Domaine") {
+			global $bdd;
+			$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+			$req = $bdd->query("UPDATE domains SET affichage_domain='2' WHERE adresse_ip='$domaine'");
+			$req->closeCursor();
+		} elseif ($_SESSION['type'] == "Ajout de Whitelist") {
+			global $bdd;
+			$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+			$req = $bdd->query("UPDATE whitelists SET affichage_whitelist='2' WHERE adresse_whitelist='$domaine'");
+			$req->closeCursor();
+		} elseif ($_SESSION['type'] == "Ajout de Blacklist") {
+			global $bdd;
+			$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+			$req = $bdd->query("UPDATE blacklists SET affichage_blacklist='2' WHERE adresse_blacklist='$domaine'");
+			$req->closeCursor();
+		} else {
+			global $bdd;
+			$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+			$req->closeCursor();
+		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
 
@@ -539,11 +583,30 @@
 	//Refuser les domaines
 	function refuse_domain($notification)
 	{
-		global $bdd;
+		select_notif($notification);
 
-		$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été réfusée par l''administrateur',affichage='3' WHERE id_notif_admin='$notification'");
+		$domaine = $_SESSION['adresse_domaine'];
 
-		$req->closeCursor();
+		if ($_SESSION['type'] == "Ajout de Domaine") {
+			global $bdd;
+			$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+			$req = $bdd->query("UPDATE domains SET affichage_domain='3' WHERE adresse_ip='$domaine'");
+			$req->closeCursor();
+		} elseif ($_SESSION['type'] == "Ajout de Whitelist") {
+			global $bdd;
+			$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+			$req = $bdd->query("UPDATE whitelists SET affichage_whitelist='3' WHERE adresse_whitelist='$domaine'");
+			$req->closeCursor();
+		} elseif ($_SESSION['type'] == "Ajout de Blacklist") {
+			global $bdd;
+			$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+			$req = $bdd->query("UPDATE blacklists SET affichage_blacklist='3' WHERE adresse_blacklist='$domaine'");
+			$req->closeCursor();
+		} else {
+			global $bdd;
+			$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande a été réfusée par l''administrateur',affichage='3' WHERE id_notif_admin='$notification'");
+			$req->closeCursor();
+		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
 ?>

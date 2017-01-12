@@ -20,29 +20,29 @@
 		
 		} elseif ($existe == "false") {
 			add_whitelist($nom,$adresse,$pays,$ville,$createur);
+			$expediteur = $_SESSION['prenom_result']." ".$_SESSION['nom_result'];
 			$contenu = $_SESSION['notification_whitelist_user'];
-			$contenu = str_replace("XXX", $createur, $contenu);
+			$contenu = str_replace("XXX", $expediteur, $contenu);
 			$contenu = str_replace("DDD", $adresse, $contenu);
 			$type = "Ajout de Whitelist";
-			$expediteur = $_SESSION['prenom_result']." ".$_SESSION['nom_result'];
 			$destinataire = "0";
 			$affichage = "1";
-			add_notification($type, $contenu, $expediteur, $destinataire, $affichage);
+			add_notification($type, $contenu, $createur, $destinataire, $adresse, $affichage);
 			echo "<script language=\"javascript\">";
-	    	echo "alert('La whitelist a bien été ajoutée')";
+	    	echo "alert('Une demande d\'ajout de cette whitelist a été envoyée à l\'administrateur. Vous obtiendrez une reponse dans les plus brefs delais.')";
 	    	echo "</script>";
 		} else {
 			add_whitelist($nom,$adresse,$pays,$ville,$createur);
+			$expediteur = $_SESSION['prenom_result']." ".$_SESSION['nom_result'];
 			$contenu = $_SESSION['notification_whitelist_user'];
-			$contenu = str_replace("XXX", $createur, $contenu);
+			$contenu = str_replace("XXX", $expediteur, $contenu);
 			$contenu = str_replace("DDD", $adresse, $contenu);
 			$type = "Ajout de Whitelist";
-			$expediteur = $_SESSION['prenom_result']." ".$_SESSION['nom_result'];
 			$destinataire = "0";
 			$affichage = "1";
-			add_notification($type, $contenu, $expediteur, $destinataire, $affichage);
+			add_notification($type, $contenu, $createur, $destinataire, $adresse, $affichage);
 			echo "<script language=\"javascript\">";
-	    	echo "alert('La whitelist a bien été ajoutée')";
+	    	echo "alert('Une demande d\'ajout de cette whitelist a été envoyée à l\'administrateur. Vous obtiendrez une reponse dans les plus brefs delais.')";
 	    	echo "</script>";
 	}
 

@@ -42,7 +42,7 @@
                               $x=0;
 
                               //REQUETE SUR LA BASE DE DONNEES
-                              $connection = 'SELECT * FROM domains WHERE affichage_domain = 1';
+                              $connection = 'SELECT * FROM domains WHERE affichage_domain = 2';
 
                               try {
                                   $requete = $bdd->query($connection);

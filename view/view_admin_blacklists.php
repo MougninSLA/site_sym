@@ -45,7 +45,7 @@
                               $x=0;
 
                               //REQUETE SUR LA BASE DE DONNEES
-                              $connection = 'SELECT * FROM blacklists WHERE affichage_blacklist = 1';
+                              $connection = 'SELECT * FROM blacklists WHERE affichage_blacklist = 2';
 
                               try {
                                   $requete = $bdd->query($connection);

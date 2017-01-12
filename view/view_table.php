@@ -36,7 +36,7 @@
 												$x=0;
 
 												//REQUETE SUR LA BASE DE DONNEES
-												$connection = 'SELECT * FROM domains where id_createur = '.$_SESSION['id_user_result'].' and affichage_domain = 1';
+												$connection = 'SELECT * FROM domains where id_createur = '.$_SESSION['id_user_result'].' and affichage_domain = 2';
 
 												try {
 													$requete = $bdd->query($connection);

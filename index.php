@@ -1,9 +1,7 @@
 <?php
 	//Forcer le serveur à pme ramener les pages en UTF-8
 	header('Content-Type: text/html; charset=utf-8');
-?>
 
-<?php
 	//Appel de la page de configuration
 	require_once'configuration.php';
 
@@ -150,6 +148,14 @@
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_user.php");
+					}
+					break;
+
+				case "view_notif":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/view_notif.php");
 					}
 					break;
 

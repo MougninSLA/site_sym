@@ -45,7 +45,7 @@
                               $x=0;
 
                               //REQUETE SUR LA BASE DE DONNEES
-                              $connection = 'SELECT * FROM whitelists WHERE affichage_whitelist = 1';
+                              $connection = 'SELECT * FROM whitelists WHERE affichage_whitelist = 2';
 
                               try {
                                   $requete = $bdd->query($connection);

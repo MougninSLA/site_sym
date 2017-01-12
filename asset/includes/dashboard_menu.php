@@ -82,9 +82,10 @@
 				                $requete = $bdd->query($connection);
 				                while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
 				                $x++;
+				                $_SESSION['id_notif_admin'] = $datas['id_notif_admin'];
 				            ?>
 				            <form style="width: 445px;">
-								<li><a href="<?php view_notif($id); ?>"><?php echo $datas['contenu_notif']; ?></a></li>			            	
+								<li><a href="<?php echo '?index=view_notif' ?>"><?php echo $datas['contenu_notif']; ?></a></li>			            	
 				            </form>
 							<?php          
 				                  }
