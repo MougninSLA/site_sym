@@ -430,5 +430,120 @@
 	}
 	//-------------------------------------------------------------------------------------------------------------
 
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction qui compte les notifications admin
+	function count_notif_admin()
+	{
+		global $bdd;
 
+	    //REQUETE SUR LA BASE DE DONNEES
+	    $connection = 'SELECT COUNT(*) FROM notifications WHERE id_destinataire = 0 and affichage = 1';
+
+	    try {
+	        $requete = $bdd->query($connection);
+	        while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+
+                $testLog = $datas;
+                break;
+
+	        }
+	    } catch (PDOException $error) {
+	        echo "<script language=\"javascript\">";
+	        echo "alert('ERREUR DE CONNECTION A LA BASE DE DONNEES')";
+	        echo "</script>";
+	    }
+
+	    return $testLog;
+
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Fonction qui compte les notifications admin
+	function count_notif_users($id_user)
+	{
+		global $bdd;
+
+	    //REQUETE SUR LA BASE DE DONNEES
+	    $connection = "SELECT COUNT(*) FROM notifications WHERE id_destinataire = '$id_user' and affichage = 2";
+
+	    try {
+	        $requete = $bdd->query($connection);
+	        while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+
+                $testLog = $datas;
+                break;
+
+	        }
+	    } catch (PDOException $error) {
+	        echo "<script language=\"javascript\">";
+	        echo "alert('ERREUR DE CONNECTION A LA BASE DE DONNEES')";
+	        echo "</script>";
+	    }
+
+	    return $testLog;
+
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//--------------------------------------------------------------------------------------------------------------
+	//Fonction ajouter notification création de domaine
+	function add_notification($type, $contenu, $expediteur, $destinataire, $affichage)
+	{
+		global $bdd;
+
+		//REQUETE SUR LA BASE DE DONNEES
+		$req = $bdd->prepare("INSERT INTO `notifications` (`type`,`contenu_notif`,`id_expediteur`,`id_destinataire`,`affichage`) values (:type,:contenu,:expediteur,:destinataire,:affichage);");
+		$req->execute(array(
+							'type'=>$type,
+							'contenu'=>$contenu,
+							'expediteur'=>$expediteur,
+							'destinataire'=>$destinataire,
+							'affichage'=>$affichage
+							));
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+	//-------------------------------------------------------------------------------------------------------------
+	//View Notifications
+	function view_notif($notification)
+	{
+		global $bdd;
+
+		$req = $bdd->query("UPDATE notifications SET affichage='3' WHERE id_notif_admin='$notification'");
+
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Accepter les domaines
+	function accept_domain($notification)
+	{
+		global $bdd;
+
+		$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
+
+
+	//-------------------------------------------------------------------------------------------------------------
+	//Refuser les domaines
+	function refuse_domain($notification)
+	{
+		global $bdd;
+
+		$req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été réfusée par l''administrateur',affichage='3' WHERE id_notif_admin='$notification'");
+
+		$req->closeCursor();
+	}
+	//-------------------------------------------------------------------------------------------------------------
 ?>

@@ -28,25 +28,6 @@
 </script>
 
 <script>
-  $(".charger").click(function(oEvt){
-    oEvt.preventDefault();
-    var Id=$(this).attr("rel");
-    $(".modal-body").fadeIn(1000).html('<div style="text-align:center; margin-right:auto; margin-left:auto">Patientez...</div>');
-    $.ajax({
-      type:"GET",
-      data : "Id="+Id,
-      url:"<?php echo INDEX ?>?index=view_load_domain",
-      error:function(msg){
-      $(".modal-body").addClass("tableau_msg_erreur").fadeOut(800).fadeIn(800).fadeOut(400).fadeIn(400).html('<div style="margin-right:auto; margin-left:auto; text-align:center">Impossible de charger cette page</div>');
-    },
-    success:function(data){
-      $(".modal-body").fadeIn(1000).html(data);
-    }
-    });
-  });
-</script>
-
-<script>
   $(".supprimer").click(function(oEvt){
     oEvt.preventDefault();
     var Id=$(this).attr("rel");
@@ -66,25 +47,6 @@
 </script>
 
 <script>
-  $(".charger_whitelist").click(function(oEvt){
-    oEvt.preventDefault();
-    var Id=$(this).attr("rel");
-    $(".modal-body").fadeIn(1000).html('<div style="text-align:center; margin-right:auto; margin-left:auto">Patientez...</div>');
-    $.ajax({
-      type:"GET",
-      data : "Id="+Id,
-      url:"<?php echo INDEX ?>?index=view_load_whitelist",
-      error:function(msg){
-      $(".modal-body").addClass("tableau_msg_erreur").fadeOut(800).fadeIn(800).fadeOut(400).fadeIn(400).html('<div style="margin-right:auto; margin-left:auto; text-align:center">Impossible de charger cette page</div>');
-    },
-    success:function(data){
-      $(".modal-body").fadeIn(1000).html(data);
-    }
-    });
-  });
-</script>
-
-<script>
   $(".supprimer_whitelist").click(function(oEvt){
     oEvt.preventDefault();
     var Id=$(this).attr("rel");
@@ -93,25 +55,6 @@
       type:"GET",
       data : "Id="+Id,
       url:"<?php echo INDEX ?>?index=view_supprimer_whitelist",
-      error:function(msg){
-      $(".modal-body").addClass("tableau_msg_erreur").fadeOut(800).fadeIn(800).fadeOut(400).fadeIn(400).html('<div style="margin-right:auto; margin-left:auto; text-align:center">Impossible de charger cette page</div>');
-    },
-    success:function(data){
-      $(".modal-body").fadeIn(1000).html(data);
-    }
-    });
-  });
-</script>
-
-<script>
-  $(".charger_blacklist").click(function(oEvt){
-    oEvt.preventDefault();
-    var Id=$(this).attr("rel");
-    $(".modal-body").fadeIn(1000).html('<div style="text-align:center; margin-right:auto; margin-left:auto">Patientez...</div>');
-    $.ajax({
-      type:"GET",
-      data : "Id="+Id,
-      url:"<?php echo INDEX ?>?index=view_load_blacklist",
       error:function(msg){
       $(".modal-body").addClass("tableau_msg_erreur").fadeOut(800).fadeIn(800).fadeOut(400).fadeIn(400).html('<div style="margin-right:auto; margin-left:auto; text-align:center">Impossible de charger cette page</div>');
     },

@@ -15,11 +15,11 @@
 	                    <div class="col-md-12">
 	                        <div class="card">
 	                            <div class="card-header" data-background-color="purple">
-	                                <h4 class="title">Mes blacklistes</h4>
+	                                <h4 class="title">Mes blacklists</h4>
 										<a target="_blank" href="#add_blacklist" data-toggle="modal" class="btn pull-right" rel="tooltip" title="Ajout de blacklist">
 											<i class="material-icons">add</i>
 										</a>
-	                                <p class="category">Les blacklistes que vous gérez</p>
+	                                <p class="category">Les blacklists que vous gérez</p>
 	                            </div>
 	                            <div class="card-content table-responsive">
 	                                <table class="table">
@@ -51,9 +51,6 @@
 		                                        	<td><?php echo $datas['ville_blacklist']; ?></td>
 													<td class="text-primary"><?php echo $datas['adresse_blacklist']; ?></td>
 													<td class="td-actions text-right">
-														<a href="#" data-toggle="modal" data-target="#modif_blacklist" rel="<?php echo $datas['id_blacklist']; ?>" class="charger_blacklist">
-															<i title="Modifier la blacklist" class="btn btn-primary btn-simple btn-xs material-icons">edit</i>
-														</a>
 														<a href="#" data-toggle="modal" data-target="#suppr_blacklist" rel="<?php echo $datas['id_blacklist']; ?>" class="supprimer_blacklist">
 															<i title="Supprimer la blacklist" class="btn btn-primary btn-simple btn-xs material-icons">close</i>
 														</a>

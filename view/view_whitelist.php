@@ -15,11 +15,11 @@
 	                    <div class="col-md-12">
 	                        <div class="card">
 	                            <div class="card-header" data-background-color="purple">
-	                                <h4 class="title">Mes whitelistes</h4>
+	                                <h4 class="title">Mes whitelists</h4>
 										<a target="_blank" href="#add_whitelist" data-toggle="modal" class="btn pull-right" rel="tooltip" title="Ajout de whitelist">
 											<i class="material-icons">add</i>
 										</a>
-	                                <p class="category">Les whitelistes que vous gérez</p>
+	                                <p class="category">Les whitelists que vous gérez</p>
 	                            </div>
 	                            <div class="card-content table-responsive">
 	                                <table class="table">
@@ -51,9 +51,6 @@
 		                                        	<td><?php echo $datas['ville_whitelist']; ?></td>
 													<td class="text-primary"><?php echo $datas['adresse_whitelist']; ?></td>
 													<td class="td-actions text-right">
-														<a href="#" data-toggle="modal" data-target="#modif_whitelist" rel="<?php echo $datas['id_whitelist']; ?>" class="charger_whitelist">
-															<i title="Modifier la whitelist" class="btn btn-primary btn-simple btn-xs material-icons">edit</i>
-														</a>
 														<a href="#" data-toggle="modal" data-target="#suppr_whitelist" rel="<?php echo $datas['id_whitelist']; ?>" class="supprimer_whitelist">
 															<i title="Supprimer la whitelist" class="btn btn-primary btn-simple btn-xs material-icons">close</i>
 														</a>

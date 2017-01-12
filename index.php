@@ -57,6 +57,14 @@
 					}
 					break;
 
+				case "view_admin_profil":
+					if (($_SESSION['login_result']) !== "administrator") {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_admin_profil.php");
+					}
+					break;
+
 				case "view_dashboard":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");

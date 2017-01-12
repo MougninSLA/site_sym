@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <?php include"./asset/includes/admin_head.php"; ?>
 </head>
@@ -219,7 +219,6 @@
                     </div>
             </div>
           <!-- end: content -->
-        <?php include"./asset/includes/admin_message.php"; ?>
       </div>
   <?php include"./asset/includes/admin_js.php"; ?>
 </body>

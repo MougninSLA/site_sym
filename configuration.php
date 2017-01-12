@@ -8,6 +8,16 @@
 	//Créer une session, la session qui va gérer le site
 	if(!isset($_SESSION)){
 		session_start();
+		
+		//---------------------------------------------------- Les messages -----------------------------------------------
+		$_SESSION['notification_domain_user'] = "L'utilisateur XXX souhaite ajouter le domaine DDD";
+		$_SESSION['notification_blacklist_user'] = "L'utilisateur XXX souhaite ajouter le domaine DDD à la blacklist";
+		$_SESSION['notification_whitelist_user'] = "L'utilisateur XXX souhaite ajouter le domaine DDD à la whitelist";
+		$_SESSION['notification_domain_admin'] = "L'administrateur a accepté votre demande d'ajout du domaine DDD";
+		$_SESSION['notification_blacklist_admin'] = "L'utilisateur XXX souhaite ajouter le domaine DDD à la blacklist";
+		$_SESSION['notification_whitelist_admin'] = "L'administrateur a accepté votre ajout du domaine DDD à la whitelist";
+		//------------------------------------------------------------------------------------------------------------------
+
 		include("./model/model_bdd.php");
 		include("./model/model_function.php");
 	}
