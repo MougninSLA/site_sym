@@ -50,24 +50,31 @@
 		$login=$_POST['login'];
 		$mail=$_POST['mail'];
 		$mdp=$_POST['mdp'];
+		$mdp=$_POST['mdp2'];
 		#-----------------------------------------------------------------------------------------#
 
 		$existe = compte($login);
 		
-		if($existe == "true"){
-			echo "<script language=\"javascript\">";
-        	echo "alert('Cet utilisateur est déjà inscrit')";
-        	echo "</script>";
-		} elseif ($existe == "false") {
-			add_user($nom,$prenom,$login,$mail,$mdp);
-			echo "<script language=\"javascript\">";
-        	echo "alert('Utilisateur créé')";
-        	echo "</script>";
+		if ($mdp == $mdp2) {
+			if($existe == "true"){
+				echo "<script language=\"javascript\">";
+	        	echo "alert('Cet utilisateur est déjà inscrit')";
+	        	echo "</script>";
+			} elseif ($existe == "false") {
+				add_user($nom,$prenom,$login,$mail,$mdp);
+				echo "<script language=\"javascript\">";
+	        	echo "alert('Utilisateur créé')";
+	        	echo "</script>";
+			} else {
+				add_user($nom,$prenom,$login,$mail,$mdp);
+				echo "<script language=\"javascript\">";
+	        	echo "alert('Utilisateur créé')";
+	        	echo "</script>";
+			}
 		} else {
-			add_user($nom,$prenom,$login,$mail,$mdp);
 			echo "<script language=\"javascript\">";
-        	echo "alert('Utilisateur créé')";
-        	echo "</script>";
+	       echo "alert('Mots de passe différents')";
+	       echo "</script>";
 		}
 	}
 ?>

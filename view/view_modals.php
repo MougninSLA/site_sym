@@ -55,7 +55,7 @@
               <label>Confirmer le mot de passe</label>
             </th>
             <th>
-              <input type="password">
+              <input type="password" name="mdp2">
              </th>
           </tr>
           <tr>
