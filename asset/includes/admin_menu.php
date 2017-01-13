@@ -1,3 +1,24 @@
+<?php
+
+  if(isset($_POST['accepter'])) {
+
+    #-----------------------------------------------------------------------------------------#
+    $notification=$_POST['notification'];
+    accept_domain($notification);
+    #-----------------------------------------------------------------------------------------#
+  }
+  
+  if(isset($_POST['refuser'])) {
+
+    #-----------------------------------------------------------------------------------------#
+    $notification=$_POST['notification'];
+    refuse_domain($notification);
+    #-----------------------------------------------------------------------------------------#
+
+  }
+
+?>
+
 <!-- start: Header -->
 <nav class="navbar navbar-default header navbar-fixed-top">
   <div class="col-md-12 nav-wrapper">
@@ -29,7 +50,7 @@
           <li class="dropdown avatar-dropdown">
            <img src="./asset/images/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
            <ul class="dropdown-menu user-dropdown">
-             <li><a href="#"><span class="fa fa-user"></span> Mon profil </a></li>
+             <li><a href="<?php echo '?index=view_admin_profil' ?>"><span class="fa fa-user"></span> Mon profil </a></li>
              <li role="separator" class="divider"></li>
              <li class="more">
               <ul>
@@ -38,7 +59,85 @@
             </li>
           </ul>
         </li>
-        <li ><a href="#" class="opener-right-menu"><span class="fa fa-comment-o fa-2x"></span></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="fa fa-comment-o fa-2x"></span>
+            <style type="text/css">
+              #moncercle{
+                background:red;
+                border-radius:50%;
+                width:30px;
+                height:30px;
+                border:2px solid grey;
+                text-align: center;
+                position: relative; 
+                top: -40px; 
+                left: 10px;
+              }
+            </style>
+            <div id="moncercle">
+              <?php
+                $notification=count_notif_admin();
+                echo($notification['COUNT(*)']);
+              ?>
+            </div>
+          </a>
+
+          <ul class="dropdown-menu">
+            <li class="divider"></li>
+            <?php
+              global $bdd;
+
+              $x=0;
+
+              //REQUETE SUR LA BASE DE DONNEES
+              $connection = 'SELECT * FROM notifications WHERE id_destinataire = 0 and affichage = 1';
+
+              try {
+                $requete = $bdd->query($connection);
+                while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+                $x++;
+            ?>
+            <li>
+              <a href="#">
+                <center>
+                  <?php
+                    echo $datas['contenu_notif'];
+                  ?>
+                </center>
+              </a>
+            </li>
+
+            <center>
+              <li style="width: 80%; height: 35px;">
+                  <form method="POST" style="float: left; width: 50%;">
+                    <input type="hidden" name="notification" value="<?php echo $datas['id_notif_admin']; ?>">
+                    <input type="submit" name="accepter" value="accepter" class="btn btn-succes" style="width: 80%;">
+                  </form>
+                  <form method="POST" style="float: right; width: 50%;">
+                    <input type="hidden" name="notification" value="<?php echo $datas['id_notif_admin']; ?>">
+                    <input type="submit" name="refuser" value="refuser" class="btn btn-danger" style="width: 80%;">
+                  </form>
+              </li>
+            </center>
+
+            <li class="divider"></li>
+            <?php          
+                  }
+              } catch (PDOException $error) {
+                  echo "<script language=\"javascript\">";
+                  echo "alert('ERREUR DE CONNECTION A LA BASE DE DONNéE')";
+                  echo "</script>";
+              }
+            ?>
+            <li class="divider"></li>
+            <li>
+              <a tabindex="-1" href="#">
+                <center>Montrer les autres notifications</center>
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

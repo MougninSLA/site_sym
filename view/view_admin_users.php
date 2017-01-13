@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <?php include"./asset/includes/admin_head.php"; ?>
 </head>
@@ -108,7 +108,6 @@
           </div>
           </div>
           <!-- end: content -->
-        <?php include"./asset/includes/admin_message.php"; ?>
       </div>
 		<div id="modal_show_user" class="modal fade" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
@@ -198,36 +197,35 @@
 				  <tr>
                     <td>Email</td>
                     <td><input type="textbox" placeholder="Email" name="mail" required></td>
-				  </tr>
-                 <tr>
+				  </tr>  
+				  <tr>
                     <td>Entreprise</td>
-                    <td><input type="textbox" placeholder="Entreprise" name="entreprise" required></td>
+                    <td><input type="textbox" value="<?php echo $select_show_user['entreprise']; ?>" name="entreprise" required></td>
                   </tr>                  
 				  <tr>
                     <td>Poste</td>
-                    <td><input type="textbox" placeholder="Poste" name="poste" required></td>
-                  </tr>                 
+                    <td><input type="textbox" value="<?php echo $select_show_user['poste']; ?>" name="poste" required></td>
+                  </tr>                  
 				  <tr>
                     <td>Adresse</td>
-                    <td><input type="textbox" placeholder="Adresse" name="adresse" required pattern="[0-9]+\s[a-z\s]{1,30}$"></td>
-                  </tr>             
+                    <td><input type="textbox" value="<?php echo $select_show_user['adresse']; ?>" name="adresse" required pattern="[0-9]+\s[a-z\s]{1,30}$"></td>
+                  </tr>                  
 				  <tr>
                     <td>Ville</td>
-                    <td><input type="textbox" placeholder="Ville" name="ville" required pattern="[a-zA-Zéè]+[a-zA-Z\s\-]{2,20}"></td>
-                  </tr>               
+                    <td><input type="textbox" value="<?php echo $select_show_user['ville']; ?>" name="ville" required pattern="[a-zA-Zéè]+[a-zA-Z\s\-]{2,20}"></td>
+                  </tr>                  
 				  <tr>
                     <td>Pays</td>
-                    <td><input type="textbox" placeholder="Pays" name="pays" required></td>
-                  </tr>              
+                    <td><input type="textbox" value="<?php echo $select_show_user['pays']; ?>" name="pays" required></td>
+                  </tr>                  
 				  <tr>
-                    <td>Code postal</td>
-                    <td><input type="textbox" placeholder="Code postal" name="code_postal" required pattern="[0-9]{5}"></td>
+                    <td>Code Postal</td>
+                    <td><input type="textbox" value="<?php echo $select_show_user['code_postal']; ?>" name="code_postal" required pattern="[0-9]{5}"></td>
                   </tr>                  
-				  <tr>           
+				  <tr>
                     <td>A propos</td>
-                    <td><input type="textbox" placeholder="A propos" name="a_propos"></td>
-                  </tr>                  
-
+                    <td><input type="textbox" value="<?php echo $select_show_user['a_propos']; ?>" name="a_propos"></td>
+                  </tr>					  
                 </table>
                 </center>
               </div>

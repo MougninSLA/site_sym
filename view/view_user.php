@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<?php include("./asset/includes/dashboard_css.php"); ?>
 	<title>Tableau de bord SYM</title>
@@ -12,11 +12,20 @@
 			<div class="content">
 	            <div class="container-fluid">
 	                <div class="row">
+	                
+	                	<center>
+	                		<?php
+	                    		if (isset($msg)) {
+	                    			echo $msg;
+	                    		}
+	                    	?>
+	                	</center>
+
 	                    <div class="col-md-8">
 	                        <div class="card">
 	                            <div class="card-header" data-background-color="purple">
 	                                <h4 class="title">Modifier votre profil</h4>
-									<p class="category">Completez votre profil</p>
+									<p class="category">Complètez votre profil</p>
 	                            </div>
 
 	                            <form method="POST">
@@ -120,7 +129,7 @@
     						<div class="card card-profile">
     							<div class="card-avatar">
     								<a href="#pablo">
-    									<img class="img" src="./asset/img/faces/marc.jpg" />
+    									<img class="img" src="./asset/images/tim.png" />
     								</a>
     							</div>
 

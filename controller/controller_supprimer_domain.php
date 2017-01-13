@@ -3,7 +3,7 @@
 	$domaine = $_GET['Id'];
 	$_SESSION['domaine'] = $domaine;
 	
-	select_domain($domaine);
+	select_domain($_SESSION['domaine']);
 
 	//LES INCLUSIONS DU MODELE ET DE LA VUE
 	include("./model/model_supprimer_domain.php");

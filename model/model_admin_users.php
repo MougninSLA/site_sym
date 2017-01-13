@@ -23,7 +23,7 @@
 		$req->closeCursor();
 	}	
 	
-	function add_user($nom,$prenom,$login,$mail,$mdp,$entreprise,$poste,$adresse,$ville,$pays,$code_postal,$a_propos){
+	function add_user_admin($nom,$prenom,$login,$mail,$mdp,$entreprise,$poste,$adresse,$ville,$pays,$code_postal,$a_propos){
 		global $bdd;
 		
 		$req = $bdd->prepare("INSERT INTO `users` (`nom`, `prenom`, `login`, `mail`, `mdp`, `entreprise`, `poste`, `adresse`, `ville`, `pays`, `code_postal`, `a_propos`) values (:nom,:prenom,:login,:mail,:mdp,:entreprise,:poste,:adresse,:ville,:pays,:code_postal,:a_propos);");

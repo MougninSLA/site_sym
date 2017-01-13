@@ -59,15 +59,42 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="material-icons">notifications</i>
-							<span class="notification">5</span>
+							<span class="notification">
+								<?php
+					                $notification=count_notif_users($_SESSION['id_user_result']);
+					                echo($notification['COUNT(*)']);
+					            ?>
+							</span>
 							<p class="hidden-lg hidden-md">Notifications</p>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="#">www.piratebay.com classé <font color=red>rouge</font></a></li>
-							<li><a href="#">www.cpasbien.com classé <font color=orange>orange</font></a></li>
-							<li><a href="#">www.films-regarder.org classé <font color=orange>orange</font></a></li>
-							<li><a href="#">www.google.com classé <font color=green>Vert</font></a></li>
-							<li><a href="#">www.facebook.com classé <font color=green>Vert</font></a></li>
+							<?php
+				              global $bdd;
+
+				              $x=0;
+
+				              $id=$_SESSION['id_user_result'];
+
+				              //REQUETE SUR LA BASE DE DONNEES
+				              $connection = "SELECT * FROM notifications WHERE id_destinataire = '$id' and affichage = 2";
+
+				              try {
+				                $requete = $bdd->query($connection);
+				                while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+				                $x++;
+				                $_SESSION['id_notif_admin'] = $datas['id_notif_admin'];
+				            ?>
+				            <form style="width: 445px;">
+								<li><a href="<?php echo '?index=view_notif' ?>"><?php echo $datas['contenu_notif']; ?></a></li>			            	
+				            </form>
+							<?php          
+				                  }
+				              } catch (PDOException $error) {
+				                  echo "<script language=\"javascript\">";
+				                  echo "alert('ERREUR DE CONNECTION A LA BASE DE DONNéE')";
+				                  echo "</script>";
+				              }
+				            ?>
 						</ul>
 					</li>
 					<li>

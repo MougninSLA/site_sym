@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<?php include("./asset/includes/dashboard_css.php"); ?>
 	<title>Tableau de bord SYM</title>
@@ -36,7 +36,7 @@
 												$x=0;
 
 												//REQUETE SUR LA BASE DE DONNEES
-												$connection = 'SELECT * FROM domains where id_createur = '.$_SESSION['id_user_result'].' and affichage_domain = 1';
+												$connection = 'SELECT * FROM domains where id_createur = '.$_SESSION['id_user_result'].' and affichage_domain = 2';
 
 												try {
 													$requete = $bdd->query($connection);
@@ -51,9 +51,6 @@
 		                                        	<td><?php echo $datas['ville_domain']; ?></td>
 													<td class="text-primary"><?php echo $datas['adresse_ip']; ?></td>
 													<td class="td-actions text-right">
-														<a href="#" data-toggle="modal" data-target="#modif_domain" rel="<?php echo $datas['id_domain']; ?>" class="charger">
-															<i title="Modifier le domaine" class="btn btn-primary btn-simple btn-xs material-icons">edit</i>
-														</a>
 														<a href="#" data-toggle="modal" data-target="#suppr_domain" rel="<?php echo $datas['id_domain']; ?>" class="supprimer">
 															<i title="Supprimer le domaine" class="btn btn-primary btn-simple btn-xs material-icons">close</i>
 														</a>

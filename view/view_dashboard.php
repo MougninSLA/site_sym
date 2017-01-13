@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<?php include("./asset/includes/dashboard_css.php"); ?>
 	<title>Tableau de bord SYM</title>

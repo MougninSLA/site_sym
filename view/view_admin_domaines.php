@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <?php include"./asset/includes/admin_head.php"; ?>
 </head>
@@ -47,7 +47,7 @@
                               $x=0;
 
                               //REQUETE SUR LA BASE DE DONNEES
-                              $connection = 'SELECT * FROM domains WHERE affichage_domain = 1';
+                              $connection = 'SELECT * FROM domains WHERE affichage_domain = 2';
 
                               try {
                                   $requete = $bdd->query($connection);
@@ -209,7 +209,6 @@
           </div>
           </div>
           <!-- end: content -->
-        <?php include"./asset/includes/admin_message.php"; ?>
       </div>
   <?php include"./asset/includes/admin_js.php"; ?>
   
