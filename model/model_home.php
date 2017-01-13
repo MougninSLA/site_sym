@@ -50,7 +50,7 @@
 		$login=$_POST['login'];
 		$mail=$_POST['mail'];
 		$mdp=$_POST['mdp'];
-		$mdp=$_POST['mdp2'];
+		$mdp2=$_POST['mdp2'];
 		#-----------------------------------------------------------------------------------------#
 
 		$existe = compte($login);

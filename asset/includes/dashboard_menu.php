@@ -76,7 +76,7 @@
 				              $id=$_SESSION['id_user_result'];
 
 				              //REQUETE SUR LA BASE DE DONNEES
-				              $connection = "SELECT * FROM notifications WHERE id_destinataire = '$id' and affichage = 2";
+				              $connection = "SELECT * FROM notifications WHERE id_expediteur = '$id' and affichage = 2";
 
 				              try {
 				                $requete = $bdd->query($connection);

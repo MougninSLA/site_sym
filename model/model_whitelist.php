@@ -7,6 +7,7 @@
 		$adresse=$_POST['adresse'];
 		$pays=$_POST['pays'];
 		$ville=$_POST['ville'];
+		$expediteur=$_SESSION['prenom_result']." ".$_SESSION['nom_result'];
 		$createur=$_SESSION['id_user_result'];
 		#-----------------------------------------------------------------------------------------#
 
@@ -15,7 +16,7 @@
 		if($existe == "true"){
 
 			echo "<script language=\"javascript\">";
-        	echo "alert('Cette whitelist a déjà été inscrite')";
+        	echo "alert('Cette whitelist a déjà été inscrit')";
         	echo "</script>";
 		
 		} elseif ($existe == "false") {
@@ -44,18 +45,14 @@
 			echo "<script language=\"javascript\">";
 	    	echo "alert('Une demande d\'ajout de cette whitelist a été envoyée à l\'administrateur. Vous obtiendrez une reponse dans les plus brefs delais.')";
 	    	echo "</script>";
+		}
 	}
-
+	
 	if (isset($_SESSION['whitelist'])) {
 		$whitelist = $_SESSION['whitelist'];
 	}
 
 	if (isset($_POST['oui'])) {
 		del_whitelist($whitelist);
-		echo "<script language=\"javascript\">";
-    	echo "alert('La whitelist a bien été supprimée')";
-    	echo "</script>";
-    }
-}
-
+	}
 ?>

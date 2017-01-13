@@ -7,7 +7,8 @@
 		$adresse=$_POST['adresse'];
 		$pays=$_POST['pays'];
 		$ville=$_POST['ville'];
-		$createur=$_SESSION['prenom_result']." ".$_SESSION['nom_result'];
+		$expediteur=$_SESSION['prenom_result']." ".$_SESSION['nom_result'];
+		$createur=$_SESSION['id_user_result'];
 		#-----------------------------------------------------------------------------------------#
 
 		$existe = domain($adresse);
