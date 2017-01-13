@@ -34,7 +34,6 @@
                     <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                        <th>ID</th>
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Login</th>
@@ -59,7 +58,6 @@
                         ?>
 
                         <tr>
-                          <td><?php echo $datas['id_user']; ?></td>
                           <td><?php echo $datas['nom']; ?></td>
                           <td><?php echo $datas['prenom']; ?></td>
                           <td><?php echo $datas['login']; ?></td>

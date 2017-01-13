@@ -172,6 +172,13 @@
 					} else {
 						include("./controller/controller_del_domain.php");
 					}
+					break;					
+				case "add_domain":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_add_domain.php");
+					}
 					break;				
 				case "show_user":
 					if (!isset($_SESSION['login_result'])) {

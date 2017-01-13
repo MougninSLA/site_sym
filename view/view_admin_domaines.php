@@ -17,6 +17,10 @@
                     </div>
                   </div>
               </div>
+			  
+			  				<center><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
+					<i class="fa fa-plus"></i> Ajouter un domaine
+				</button></center>
 
             <div class="col-md-12 top-20 padding-0">
               <div class="col-md-12">
@@ -27,7 +31,6 @@
                     <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                        <th>ID</th>
                         <th>Nom du domaine</th>
                         <th>Adresse IP</th>
                         <th>Pays</th>
@@ -60,10 +63,10 @@
                                   }
                                   
                                   $req->closeCursor();
+								  
                         ?>
 
                         <tr>
-                          <td><?php echo $datas['id_domain']; ?></td>
                           <td><?php echo $datas['nom_domain']; ?></td>
                           <td><?php echo $datas['adresse_ip']; ?></td>
                           <td><?php echo $datas['pays_domain']; ?></td>
@@ -111,6 +114,58 @@
 	
     <!-- /.modal-dialog -->
 </div>
+
+<!-- Modal -->
+        <div class="modal fade" id="ajouter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un domaine</h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                <form action="<?php echo INDEX ?>?index=add_domain" method="POST">
+                <table width="300">
+                  <tr>
+                    <td>Nom de domaine</td>
+                    <td><input type="textbox" placeholder="Nom de domaine" name="nom_domaine" required></td>
+                  </tr>                  <tr>
+                    <td>Adresse IP</td>
+                    <td><input type="textbox" placeholder="Adresse IP" name="ip" required></td>
+                  </tr>                  
+				  <tr>
+                    <td>Pays</td>
+                    <td><input type="textbox" placeholder="Pays" name="pays" required></td>
+                  </tr>				  
+				  <tr>
+                    <td>Ville</td>
+                    <td><input type="textbox" placeholder="Ville" name="ville" required></td>
+                  </tr>  
+				  <tr>
+                    <td>Utilisateurs</td>
+                    <td><select name="id_user">
+					<?php 
+						$select_all_users = select_all_users();
+						while($donnees = $select_all_users->fetch()){
+					?>
+						<option value="<?php echo $donnees['id_user']; ?>"><?php echo $donnees['login']; ?></option>
+						<?php } ?>
+						</select></td>
+					
+				  </tr>                
+                </table>
+                </center>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+              </div>
+			</form>
+            </div>
+          </div>
+        </div> 
+
 <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">

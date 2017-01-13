@@ -221,7 +221,7 @@
 
 	//-------------------------------------------------------------------------------------------------------------
 	//Fonction pour ajouter un utilisateur dans notre BDD
-	function add_user($nom,$prenom,$login,$mail,$mdp)
+	/*function add_user($nom,$prenom,$login,$mail,$mdp)
 	{
 		global $bdd;
 
@@ -236,7 +236,7 @@
 							));
 		$req->closeCursor();
 	
-	}
+	}*/
 	//-------------------------------------------------------------------------------------------------------------
 
 
@@ -320,6 +320,12 @@
 		global $bdd;
 		$req = $bdd->query("DELETE FROM domains WHERE id_domain = '$domain'");
 		$req->closeCursor();
+	}	
+	function del_user_domain($id_user)
+	{
+		global $bdd;
+		$req = $bdd->query("DELETE FROM domains WHERE id_createur = '$id_user'");
+		$req->closeCursor();
 	}
 	//-------------------------------------------------------------------------------------------------------------
 
@@ -330,6 +336,13 @@
 		global $bdd;
 		$req = $bdd->query("DELETE FROM blacklists WHERE id_blacklist = '$blacklist'");
 		$req->closeCursor();
+	}	
+	
+	function del_user_blacklist($id_user)
+	{
+		global $bdd;
+		$req = $bdd->query("DELETE FROM blacklists WHERE id_createur = '$id_user'");
+		$req->closeCursor();
 	}
 	//-------------------------------------------------------------------------------------------------------------
 
@@ -339,6 +352,12 @@
 	{
 		global $bdd;
 		$req = $bdd->query("DELETE FROM whitelists WHERE id_whitelist = '$whitelist'");
+		$req->closeCursor();
+	}	
+	function del_user_whitelist($id_user)
+	{
+		global $bdd;
+		$req = $bdd->query("DELETE FROM whitelists WHERE id_createur = '$id_user'");
 		$req->closeCursor();
 	}
 	//-------------------------------------------------------------------------------------------------------------

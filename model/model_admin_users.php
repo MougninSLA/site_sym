@@ -6,6 +6,14 @@
 		$donnees = $req->fetch();
 		
 		return $donnees;
+	}	
+	
+	function select_all_users(){
+		global $bdd;
+		$req = $bdd->query("SELECT * FROM users WHERE id_user != 0");
+		//$donnees = $req->fetch();
+		
+		return $req;
 	}
 
 	function update_user($nom,$prenom,$login,$mail,$entreprise,$poste,$adresse,$ville,$pays,$code_postal,$a_propos,$id_user){
