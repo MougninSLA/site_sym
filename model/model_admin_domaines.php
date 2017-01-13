@@ -16,12 +16,12 @@
 		return $req;
 	}
 	
-	function update_domain($nom_domaine,$ip,$pays,$ville,$id_domain){
+	/*function update_domain($nom_domaine,$ip,$pays,$ville,$id_domain){
 		global $bdd;
 		
 		$req = $bdd->query("UPDATE domains SET nom_domain = '$nom_domaine', adresse_ip = '$ip', pays_domain = '$pays', ville_domain = '$ville' WHERE id_domain = '$id_domain'");
 		$req->closeCursor();
-	}
+	}*/
 	
 	/*function del_domain($id_domain){
 		global $bdd;
