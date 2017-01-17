@@ -64,20 +64,30 @@
                         ?>
 
                         <tr>
-                          <td><?php echo $datas['id_blacklist']; ?></td>
-                          <td><?php echo $datas['nom_blacklist']; ?></td>
-                          <td><?php echo $datas['adresse_blacklist']; ?></td>
-                          <td><?php echo $datas['pays_blacklist']; ?></td>
-                          <td><?php echo $datas['ville_blacklist']; ?></td>
-                          <td><?php echo $_SESSION['nom']; ?></td>
-                          <td>
+                          <td style="width:10%;"><?php echo $datas['id_blacklist']; ?></td>
+                          <td style="width:15%;"><?php echo $datas['nom_blacklist']; ?></td>
+                          <td style="width:15%;"><?php echo $datas['adresse_blacklist']; ?></td>
+                          <td style="width:15%;"><?php echo $datas['pays_blacklist']; ?></td>
+                          <td style="width:15%;"><?php echo $datas['ville_blacklist']; ?></td>
+                          <td style="width:15%;"><?php echo $_SESSION['nom']; ?></td>
+                          <td style="width:10%;">
                             <button name=""><i class="fa fa-binoculars" aria-hidden="true"></i></button>
                             &nbsp;
                             <button name=""><i class="fa fa-pencil" aria-hidden="true"></i></button>
                             &nbsp;
                             <button name=""><i class="fa fa-trash" aria-hidden="true"></i></button>
                             &nbsp;
-                          </td> 
+                          </td>
+                          <td style="width:5%;">
+                            <?php
+                              $existe = whitelist($datas['adresse_blacklist']);
+                              if($existe == "true"){
+                                echo '<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true" title="Cette adresse existe dans la whitelist. Veuillez vérifier SVP."></i>';
+                              } else {
+                                echo "";
+                              }
+                            ?>
+                          </td>
                         </tr>
 
                         <?php
