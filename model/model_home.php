@@ -77,4 +77,8 @@
 	       echo "</script>";
 		}
 	}
+
+	if (isset($_POST['envoyer_message'])) {
+		send_message();
+	}
 ?>
