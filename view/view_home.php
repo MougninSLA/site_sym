@@ -376,11 +376,11 @@
         <div class="row">
             <div class="col-md-3 col-sm-3"></div>
           <div class="col-md-6 center-block col-sm-6 ">
-            <form id="mc-form">
-              <div class="input-group">
-                <input type="email" class="form-control" placeholder="Adresse Mail" required id="mc-email">
+            <form method="POST">
+              <div class="input-group" id="mc-form">
+                <input type="email" class="form-control" placeholder="Adresse Mail" name="email" required id="mc-email">
                 <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">Envoyer <i class="fa fa-envelope"></i> </button>
+                <button type="submit" name="envoyer_message" class="btn btn-default">Envoyer <i class="fa fa-envelope"></i> </button>
                 </span> </div>
               <label for="mc-email" id="mc-notification"></label>
             </form>

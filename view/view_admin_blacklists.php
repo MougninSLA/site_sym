@@ -79,6 +79,16 @@
 										<button type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
 							</form> 
                           </td> 
+                          <td style="width:5%;">
+                            <?php
+                              $existe = whitelist($datas['adresse_blacklist']);
+                              if($existe == "true"){
+                                echo '<i class="fa fa-exclamation-triangle" style="color:red;" aria-hidden="true" title="Cette adresse existe dans la whitelist. Veuillez vérifier SVP."></i>';
+                              } else {
+                                echo "";
+                              }
+                            ?>
+                          </td>
                         </tr>
 
                         <?php

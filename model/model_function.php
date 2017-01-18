@@ -19,7 +19,8 @@ function compte($login)
 
            } elseif ($login !== $datas['login']) {
                $testLog = "false";
-               
+               break;
+
            } else {
                $testLog = "false";
                break;
@@ -56,6 +57,7 @@ function domain($adresse)
 
            } elseif ($adresse !== $datas['adresse_ip']) {
                $testLog = "false";
+               break;
                
            } else {
                $testLog = "false";
@@ -93,6 +95,7 @@ function blacklist($adresse)
 
            } elseif ($adresse !== $datas['adresse_blacklist']) {
                $testLog = "false";
+               break;
                
            } else {
                $testLog = "false";
@@ -130,6 +133,7 @@ function whitelist($adresse)
 
            } elseif ($adresse !== $datas['adresse_whitelist']) {
                $testLog = "false";
+               break;
                
            } else {
                $testLog = "false";
@@ -157,21 +161,21 @@ function select_user($login)
 
   while($results = $req->fetch()){
 
-  $_SESSION['id_user_result'] = $results["id_user"];
-  $_SESSION['nom_result']= $results["nom"];
-  $_SESSION['prenom_result'] = $results["prenom"];
-  $_SESSION['login_result'] = $results["login"];
-  $_SESSION['mail_result'] = $results["mail"];
-  $_SESSION['mdp_result']= $results["mdp"];
-  $_SESSION['entreprise_result']= $results["entreprise"];
-  $_SESSION['poste_result']= $results["poste"];
-  $_SESSION['adresse_result']= $results["adresse"];
-  $_SESSION['ville_result']= $results["ville"];
-  $_SESSION['pays_result']= $results["pays"];
-  $_SESSION['code_postal_result']= $results["code_postal"];
-  $_SESSION['a_propos_result']= $results["a_propos"];
-  $_SESSION['photo_result']= $results["photo"];
-  $_SESSION['affichage_result']= $results["affichage"];
+    $_SESSION['id_user_result'] = $results["id_user"];
+    $_SESSION['nom_result']= $results["nom"];
+    $_SESSION['prenom_result'] = $results["prenom"];
+    $_SESSION['login_result'] = $results["login"];
+    $_SESSION['mail_result'] = $results["mail"];
+    $_SESSION['mdp_result']= $results["mdp"];
+    $_SESSION['entreprise_result']= $results["entreprise"];
+    $_SESSION['poste_result']= $results["poste"];
+    $_SESSION['adresse_result']= $results["adresse"];
+    $_SESSION['ville_result']= $results["ville"];
+    $_SESSION['pays_result']= $results["pays"];
+    $_SESSION['code_postal_result']= $results["code_postal"];
+    $_SESSION['a_propos_result']= $results["a_propos"];
+    $_SESSION['photo_result']= $results["photo"];
+    $_SESSION['affichage_result']= $results["affichage"];
   }
   $req->closeCursor();
 }
@@ -188,13 +192,8 @@ function select_notif($notification)
 
   while($results = $req->fetch()){
 
-  // $_SESSION['id_notif_admin'] = $results["id_notif_admin"];
-  $_SESSION['type']= $results["type"];
-  // $_SESSION['contenu_notif'] = $results["contenu_notif"];
-  // $_SESSION['id_expediteur'] = $results["id_expediteur"];
-  // $_SESSION['id_destinataire'] = $results["id_destinataire"];
-  $_SESSION['adresse_domaine'] = $results["adresse_domaine"];
-  // $_SESSION['affichage']= $results["affichage"];
+    $_SESSION['type']= $results["type"];
+    $_SESSION['adresse_domaine'] = $results["adresse_domaine"];
   }
   $req->closeCursor();
 }
@@ -211,13 +210,13 @@ function select_domain($domain)
 
   while($results = $req->fetch()){
 
-  $_SESSION['id_domain_result'] = $results["id_domain"];
-  $_SESSION['nom_domain_result']= $results["nom_domain"];
-  $_SESSION['adresse_ip_result'] = $results["adresse_ip"];
-  $_SESSION['pays_domain_result'] = $results["pays_domain"];
-  $_SESSION['ville_domain_result'] = $results["ville_domain"];
-  $_SESSION['id_createur_domain_result'] = $results["id_createur"];
-  $_SESSION['affichage_result'] = $results["affichage_domain"];
+    $_SESSION['id_domain_result'] = $results["id_domain"];
+    $_SESSION['nom_domain_result']= $results["nom_domain"];
+    $_SESSION['adresse_ip_result'] = $results["adresse_ip"];
+    $_SESSION['pays_domain_result'] = $results["pays_domain"];
+    $_SESSION['ville_domain_result'] = $results["ville_domain"];
+    $_SESSION['id_createur_domain_result'] = $results["id_createur"];
+    $_SESSION['affichage_result'] = $results["affichage_domain"];
   }
   $req->closeCursor();
 }
@@ -233,13 +232,13 @@ function select_whitelist($whitelist)
   $req->execute(array("whitelist"=>$whitelist));
   while($results = $req->fetch()){
 
-  $_SESSION['id_whitelist_result'] = $results["id_whitelist"];
-  $_SESSION['nom_whitelist_result']= $results["nom_whitelist"];
-  $_SESSION['adresse_whitelist_result'] = $results["adresse_whitelist"];
-  $_SESSION['pays_whitelist_result'] = $results["pays_whitelist"];
-  $_SESSION['ville_whitelist_result'] = $results["ville_whitelist"];
-  $_SESSION['id_createur_whitelist_result'] = $results["id_createur"];
-  $_SESSION['affichage_whitelist_result'] = $results["affichage_whitelist"];
+    $_SESSION['id_whitelist_result'] = $results["id_whitelist"];
+    $_SESSION['nom_whitelist_result']= $results["nom_whitelist"];
+    $_SESSION['adresse_whitelist_result'] = $results["adresse_whitelist"];
+    $_SESSION['pays_whitelist_result'] = $results["pays_whitelist"];
+    $_SESSION['ville_whitelist_result'] = $results["ville_whitelist"];
+    $_SESSION['id_createur_whitelist_result'] = $results["id_createur"];
+    $_SESSION['affichage_whitelist_result'] = $results["affichage_whitelist"];
   }
   $req->closeCursor();
 }
@@ -255,13 +254,13 @@ function select_blacklist($blacklist)
 
   while($results = $req->fetch()){
 
-  $_SESSION['id_blacklist_result'] = $results["id_blacklist"];
-  $_SESSION['nom_blacklist_result']= $results["nom_blacklist"];
-  $_SESSION['adresse_blacklist_result'] = $results["adresse_blacklist"];
-  $_SESSION['pays_blacklist_result'] = $results["pays_blacklist"];
-  $_SESSION['ville_blacklist_result'] = $results["ville_blacklist"];
-  $_SESSION['id_createur_blacklist_result'] = $results["id_createur"];
-  $_SESSION['affichage_blacklist_result'] = $results["affichage_blacklist"];
+    $_SESSION['id_blacklist_result'] = $results["id_blacklist"];
+    $_SESSION['nom_blacklist_result']= $results["nom_blacklist"];
+    $_SESSION['adresse_blacklist_result'] = $results["adresse_blacklist"];
+    $_SESSION['pays_blacklist_result'] = $results["pays_blacklist"];
+    $_SESSION['ville_blacklist_result'] = $results["ville_blacklist"];
+    $_SESSION['id_createur_blacklist_result'] = $results["id_createur"];
+    $_SESSION['affichage_blacklist_result'] = $results["affichage_blacklist"];
   }
   $req->closeCursor();
 }
@@ -600,24 +599,24 @@ function accept_domain($notification)
   $domaine = $_SESSION['adresse_domaine'];
 
   if ($_SESSION['type'] == "Ajout de Domaine") {
-  global $bdd;
-  $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
-  $req = $bdd->query("UPDATE domains SET affichage_domain='2' WHERE adresse_ip='$domaine'");
-  $req->closeCursor();
+    global $bdd;
+    $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+    $req = $bdd->query("UPDATE domains SET affichage_domain='2' WHERE adresse_ip='$domaine'");
+    $req->closeCursor();
   } elseif ($_SESSION['type'] == "Ajout de Whitelist") {
   global $bdd;
-  $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
-  $req = $bdd->query("UPDATE whitelists SET affichage_whitelist='2' WHERE adresse_whitelist='$domaine'");
-  $req->closeCursor();
+    $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+    $req = $bdd->query("UPDATE whitelists SET affichage_whitelist='2' WHERE adresse_whitelist='$domaine'");
+    $req->closeCursor();
   } elseif ($_SESSION['type'] == "Ajout de Blacklist") {
-  global $bdd;
-  $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
-  $req = $bdd->query("UPDATE blacklists SET affichage_blacklist='2' WHERE adresse_blacklist='$domaine'");
-  $req->closeCursor();
+    global $bdd;
+    $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+    $req = $bdd->query("UPDATE blacklists SET affichage_blacklist='2' WHERE adresse_blacklist='$domaine'");
+    $req->closeCursor();
   } else {
-  global $bdd;
-  $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
-  $req->closeCursor();
+    global $bdd;
+    $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+    $req->closeCursor();
   }
 }
 //-------------------------------------------------------------------------------------------------------------
@@ -631,25 +630,47 @@ function refuse_domain($notification)
   $domaine = $_SESSION['adresse_domaine'];
 
   if ($_SESSION['type'] == "Ajout de Domaine") {
-  global $bdd;
-  $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
-  $req = $bdd->query("UPDATE domains SET affichage_domain='3' WHERE adresse_ip='$domaine'");
-  $req->closeCursor();
+    global $bdd;
+    $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+    $req = $bdd->query("UPDATE domains SET affichage_domain='3' WHERE adresse_ip='$domaine'");
+    $req->closeCursor();
   } elseif ($_SESSION['type'] == "Ajout de Whitelist") {
-  global $bdd;
-  $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
-  $req = $bdd->query("UPDATE whitelists SET affichage_whitelist='3' WHERE adresse_whitelist='$domaine'");
-  $req->closeCursor();
+    global $bdd;
+    $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+    $req = $bdd->query("UPDATE whitelists SET affichage_whitelist='3' WHERE adresse_whitelist='$domaine'");
+    $req->closeCursor();
   } elseif ($_SESSION['type'] == "Ajout de Blacklist") {
-  global $bdd;
-  $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
-  $req = $bdd->query("UPDATE blacklists SET affichage_blacklist='3' WHERE adresse_blacklist='$domaine'");
-  $req->closeCursor();
+    global $bdd;
+    $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
+    $req = $bdd->query("UPDATE blacklists SET affichage_blacklist='3' WHERE adresse_blacklist='$domaine'");
+    $req->closeCursor();
   } else {
-  global $bdd;
-  $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande a été réfusée par l''administrateur',affichage='3' WHERE id_notif_admin='$notification'");
-  $req->closeCursor();
+    global $bdd;
+    $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande a été réfusée par l''administrateur',affichage='3' WHERE id_notif_admin='$notification'");
+    $req->closeCursor();
   }
+}
+
+//-------------------------------------------------------------------------------------------------------------
+//Envoyer des messages
+function send_message()
+{
+      $to = "mougnin@intechinfo.fr";
+
+      $email = $_POST['email'];
+
+      $subject = 'Un utilisateur de SYM souhaite vous contacter';
+      $subject = mb_encode_mimeheader($subject,"UTF-8");
+
+      $headers = "From: noreply_sym@sym.itinet.fr\r\n";
+      $headers .= "MIME-Version: 1.0\r\n";
+      $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+      $message = file_get_contents('./asset/includes/mail_home.php', true);
+      $message = utf8_decode($message);
+      $message = str_replace ( '{mail_user}', $email, $message) ;
+
+      mail($to, $subject, $message, $headers);
 }
 //-------------------------------------------------------------------------------------------------------------
 ?>
