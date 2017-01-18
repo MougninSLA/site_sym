@@ -293,7 +293,7 @@ function add_domain($nom,$adresse,$pays,$ville,$createur)
   global $bdd;
 
   //REQUETE SUR LA BASE DE DONNEES
-  $req = $bdd->prepare("INSERT INTO `domains` (`nom_domain`,`adresse_ip`,`pays_domain`,`ville_domain`,`id_createur`,`affichage_domain`) values (:nom,:adresse,:pays,:ville,:createur,1);");
+  $req = $bdd->prepare("INSERT INTO `domains` (`nom_domain`,`adresse_ip`,`pays_domain`,`ville_domain`,`id_createur`,`affichage_domain`) values (:nom,:adresse,:pays,:ville,:createur,2);");
   $req->execute(array(
   'nom'=>$nom,
   'adresse'=>$adresse,
@@ -324,9 +324,26 @@ function add_whitelist($nom,$adresse,$pays,$ville,$createur)
   $req->closeCursor();
 }
 //-------------------------------------------------------------------------------------------------------------
+//------------
 
+//Fonction pour ajouter une blacklist dans notre BDD
+function add_admin_whitelist($nom,$adresse,$pays,$ville,$createur)
+{
+  global $bdd;
 
+  //REQUETE SUR LA BASE DE DONNEES
+  $req = $bdd->prepare("INSERT INTO `whitelists` (`nom_whitelist`,`adresse_whitelist`,`pays_whitelist`,`ville_whitelist`,`id_createur`,`affichage_whitelist`) values (:nom,:adresse,:pays,:ville,:createur,2);");
+  $req->execute(array(
+  'nom'=>$nom,
+  'adresse'=>$adresse,
+  'pays'=>$pays,
+  'ville'=>$ville,
+  'createur'=>$createur
+  ));
+  $req->closeCursor();
+}
 //-------------------------------------------------------------------------------------------------------------
+//------------
 //Fonction pour ajouter une blacklist dans notre BDD
 function add_blacklist($nom,$adresse,$pays,$ville,$createur)
 {
@@ -334,6 +351,24 @@ function add_blacklist($nom,$adresse,$pays,$ville,$createur)
 
   //REQUETE SUR LA BASE DE DONNEES
   $req = $bdd->prepare("INSERT INTO `blacklists` (`nom_blacklist`,`adresse_blacklist`,`pays_blacklist`,`ville_blacklist`,`id_createur`,`affichage_blacklist`) values (:nom,:adresse,:pays,:ville,:createur,1);");
+  $req->execute(array(
+  'nom'=>$nom,
+  'adresse'=>$adresse,
+  'pays'=>$pays,
+  'ville'=>$ville,
+  'createur'=>$createur
+  ));
+  $req->closeCursor();
+}
+
+//-------------------------------------------------------------------------------------------------------------
+//Fonction pour ajouter une blacklist dans notre BDD
+function add_admin_blacklist($nom,$adresse,$pays,$ville,$createur)
+{
+  global $bdd;
+
+  //REQUETE SUR LA BASE DE DONNEES
+  $req = $bdd->prepare("INSERT INTO `blacklists` (`nom_blacklist`,`adresse_blacklist`,`pays_blacklist`,`ville_blacklist`,`id_createur`,`affichage_blacklist`) values (:nom,:adresse,:pays,:ville,:createur,2);");
   $req->execute(array(
   'nom'=>$nom,
   'adresse'=>$adresse,

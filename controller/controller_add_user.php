@@ -5,6 +5,13 @@ $prenom = $_POST['prenom'];
 $login = $_POST['login'];
 $mdp = $_POST['mdp'];
 $mail = $_POST['mail'];
+$entreprise = $_POST['entreprise'];
+$poste = $_POST['poste'];
+$adresse = $_POST['adresse'];
+$ville = $_POST['ville'];
+$pays = $_POST['pays'];
+$code_postal = $_POST['code_postal'];
+$a_propos = $_POST['a_propos'];
 
 $compte = compte($login);
 

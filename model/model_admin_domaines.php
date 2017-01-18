@@ -2,7 +2,7 @@
 
 	function select_domaine($id_domain){
 		global $bdd;
-		$req = $bdd->query("SELECT * FROM domains JOIN users ON domains.id_createur = users.id_user WHERE id_domain = $id_domain AND affichage_domain = 1");
+		$req = $bdd->query("SELECT * FROM domains JOIN users ON domains.id_createur = users.id_user WHERE id_domain = $id_domain AND affichage_domain = 2");
 		$donnees = $req->fetch();
 		
 		return $donnees;

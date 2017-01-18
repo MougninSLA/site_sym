@@ -200,31 +200,31 @@
 				  </tr>  
 				  <tr>
                     <td>Entreprise</td>
-                    <td><input type="textbox" value="<?php echo $select_show_user['entreprise']; ?>" name="entreprise" required></td>
+                    <td><input type="textbox" name="entreprise" required></td>
                   </tr>                  
 				  <tr>
                     <td>Poste</td>
-                    <td><input type="textbox" value="<?php echo $select_show_user['poste']; ?>" name="poste" required></td>
+                    <td><input type="textbox" name="poste" required></td>
                   </tr>                  
 				  <tr>
                     <td>Adresse</td>
-                    <td><input type="textbox" value="<?php echo $select_show_user['adresse']; ?>" name="adresse" required pattern="[0-9]+\s[a-z\s]{1,30}$"></td>
+                    <td><input type="textbox" name="adresse" required pattern="[0-9]+\s[a-z\s]{1,30}$"></td>
                   </tr>                  
 				  <tr>
                     <td>Ville</td>
-                    <td><input type="textbox" value="<?php echo $select_show_user['ville']; ?>" name="ville" required pattern="[a-zA-Zéè]+[a-zA-Z\s\-]{2,20}"></td>
+                    <td><input type="textbox" name="ville" required pattern="[a-zA-Zéè]+[a-zA-Z\s\-]{2,20}"></td>
                   </tr>                  
 				  <tr>
                     <td>Pays</td>
-                    <td><input type="textbox" value="<?php echo $select_show_user['pays']; ?>" name="pays" required></td>
+                    <td><input type="textbox" name="pays" required></td>
                   </tr>                  
 				  <tr>
                     <td>Code Postal</td>
-                    <td><input type="textbox" value="<?php echo $select_show_user['code_postal']; ?>" name="code_postal" required pattern="[0-9]{5}"></td>
+                    <td><input type="textbox" name="code_postal" required pattern="[0-9]{5}"></td>
                   </tr>                  
 				  <tr>
                     <td>A propos</td>
-                    <td><input type="textbox" value="<?php echo $select_show_user['a_propos']; ?>" name="a_propos"></td>
+                    <td><input type="textbox" name="a_propos"></td>
                   </tr>					  
                 </table>
                 </center>

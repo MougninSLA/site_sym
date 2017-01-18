@@ -228,6 +228,62 @@
 					} else {
 						include("./controller/controller_del_user.php");
 					}
+					break;				
+				case "add_whitelist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_add_whitelist.php");
+					}	
+					break;
+				case "del_whitelist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_del_whitelist.php");
+					}
+					break;				
+				case "edit_whitelist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_edit_whitelist.php");
+					}
+					break;				
+				case "show_edit_whitelist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_show_edit_whitelist.php");
+					}
+					break;				
+				case "show_edit_blacklist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_show_edit_blacklist.php");
+					}
+					break;
+				case "add_blacklist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_add_blacklist.php");
+					}
+					break;				
+				case "edit_blacklist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_edit_blacklist.php");
+					}
+					break;	
+				case "del_blacklist":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/controller_del_blacklist.php");
+					}
 					break;
 
 				default:
