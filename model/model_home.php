@@ -22,20 +22,17 @@
 					}
 
 			} else {
-	        	header('Location: ?index');
 				echo "<script language=\"javascript\">";
 	        	echo "alert('Désolé, vous n\'avez pas le droit de vous connecter à ce site')";
 	        	echo "</script>";
 			}
 
 		} elseif ($existe == "false") {
-	        header('Location: ?index');
 			echo "<script language=\"javascript\">";
 	        echo "alert('Désolé, vous n\'avez pas le droit de vous connecter à ce site')";
 	        echo "</script>";
 
 		} else {
-	        header('Location: ?index');
 			echo "<script language=\"javascript\">";
 	        echo "alert('Désolé, vous n\'avez pas le droit de vous connecter à ce site')";
 	        echo "</script>";

@@ -171,7 +171,7 @@
                   </tr>  
 				  <tr>
                     <td>Utilisateur</td>
-                    <td><input type="textbox" placeholder="Administrateur" disabled></td>	
+                    <td><input type="textbox" placeholder="Utilisateur" disabled></td>	
 				  </tr>                
                 </table>
                 </center>

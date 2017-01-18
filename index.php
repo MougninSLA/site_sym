@@ -158,15 +158,7 @@
 						include("./controller/view_notif.php");
 					}
 					break;
-
-				case "deconnexion":
-					if (!isset($_SESSION['login_result'])) {
-						include("./controller/404.php");
-					} else {
-						include("./controller/deconnexion.php");
-					}
-					break;	
-					
+	
 				case "show_edit_domain":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
@@ -303,6 +295,14 @@
 					}
 					break;
 
+				case "deconnexion":
+					if (!isset($_SESSION['login_result'])) {
+						include("./controller/404.php");
+					} else {
+						include("./controller/deconnexion.php");
+					}
+					break;	
+				
 				default:
 					include("./controller/controller_home.php");	
 			}

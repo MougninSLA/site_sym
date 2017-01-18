@@ -19,7 +19,6 @@ function compte($login)
 
            } elseif ($login !== $datas['login']) {
                $testLog = "false";
-               break;
 
            } else {
                $testLog = "false";
@@ -57,7 +56,6 @@ function domain($adresse)
 
            } elseif ($adresse !== $datas['adresse_ip']) {
                $testLog = "false";
-               break;
                
            } else {
                $testLog = "false";
@@ -95,7 +93,6 @@ function blacklist($adresse)
 
            } elseif ($adresse !== $datas['adresse_blacklist']) {
                $testLog = "false";
-               break;
                
            } else {
                $testLog = "false";
@@ -133,7 +130,6 @@ function whitelist($adresse)
 
            } elseif ($adresse !== $datas['adresse_whitelist']) {
                $testLog = "false";
-               break;
                
            } else {
                $testLog = "false";
@@ -162,20 +158,20 @@ function select_user($login)
   while($results = $req->fetch()){
 
     $_SESSION['id_user_result'] = $results["id_user"];
-    $_SESSION['nom_result']= $results["nom"];
+    $_SESSION['nom_result'] = $results["nom"];
     $_SESSION['prenom_result'] = $results["prenom"];
     $_SESSION['login_result'] = $results["login"];
     $_SESSION['mail_result'] = $results["mail"];
-    $_SESSION['mdp_result']= $results["mdp"];
-    $_SESSION['entreprise_result']= $results["entreprise"];
-    $_SESSION['poste_result']= $results["poste"];
-    $_SESSION['adresse_result']= $results["adresse"];
-    $_SESSION['ville_result']= $results["ville"];
-    $_SESSION['pays_result']= $results["pays"];
-    $_SESSION['code_postal_result']= $results["code_postal"];
-    $_SESSION['a_propos_result']= $results["a_propos"];
-    $_SESSION['photo_result']= $results["photo"];
-    $_SESSION['affichage_result']= $results["affichage"];
+    $_SESSION['mdp_result'] = $results["mdp"];
+    $_SESSION['entreprise_result'] = $results["entreprise"];
+    $_SESSION['poste_result'] = $results["poste"];
+    $_SESSION['adresse_result'] = $results["adresse"];
+    $_SESSION['ville_result'] = $results["ville"];
+    $_SESSION['pays_result'] = $results["pays"];
+    $_SESSION['code_postal_result'] = $results["code_postal"];
+    $_SESSION['a_propos_result'] = $results["a_propos"];
+    $_SESSION['photo_result'] = $results["photo"];
+    $_SESSION['affichage_result'] = $results["affichage"];
   }
   $req->closeCursor();
 }
