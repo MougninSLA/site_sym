@@ -15,31 +15,30 @@
 
 			if ($_SESSION['login_result'] == "$login" && $_SESSION['mdp_result'] == "$mdp") {
 					
-					if ($_SESSION['login_result'] == "administrator") {
+					if ($_SESSION['login_result'] === "administrator") {
 						header('Location: ?index=view_admin_index');
 					} else {
 						header('Location: ?index=view_dashboard');
 					}
 
 			} else {
+	        	header('Location: ?index');
 				echo "<script language=\"javascript\">";
 	        	echo "alert('Désolé, vous n\'avez pas le droit de vous connecter à ce site')";
 	        	echo "</script>";
-	        	header('Location: ?index');
 			}
-			exit();
 
 		} elseif ($existe == "false") {
+	        header('Location: ?index');
 			echo "<script language=\"javascript\">";
 	        echo "alert('Désolé, vous n\'avez pas le droit de vous connecter à ce site')";
 	        echo "</script>";
-	        header('Location: ?index');
 
 		} else {
+	        header('Location: ?index');
 			echo "<script language=\"javascript\">";
 	        echo "alert('Désolé, vous n\'avez pas le droit de vous connecter à ce site')";
 	        echo "</script>";
-	        header('Location: ?index');
 		}
 	}
 
@@ -82,4 +81,5 @@
 	if (isset($_POST['envoyer_message'])) {
 		send_message();
 	}
+
 ?>

@@ -473,7 +473,7 @@
                     <tr>
                       <td>
                         <center>
-                            L'utilisateur SYM dont l'adresse mail est {mail_user} souhaite vous contacter concernant.
+                            L'utilisateur SYM dont l'adresse mail est <a href="mailto:{mail_user}">{mail_user}</a> souhaite vous contacter.
                         </center>
                       </td>
                     </tr>
