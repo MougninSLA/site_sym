@@ -165,70 +165,80 @@
 					} else {
 						include("./controller/deconnexion.php");
 					}
-					break;				
+					break;	
+					
 				case "show_edit_domain":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_show_edit_domain.php");
 					}
-					break;				
+					break;	
+					
 				case "edit_domain":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_edit_domain.php");
 					}
-					break;				
+					break;	
+					
 				case "del_domain":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_del_domain.php");
 					}
-					break;					
+					break;	
+					
 				case "add_domain":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_add_domain.php");
 					}
-					break;				
+					break;		
+					
 				case "show_user":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_show_user.php");
 					}
-					break;				
+					break;	
+					
 				case "show_edit_user":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_show_edit_user.php");
 					}
-					break;				
+					break;		
+					
 				case "edit_user":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_edit_user.php");
 					}
-					break;				
+					break;	
+					
 				case "add_user":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_add_user.php");
 					}
-					break;				
+					break;	
+					
 				case "del_user":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_del_user.php");
 					}
-					break;				
+					break;	
+					
 				case "add_whitelist":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
@@ -236,27 +246,31 @@
 						include("./controller/controller_add_whitelist.php");
 					}	
 					break;
+					
 				case "del_whitelist":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_del_whitelist.php");
 					}
-					break;				
+					break;	
+					
 				case "edit_whitelist":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_edit_whitelist.php");
 					}
-					break;				
+					break;	
+					
 				case "show_edit_whitelist":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_show_edit_whitelist.php");
 					}
-					break;				
+					break;	
+					
 				case "show_edit_blacklist":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
@@ -264,13 +278,15 @@
 						include("./controller/controller_show_edit_blacklist.php");
 					}
 					break;
+					
 				case "add_blacklist":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
 					} else {
 						include("./controller/controller_add_blacklist.php");
 					}
-					break;				
+					break;
+					
 				case "edit_blacklist":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
@@ -278,6 +294,7 @@
 						include("./controller/controller_edit_blacklist.php");
 					}
 					break;	
+					
 				case "del_blacklist":
 					if (!isset($_SESSION['login_result'])) {
 						include("./controller/404.php");
