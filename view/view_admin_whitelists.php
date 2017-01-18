@@ -12,13 +12,16 @@
                   <div class="panel-body">
                     <div class="col-md-12">
                         <h3 class="animated fadeInLeft">Les listes</h3>
+						<h3><?php if(isset($msg)){echo $msg;} ?></h3>
                         <p class="animated fadeInDown">
                           Les listes <span class="fa-angle-right fa"></span>Les whitelists
                         </p>
                     </div>
                   </div>
               </div>
-
+				<center><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
+					<i class="fa fa-plus"></i> Ajouter un whitelist
+				</button></center>
             <div class="col-md-12 top-20 padding-0">
               <div class="col-md-12">
                 <div class="panel">
@@ -28,7 +31,6 @@
                     <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                        <th>ID</th>
                         <th>Nom de la whitelist</th>
                         <th>Adresse IP</th>
                         <th>Pays</th>
@@ -64,19 +66,18 @@
                         ?>
 
                         <tr>
-                          <td><?php echo $datas['id_whitelist']; ?></td>
                           <td><?php echo $datas['nom_whitelist']; ?></td>
                           <td><?php echo $datas['adresse_whitelist']; ?></td>
                           <td><?php echo $datas['pays_whitelist']; ?></td>
                           <td><?php echo $datas['ville_whitelist']; ?></td>
                           <td><?php echo $_SESSION['nom']; ?></td>
                           <td>
-                            <button name=""><i class="fa fa-binoculars" aria-hidden="true"></i></button>
+							<a data-toggle="modal" href="#" data-target="#modal_edit" class="LienModal" rel="<?php echo $datas['id_whitelist']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                             &nbsp;
-                            <button name=""><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                            &nbsp;
-                            <button name=""><i class="fa fa-trash" aria-hidden="true"></i></button>
-                            &nbsp;
+							<form action="<?php echo INDEX ?>?index=del_whitelist" method="post">
+										<input type="hidden" name="id_whitelist" value="<?php echo $datas['id_whitelist']; ?>">
+										<button type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+							</form> 
                           </td> 
                         </tr>
 
@@ -114,7 +115,86 @@
           </div>
           </div>
           <!-- end: content -->
-
+		<div id="modal_edit" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+ 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Modifier le whitelist</h4>
+                </div>
+				<center>
+                <div class="modal-body">
+                    <p>Loading...</p>
+                </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+	
+    <!-- /.modal-dialog -->
+	</div>
+<!-- Modal -->
+        <div class="modal fade" id="ajouter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un whitelist</h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                <form action="<?php echo INDEX ?>?index=add_whitelist" method="POST">
+                <table width="300">
+                  <tr>
+                    <td>Nom de domaine</td>
+                    <td><input type="textbox" placeholder="Nom de domaine" name="nom_domaine" required></td>
+                  </tr>                  <tr>
+                    <td>Adresse IP</td>
+                    <td><input type="textbox" placeholder="Adresse IP" name="ip" required></td>
+                  </tr>                  
+				  <tr>
+                    <td>Pays</td>
+                    <td><input type="textbox" placeholder="Pays" name="pays" required></td>
+                  </tr>				  
+				  <tr>
+                    <td>Ville</td>
+                    <td><input type="textbox" placeholder="Ville" name="ville" required></td>
+                  </tr>  
+				  <tr>
+                    <td>Utilisateur</td>
+                    <td><input type="textbox" placeholder="Administrateur" disabled></td>	
+				  </tr>                
+                </table>
+                </center>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+              </div>
+			</form>
+            </div>
+          </div>
+        </div> 
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Supprimer le whitelist</h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                    <table width="300">
+                      <tr>
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Supprimer</button>
+						<button type="button" data-dismiss="modal" class="btn">Annuler</button>	
+                      </tr>
+                    </table>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
             <!-- start: right menu -->
             <div id="right-menu">
               <div class="tab-content">
@@ -249,5 +329,33 @@
           <!-- end: content -->
       </div>
   <?php include"./asset/includes/admin_js.php"; ?>
+    <script>
+$(".LienModal").click(function(oEvt){
+    oEvt.preventDefault();
+    var Id=$(this).attr("rel");
+        $(".modal-body").fadeIn(1000).html('<div style="text-align:center; margin-right:auto; margin-left:auto">Patientez...</div>');
+        $.ajax({
+            type:"GET",
+            data : "Id="+Id,
+            url:"<?php echo INDEX ?>?index=show_edit_whitelist",
+            error:function(msg){
+                $(".modal-body").addClass("tableau_msg_erreur").fadeOut(800).fadeIn(800).fadeOut(400).fadeIn(400).html('<div style="margin-right:auto; margin-left:auto; text-align:center">Impossible de charger cette page</div>');
+            },
+            success:function(data){
+                $(".modal-body").fadeIn(1000).html(data);
+            }
+        });
+    });
+   </script>  
+     <script>
+		$('button[name="remove_levels"]').on('click', function(e){
+			var $form=$(this).closest('form');
+			e.preventDefault();
+			$('#confirm').modal({ backdrop: 'static', keyboard: false })
+				.one('click', '#delete', function (e) {
+					$form.trigger('submit');
+				});
+		});
+	</script> 
 </body>
 </html>

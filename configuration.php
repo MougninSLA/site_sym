@@ -19,6 +19,8 @@
 		include("./model/model_function.php");
 		include("./model/model_admin_domaines.php");
 		include("./model/model_admin_users.php");
+		include("./model/model_admin_whitelists.php");
+		include("./model/model_admin_blacklists.php");
 	}
 	
 	//Inclusion de tous les modèles
