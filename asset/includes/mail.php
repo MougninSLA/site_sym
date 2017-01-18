@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="format-detection" content="telephone=no" />
+    
     <title>
-      VUn utilisateur de SYM souhaite vous contacter.
+      La reponse à votre demande d'ajout de {nom}
     </title>
+
     <style type="text/css">
     /*<![CDATA[*/
     /* RESET STYLES */
@@ -430,97 +432,6 @@
                   </table>
                 </td>
               </tr>
-              <tr mc:hideable="mc:hideable">
-                <td align="center" valign="top">
-                  <table border="0" width="100%">
-                    <tr>
-                      <td align="center" valign="top">
-                        <table border="0" cellpadding="10"
-                        cellspacing="0" width="500" class=
-                        "flexibleContainer">
-                          <tr>
-                            <td valign="top" class=
-                            "flexibleContainerCell">
-                              <table border="0" width="100%">
-                                <tr>
-                                  <td align="left" valign="top"
-                                  class="flexibleContainerBox">
-                                    <table border="0" width="250"
-                                    style="max-width: 100%;">
-                                      <tr>
-                                        <td align="left" class=
-                                        "textContent">
-                                          <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">
-                                          Nom de l'affaire
-                                          </h3>
-                                          <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
-                                          <b>{nom_affaire}</b>
-                                          </div>
-                                        </td>
-                                      </tr>
-                                    </table>
-                                  </td>
-                                  <td align="right" valign="middle"
-                                  class="flexibleContainerBox">
-                                    <table class=
-                                    "flexibleContainerBoxNext"
-                                    border="0" width="250" style=
-                                    "max-width: 100%;">
-                                      <tr>
-                                        <td align="left" class=
-                                        "textContent">
-                                          <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">
-                                          Numéro de l'affaire
-                                          </h3>
-                                          <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
-                                          <b>{num_affaire}</b>
-                                          </div>
-                                        </td>
-                                      </tr>
-                                    </table>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td align="center" valign="top">
-                  <table border="0" width="100%">
-                    <tr style="padding-top:0;">
-                      <td height="91" align="center" valign="top">
-                        <table border="0" width="500" class=
-                        "flexibleContainer">
-                          <tr>
-                            <td height="10" align="center" valign=
-                            "top" class="flexibleContainerCell"
-                            style="padding-top:0;">
-                              <table border="0" width="50%" class=
-                              "emailButton" style=
-                              "background-color: #009494;">
-                                <tr>
-                                  <td align="center" valign=
-                                  "middle" class="buttonContent"
-                                  style=
-                                  "padding-top:15px;padding-bottom:15px;padding-right:15px;padding-left:15px;">
-                                  <a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;"
-                                    href="#" target="_blank">Accéder à l'affaire</a>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
               <tr>
                 <td align="center" valign="top">
                   <table border="0" width="100%">
@@ -560,62 +471,18 @@
               </tr>
               <tr>
                 <td align="center" valign="top">
-                  <table width="500" border="0" cellspacing="10"
-                  cellpadding="10">
+                  <table width="500" border="0" cellspacing="10" cellpadding="10">
                     <tr>
                       <td>
-                        Filiale
-                      </td>
-                      <td>
-                        {entreprise}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Pôle concerné
-                      </td>
-                      <td>
-                        {pole_affaire}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Directeur de Projet
-                      </td>
-                      <td>
-                        {nom_dir_pro}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Responsable de l'affaire
-                      </td>
-                      <td>
-                        {nom_resp_aff}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Créateur de l'affaire
-                      </td>
-                      <td>
-                        {nom_createur}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Date de création
-                      </td>
-                      <td>
-                        {date_affaire}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Lieu de travail
-                      </td>
-                      <td>
-                        {lieu_affaire}
+                        <center>
+                            L'administrateur a {reponse} votre demande d'ajout de {nom}.</br>
+                            Vous pouvez dès à présent disposer de votre {nom} dans votre espace de gestion.
+                            </br>
+                            </br>
+                            Cordialement,
+                            </br>
+                            <b>L'équipe SYM.</b>
+                        </center>
                       </td>
                     </tr>
                   </table>
@@ -626,24 +493,15 @@
                   <table border="0" width="100%">
                     <tr>
                       <td align="center" valign="top">
-                        <table border="0" width="500" class=
-                        "flexibleContainer">
+                        <table border="0" width="500" class="flexibleContainer">
                           <tr>
-                            <td align="center" valign="top" class=
-                            "flexibleContainerCell">
-                              <table class=
-                              "flexibleContainerCellDivider"
-                              border="0" cellpadding="10"
-                              cellspacing="0" width="100%">
+                            <td align="center" valign="top" class="flexibleContainerCell">
+                              <table class="flexibleContainerCellDivider" border="0" cellpadding="10" cellspacing="0" width="100%">
                                 <tr>
-                                  <td align="center" valign="top"
-                                  style=
-                                  "padding-top:0px;padding-bottom:0px;">
+                                  <td align="center" valign="top" style="padding-top:0px;padding-bottom:0px;">
                                   <table border="0" width="100%">
                                       <tr>
-                                        <td align="center" valign=
-                                        "top" style=
-                                        "border-top:1px solid #C8C8C8;">
+                                        <td align="center" valign="top" style="border-top:1px solid #C8C8C8;">
                                         </td>
                                       </tr>
                                     </table>
@@ -711,14 +569,11 @@
                                     <div style=
                                     "font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
                                     <div>
-                                        Copyright © 2016 <a href=
-                                        "mailto:cmig@its.setec.fr"
-                                        target="_blank" style=
-                                        "text-decoration:none;color:#828282;">
-                                        <span style=
-                                        "color:#828282;">SETEC
-                                        ITS</span></a>.
-                                        Tous&nbsp;droits&nbsp;reservés.
+                                        Copyright © 2017 
+                                        <a href="mailto:mougnin@intechinfo.fr" target="_blank" style="text-decoration:none;color:#828282;">
+                                            <span style="color:#828282;">Secure Your Mail</span>
+                                        </a>
+                                        .Tous&nbsp;droits&nbsp;reservés.
                                       </div>
                                     </div>
                                   </td>

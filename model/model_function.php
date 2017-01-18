@@ -561,27 +561,112 @@ function accept_domain($notification)
 {
   select_notif($notification);
 
+  $reponse = "accepté";
   $domaine = $_SESSION['adresse_domaine'];
 
   if ($_SESSION['type'] == "Ajout de Domaine") {
+
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
     $req = $bdd->query("UPDATE domains SET affichage_domain='2' WHERE adresse_ip='$domaine'");
     $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT id_expediteur FROM notifications WHERE notifications.id_notif_admin = :notification");
+    $req->execute(array("notification"=>$notification));
+    while($results = $req->fetch()){
+      $id_expediteur = $results["id_expediteur"];
+    }
+    $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req->execute(array("id_expediteur"=>$id_expediteur));
+    while($results = $req->fetch()){
+      $adresse = $results["mail"];
+    }
+    $req->closeCursor();
+
+    $nom = "domaine";
+    send_mail($adresse, $reponse, $nom);
+
   } elseif ($_SESSION['type'] == "Ajout de Whitelist") {
-  global $bdd;
+
+    global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
     $req = $bdd->query("UPDATE whitelists SET affichage_whitelist='2' WHERE adresse_whitelist='$domaine'");
     $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT id_expediteur FROM notifications WHERE notifications.id_notif_admin = :notification");
+    $req->execute(array("notification"=>$notification));
+    while($results = $req->fetch()){
+      $id_expediteur = $results["id_expediteur"];
+    }
+    $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req->execute(array("id_expediteur"=>$id_expediteur));
+    while($results = $req->fetch()){
+      $adresse = $results["mail"];
+    }
+    $req->closeCursor();
+
+    $nom = "whitelist";
+    send_mail($adresse, $reponse, $nom);
+
   } elseif ($_SESSION['type'] == "Ajout de Blacklist") {
+
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
     $req = $bdd->query("UPDATE blacklists SET affichage_blacklist='2' WHERE adresse_blacklist='$domaine'");
     $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT id_expediteur FROM notifications WHERE notifications.id_notif_admin = :notification");
+    $req->execute(array("notification"=>$notification));
+    while($results = $req->fetch()){
+      $id_expediteur = $results["id_expediteur"];
+    }
+    $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req->execute(array("id_expediteur"=>$id_expediteur));
+    while($results = $req->fetch()){
+      $adresse = $results["mail"];
+    }
+    $req->closeCursor();
+
+    $nom = "blacklist";
+    send_mail($adresse, $reponse, $nom);
+
   } else {
+
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
     $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT id_expediteur FROM notifications WHERE notifications.id_notif_admin = :notification");
+    $req->execute(array("notification"=>$notification));
+    while($results = $req->fetch()){
+      $id_expediteur = $results["id_expediteur"];
+    }
+    $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req->execute(array("id_expediteur"=>$id_expediteur));
+    while($results = $req->fetch()){
+      $adresse = $results["mail"];
+    }
+    $req->closeCursor();
+
+    $nom = " ";
+    send_mail($adresse, $reponse, $nom);
+
   }
 }
 //-------------------------------------------------------------------------------------------------------------
@@ -591,28 +676,113 @@ function accept_domain($notification)
 function refuse_domain($notification)
 {
   select_notif($notification);
-
+  
+  $reponse = "réfusé";
   $domaine = $_SESSION['adresse_domaine'];
 
   if ($_SESSION['type'] == "Ajout de Domaine") {
+    
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
     $req = $bdd->query("UPDATE domains SET affichage_domain='3' WHERE adresse_ip='$domaine'");
     $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT id_expediteur FROM notifications WHERE notifications.id_notif_admin = :notification");
+    $req->execute(array("notification"=>$notification));
+    while($results = $req->fetch()){
+      $id_expediteur = $results["id_expediteur"];
+    }
+    $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req->execute(array("id_expediteur"=>$id_expediteur));
+    while($results = $req->fetch()){
+      $adresse = $results["mail"];
+    }
+    $req->closeCursor();
+
+    $nom = "domaine";
+    send_mail($adresse, $reponse, $nom);
+  
   } elseif ($_SESSION['type'] == "Ajout de Whitelist") {
+    
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
     $req = $bdd->query("UPDATE whitelists SET affichage_whitelist='3' WHERE adresse_whitelist='$domaine'");
     $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT id_expediteur FROM notifications WHERE notifications.id_notif_admin = :notification");
+    $req->execute(array("notification"=>$notification));
+    while($results = $req->fetch()){
+      $id_expediteur = $results["id_expediteur"];
+    }
+    $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req->execute(array("id_expediteur"=>$id_expediteur));
+    while($results = $req->fetch()){
+      $adresse = $results["mail"];
+    }
+    $req->closeCursor();
+
+    $nom = "whitelist";
+    send_mail($adresse, $reponse, $nom);
+
   } elseif ($_SESSION['type'] == "Ajout de Blacklist") {
+
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été réfusée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
     $req = $bdd->query("UPDATE blacklists SET affichage_blacklist='3' WHERE adresse_blacklist='$domaine'");
     $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT id_expediteur FROM notifications WHERE notifications.id_notif_admin = :notification");
+    $req->execute(array("notification"=>$notification));
+    while($results = $req->fetch()){
+      $id_expediteur = $results["id_expediteur"];
+    }
+    $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req->execute(array("id_expediteur"=>$id_expediteur));
+    while($results = $req->fetch()){
+      $adresse = $results["mail"];
+    }
+    $req->closeCursor();
+
+    $nom = "blacklist";
+    send_mail($adresse, $reponse, $nom);
+
   } else {
+
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande a été réfusée par l''administrateur',affichage='3' WHERE id_notif_admin='$notification'");
     $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT id_expediteur FROM notifications WHERE notifications.id_notif_admin = :notification");
+    $req->execute(array("notification"=>$notification));
+    while($results = $req->fetch()){
+      $id_expediteur = $results["id_expediteur"];
+    }
+    $req->closeCursor();
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req->execute(array("id_expediteur"=>$id_expediteur));
+    while($results = $req->fetch()){
+      $adresse = $results["mail"];
+    }
+    $req->closeCursor();
+
+    $nom = " ";
+    send_mail($adresse, $reponse, $nom);
+
   }
 }
 
@@ -620,20 +790,43 @@ function refuse_domain($notification)
 //Envoyer des messages
 function send_message()
 {
-      $to = "mougnin@intechinfo.fr";
+      $to = "mougnin@intechinfo.fr,sangare@intechinfo.fr,ilangovane@intechinfo.fr";
 
       $email = $_POST['email'];
 
       $subject = 'Un utilisateur de SYM souhaite vous contacter';
       $subject = mb_encode_mimeheader($subject,"UTF-8");
 
-      $headers = "From: noreply_sym@sym.itinet.fr\r\n";
+      $headers = "From: noreply@sym.itinet.fr\r\n";
       $headers .= "MIME-Version: 1.0\r\n";
       $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
       $message = file_get_contents('./asset/includes/mail_home.php', true);
       $message = utf8_decode($message);
       $message = str_replace ( '{mail_user}', $email, $message) ;
+
+      mail($to, $subject, $message, $headers);
+}
+//-------------------------------------------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------------------------------------------
+//Envoyer des messages aux utilisateurs
+function send_mail($adresse, $reponse, $nom)
+{
+      $to = "$adresse";
+
+      $subject = 'Réponse à votre demande de $nom';
+      $subject = mb_encode_mimeheader($subject,"UTF-8");
+
+      $headers = "From: noreply@sym.itinet.fr\r\n";
+      $headers .= "MIME-Version: 1.0\r\n";
+      $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+      $message = file_get_contents('./asset/includes/mail.php', true);
+      $message = utf8_decode($message);
+      $message = str_replace ( '{reponse}', $email, $message) ;
+      $message = str_replace ( '{nom}', $email, $message) ;
 
       mail($to, $subject, $message, $headers);
 }
