@@ -21,7 +21,7 @@ while($donnees = $check_domain->fetch()){
 
 
 if($verif == "false" && $verif_ip == "false"){
-	add_domain($nom_domaine,$ip,$pays,$ville,$id_user);
+	add_admin_domain($nom_domaine,$ip,$pays,$ville,$id_user);
 	$msg = "<h3 style='color:green'>Le domaine $nom_domaine a bien été ajouté</h3>";
 }
 else if($verif == "true"){

@@ -84,7 +84,7 @@
 				                $x++;
 				                $_SESSION['id_notif_admin'] = $datas['id_notif_admin'];
 				            ?>
-				            <form style="width: 445px;">
+				            <form style="width: 450px;">
 								<li><a href="<?php echo '?index=view_notif' ?>"><?php echo $datas['contenu_notif']; ?></a></li>			            	
 				            </form>
 							<?php          

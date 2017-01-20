@@ -286,6 +286,29 @@ function add_user($nom,$prenom,$login,$mail,$mdp)
 //Fonction pour ajouter un domaine dans notre BDD
 function add_domain($nom,$adresse,$pays,$ville,$createur)
 {
+  //Execution de script
+  exec("/usr/bin/perl /var/www/scripts/add_domain_relay.pl $nom $adresse");
+
+  global $bdd;
+
+  //REQUETE SUR LA BASE DE DONNEES
+  $req = $bdd->prepare("INSERT INTO `domains` (`nom_domain`,`adresse_ip`,`pays_domain`,`ville_domain`,`id_createur`,`affichage_domain`) values (:nom,:adresse,:pays,:ville,:createur,1);");
+  $req->execute(array(
+  'nom'=>$nom,
+  'adresse'=>$adresse,
+  'pays'=>$pays,
+  'ville'=>$ville,
+  'createur'=>$createur
+  ));
+  $req->closeCursor();
+}
+
+//Fonction pour ajouter un domaine dans notre BDD
+function add_admin_domain($nom,$adresse,$pays,$ville,$createur)
+{
+  //Execution de script
+  exec("/usr/bin/perl /var/www/scripts/add_domain_relay.pl $nom $adresse");
+
   global $bdd;
 
   //REQUETE SUR LA BASE DE DONNEES
@@ -306,6 +329,9 @@ function add_domain($nom,$adresse,$pays,$ville,$createur)
 //Fonction pour ajouter une blacklist dans notre BDD
 function add_whitelist($nom,$adresse,$pays,$ville,$createur)
 {
+  //Execution de script
+  shell_exec('/var/www/scripts/add_whitelist.sh $adresse');
+
   global $bdd;
 
   //REQUETE SUR LA BASE DE DONNEES
@@ -325,6 +351,9 @@ function add_whitelist($nom,$adresse,$pays,$ville,$createur)
 //Fonction pour ajouter une blacklist dans notre BDD
 function add_admin_whitelist($nom,$adresse,$pays,$ville,$createur)
 {
+  //Execution de script
+  shell_exec('/var/www/scripts/add_whitelist.sh $adresse');
+
   global $bdd;
 
   //REQUETE SUR LA BASE DE DONNEES
@@ -343,6 +372,9 @@ function add_admin_whitelist($nom,$adresse,$pays,$ville,$createur)
 //Fonction pour ajouter une blacklist dans notre BDD
 function add_blacklist($nom,$adresse,$pays,$ville,$createur)
 {
+  //Execution de script
+  shell_exec('/var/www/scripts/add_blacklist.sh $adresse');
+
   global $bdd;
 
   //REQUETE SUR LA BASE DE DONNEES
@@ -361,6 +393,9 @@ function add_blacklist($nom,$adresse,$pays,$ville,$createur)
 //Fonction pour ajouter une blacklist dans notre BDD
 function add_admin_blacklist($nom,$adresse,$pays,$ville,$createur)
 {
+  //Execution de script
+  shell_exec('/var/www/scripts/add_blacklist.sh $adresse');
+
   global $bdd;
 
   //REQUETE SUR LA BASE DE DONNEES
@@ -423,6 +458,9 @@ function del_user($login)
 //Fonction pour supprimer un domaine de notre BDD
 function del_domain($domain)
 {
+  //Execution de script
+  //shell_exec('/var/www/scripts/del_domain_relay.sh $domain');
+
   global $bdd;
   $req = $bdd->query("DELETE FROM domains WHERE id_domain = '$domain'");
   $req->closeCursor();
@@ -433,6 +471,9 @@ function del_domain($domain)
 // Fonction delete user admin
 function del_user_domain($id_user)
 {
+  //Execution de script
+  //shell_exec('/var/www/scripts/del_domain_relay.sh $domain');
+
 	global $bdd;
 	$req = $bdd->query("DELETE FROM domains WHERE id_createur = '$id_user'");
 	$req->closeCursor();
@@ -443,6 +484,9 @@ function del_user_domain($id_user)
 //Fonction pour supprimer une blacklist de notre BDD
 function del_blacklist($blacklist)
 {
+  //Execution de script
+  shell_exec('/var/www/scripts/rm_blacklist.sh $blacklist');
+
   global $bdd;
   $req = $bdd->query("DELETE FROM blacklists WHERE id_blacklist = '$blacklist'");
   $req->closeCursor();
@@ -453,6 +497,9 @@ function del_blacklist($blacklist)
 //Fonction delete user blacklist
 function del_user_blacklist($id_user)
 {
+  //Execution de script
+  shell_exec('/var/www/scripts/rm_blacklist.sh $blacklist');
+
 	global $bdd;
 	$req = $bdd->query("DELETE FROM blacklists WHERE id_createur = '$id_user'");
 	$req->closeCursor();
@@ -463,6 +510,9 @@ function del_user_blacklist($id_user)
 //Fonction pour supprimer une whitelist de notre BDD
 function del_whitelist($whitelist)
 {
+  //Execution de script
+  shell_exec('/var/www/scripts/rm_whitelist.sh $whitelist');
+
   global $bdd;
   $req = $bdd->query("DELETE FROM whitelists WHERE id_whitelist = '$whitelist'");
   $req->closeCursor();
@@ -473,6 +523,9 @@ function del_whitelist($whitelist)
 //Fonction delete user whitelist
 function del_user_whitelist($id_user)
 {
+  //Execution de script
+  shell_exec('/var/www/scripts/rm_whitelist.sh $whitelist');
+
 	global $bdd;
 	$req = $bdd->query("DELETE FROM whitelists WHERE id_createur = '$id_user'");
 	$req->closeCursor();
@@ -611,7 +664,7 @@ function accept_domain($notification)
     $req->closeCursor();
 
     global $bdd;
-    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :id_expediteur");
     $req->execute(array("id_expediteur"=>$id_expediteur));
     while($results = $req->fetch()){
       $adresse = $results["mail"];
@@ -637,7 +690,7 @@ function accept_domain($notification)
     $req->closeCursor();
 
     global $bdd;
-    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :id_expediteur");
     $req->execute(array("id_expediteur"=>$id_expediteur));
     while($results = $req->fetch()){
       $adresse = $results["mail"];
@@ -663,7 +716,7 @@ function accept_domain($notification)
     $req->closeCursor();
 
     global $bdd;
-    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :id_expediteur");
     $req->execute(array("id_expediteur"=>$id_expediteur));
     while($results = $req->fetch()){
       $adresse = $results["mail"];
@@ -688,7 +741,7 @@ function accept_domain($notification)
     $req->closeCursor();
 
     global $bdd;
-    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :id_expediteur");
     $req->execute(array("id_expediteur"=>$id_expediteur));
     while($results = $req->fetch()){
       $adresse = $results["mail"];
@@ -727,7 +780,7 @@ function refuse_domain($notification)
     $req->closeCursor();
 
     global $bdd;
-    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :id_expediteur");
     $req->execute(array("id_expediteur"=>$id_expediteur));
     while($results = $req->fetch()){
       $adresse = $results["mail"];
@@ -753,7 +806,7 @@ function refuse_domain($notification)
     $req->closeCursor();
 
     global $bdd;
-    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :id_expediteur");
     $req->execute(array("id_expediteur"=>$id_expediteur));
     while($results = $req->fetch()){
       $adresse = $results["mail"];
@@ -779,7 +832,7 @@ function refuse_domain($notification)
     $req->closeCursor();
 
     global $bdd;
-    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :id_expediteur");
     $req->execute(array("id_expediteur"=>$id_expediteur));
     while($results = $req->fetch()){
       $adresse = $results["mail"];
@@ -804,7 +857,7 @@ function refuse_domain($notification)
     $req->closeCursor();
 
     global $bdd;
-    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :$id_expediteur");
+    $req = $bdd->prepare("SELECT mail FROM users WHERE users.id_user = :id_expediteur");
     $req->execute(array("id_expediteur"=>$id_expediteur));
     while($results = $req->fetch()){
       $adresse = $results["mail"];
@@ -847,7 +900,7 @@ function send_mail($adresse, $reponse, $nom)
 {
       $to = "$adresse";
 
-      $subject = 'Réponse à votre demande de $nom';
+      $subject = 'Réponse à votre demande de '.$nom;
       $subject = mb_encode_mimeheader($subject,"UTF-8");
 
       $headers = "From: noreply@sym.itinet.fr\r\n";
@@ -855,9 +908,9 @@ function send_mail($adresse, $reponse, $nom)
       $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
       $message = file_get_contents('./asset/includes/mail.php', true);
+      $message = str_replace ( '{reponse}', $reponse, $message) ;
+      $message = str_replace ( '{nom}', $nom, $message) ;
       $message = utf8_decode($message);
-      $message = str_replace ( '{reponse}', $email, $message) ;
-      $message = str_replace ( '{nom}', $email, $message) ;
 
       mail($to, $subject, $message, $headers);
 }
