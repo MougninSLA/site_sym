@@ -286,9 +286,6 @@ function add_user($nom,$prenom,$login,$mail,$mdp)
 //Fonction pour ajouter un domaine dans notre BDD
 function add_domain($nom,$adresse,$pays,$ville,$createur)
 {
-  //Execution de script
-  exec("/usr/bin/perl /var/www/scripts/add_domain_relay.pl $nom $adresse");
-
   global $bdd;
 
   //REQUETE SUR LA BASE DE DONNEES
@@ -329,9 +326,6 @@ function add_admin_domain($nom,$adresse,$pays,$ville,$createur)
 //Fonction pour ajouter une blacklist dans notre BDD
 function add_whitelist($nom,$adresse,$pays,$ville,$createur)
 {
-  //Execution de script
-  shell_exec('/var/www/scripts/add_whitelist.sh $adresse');
-
   global $bdd;
 
   //REQUETE SUR LA BASE DE DONNEES
@@ -372,9 +366,6 @@ function add_admin_whitelist($nom,$adresse,$pays,$ville,$createur)
 //Fonction pour ajouter une blacklist dans notre BDD
 function add_blacklist($nom,$adresse,$pays,$ville,$createur)
 {
-  //Execution de script
-  shell_exec('/var/www/scripts/add_blacklist.sh $adresse');
-
   global $bdd;
 
   //REQUETE SUR LA BASE DE DONNEES
@@ -651,6 +642,18 @@ function accept_domain($notification)
   if ($_SESSION['type'] == "Ajout de Domaine") {
 
     global $bdd;
+    $req = $bdd->prepare("SELECT * FROM domains WHERE adresse_ip = '$domaine'");
+    $req->execute(array("notification"=>$notification));
+    while($results = $req->fetch()){
+      $nom_domain = $results["nom_domain"];
+      $adresse_ip = $results["adresse_ip"];
+    }
+    $req->closeCursor();
+
+    //Execution de script
+    exec("/usr/bin/perl /var/www/scripts/add_domain_relay.pl $nom_domain $adresse_ip");
+
+    global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
     $req = $bdd->query("UPDATE domains SET affichage_domain='2' WHERE adresse_ip='$domaine'");
     $req->closeCursor();
@@ -675,6 +678,9 @@ function accept_domain($notification)
     send_mail($adresse, $reponse, $nom);
 
   } elseif ($_SESSION['type'] == "Ajout de Whitelist") {
+
+    //Execution de script
+    shell_exec('/var/www/scripts/add_whitelist.sh $domaine');
 
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
@@ -701,6 +707,9 @@ function accept_domain($notification)
     send_mail($adresse, $reponse, $nom);
 
   } elseif ($_SESSION['type'] == "Ajout de Blacklist") {
+
+    //Execution de script
+    shell_exec('/var/www/scripts/add_blacklist.sh $domaine');
 
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
