@@ -346,7 +346,7 @@ function add_whitelist($nom,$adresse,$pays,$ville,$createur)
 function add_admin_whitelist($nom,$adresse,$pays,$ville,$createur)
 {
   //Execution de script
-  shell_exec('/var/www/scripts/add_whitelist.sh $adresse');
+  shell_exec("/var/www/scripts/add_whitelist.sh $adresse");
 
   global $bdd;
 
@@ -385,7 +385,7 @@ function add_blacklist($nom,$adresse,$pays,$ville,$createur)
 function add_admin_blacklist($nom,$adresse,$pays,$ville,$createur)
 {
   //Execution de script
-  shell_exec('/var/www/scripts/add_blacklist.sh $adresse');
+  shell_exec("/var/www/scripts/add_blacklist.sh $adresse");
 
   global $bdd;
 
@@ -450,7 +450,7 @@ function del_user($login)
 function del_domain($domain)
 {
   //Execution de script
-  //shell_exec('/var/www/scripts/del_domain_relay.sh $domain');
+  //shell_exec("/var/www/scripts/del_domain_relay.sh $domain');
 
   global $bdd;
   $req = $bdd->query("DELETE FROM domains WHERE id_domain = '$domain'");
@@ -463,7 +463,7 @@ function del_domain($domain)
 function del_user_domain($id_user)
 {
   //Execution de script
-  //shell_exec('/var/www/scripts/del_domain_relay.sh $domain');
+  //shell_exec("/var/www/scripts/del_domain_relay.sh $domain');
 
 	global $bdd;
 	$req = $bdd->query("DELETE FROM domains WHERE id_createur = '$id_user'");
@@ -476,7 +476,7 @@ function del_user_domain($id_user)
 function del_blacklist($blacklist)
 {
   //Execution de script
-  shell_exec('/var/www/scripts/rm_blacklist.sh $blacklist');
+  shell_exec("/var/www/scripts/rm_blacklist.sh $blacklist");
 
   global $bdd;
   $req = $bdd->query("DELETE FROM blacklists WHERE id_blacklist = '$blacklist'");
@@ -489,7 +489,7 @@ function del_blacklist($blacklist)
 function del_user_blacklist($id_user)
 {
   //Execution de script
-  shell_exec('/var/www/scripts/rm_blacklist.sh $blacklist');
+  shell_exec("/var/www/scripts/rm_blacklist.sh $blacklist");
 
 	global $bdd;
 	$req = $bdd->query("DELETE FROM blacklists WHERE id_createur = '$id_user'");
@@ -502,7 +502,7 @@ function del_user_blacklist($id_user)
 function del_whitelist($whitelist)
 {
   //Execution de script
-  shell_exec('/var/www/scripts/rm_whitelist.sh $whitelist');
+  shell_exec("/var/www/scripts/rm_whitelist.sh $whitelist");
 
   global $bdd;
   $req = $bdd->query("DELETE FROM whitelists WHERE id_whitelist = '$whitelist'");
@@ -515,7 +515,7 @@ function del_whitelist($whitelist)
 function del_user_whitelist($id_user)
 {
   //Execution de script
-  shell_exec('/var/www/scripts/rm_whitelist.sh $whitelist');
+  shell_exec("/var/www/scripts/rm_whitelist.sh $whitelist");
 
 	global $bdd;
 	$req = $bdd->query("DELETE FROM whitelists WHERE id_createur = '$id_user'");
@@ -680,7 +680,7 @@ function accept_domain($notification)
   } elseif ($_SESSION['type'] == "Ajout de Whitelist") {
 
     //Execution de script
-    shell_exec('/var/www/scripts/add_whitelist.sh $domaine');
+    shell_exec("/var/www/scripts/add_whitelist.sh $domaine");
 
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
@@ -709,7 +709,7 @@ function accept_domain($notification)
   } elseif ($_SESSION['type'] == "Ajout de Blacklist") {
 
     //Execution de script
-    shell_exec('/var/www/scripts/add_blacklist.sh $domaine');
+    shell_exec("/var/www/scripts/add_blacklist.sh $domaine");
 
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
