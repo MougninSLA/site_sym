@@ -104,6 +104,18 @@
 
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
+              <i class="fa fa-leaf"></i>
+              <div class="nim-service-detail">
+                <h4>La tranquilité</h4>
+                <p>Nous vous garantissons la tranquilité grâce à une technologie que nous avons implémenté et qui va faire mal aux spammeurs : Le tarpitting.</p>
+              </div> <!-- /nim-service-detail -->
+            </div> <!-- /nim-service margin-bottom -->
+          </div> <!-- /col -->
+        </div> <!-- end row -->
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="nim-service margin-bottom">
               <i class="fa fa-truck"></i>
               <div class="nim-service-detail">
                 <h4>Relais</h4>
@@ -111,25 +123,13 @@
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->       
-        </div> <!-- end row -->
-
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-pie-chart"></i>
-              <div class="nim-service-detail">
-                <h4>Statistiques des sites infectés</h4>
-                <p>Grâce à un programme developpé en Python3, nous vous fournirons en temps et en heures les statistiques des sites à éviter.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
 
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
               <i class="fa fa-thumbs-up"></i>
               <div class="nim-service-detail">
                 <h4>Whitelist</h4>
-                <p>La gestion univrselle des sites de confiance</p>
+                <p>Vous voulez continuer de recevoir les mails d'un domaine spécifique ? Ajouter le à la whitelist grâce à la gestion univrselle des sites de confiance</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->
@@ -139,7 +139,7 @@
               <i class="fa fa-thumbs-down"></i>
               <div class="nim-service-detail">
                 <h4>Blacklist</h4>
-                <p>La gestion univrselle des sites qui font du spam. Vous etes en sécurité.</p>
+                <p>Vous ne faites pas confiance en un site ? G^râce à la gestion univrselle des sites qui font du spam. Vous etes en sécurité.</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->         
@@ -148,30 +148,30 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
-              <i class="fa fa-leaf"></i>
+              <i class="fa fa-pie-chart"></i>
               <div class="nim-service-detail">
-                <h4>La tranquilité</h4>
-                <p>Nous vous garantissons la tranquilité grâce à une technologie que nous avons implémenté et qui va faire mal aux spammeurs : Le tarpitting.</p>
+                <h4>Statistiques des sites spammeurs</h4>
+                <p>Grâce à un programme (Crawler) developpé en Python3, nous vous fournirons en temps et en heures les statistiques des sites à éviter.</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->
 
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
-              <i class="fa fa-delicious"></i>
+              <i class="fa fa-envelope"></i>
               <div class="nim-service-detail">
-                <h4>Unlimited Colors</h4>
-                <p>We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit.</p>
+                <h4>Statistiques des mails recus</h4>
+                <p>Vous aurez en temps et en heure, les statistiques de tous les mails que vous aurez récu.</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->
 
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
-              <i class="fa fa-pencil-square"></i>
+              <i class="fa fa-trash"></i>
               <div class="nim-service-detail">
-                <h4>Easy to customize</h4>
-                <p>Lorem ipsum dolor sit amet ne onsectetuer adipiscing elit. Aenean commodo ligula eget dolor in tashin ty dolor site amet ne onseceruter adipiscing</p>
+                <h4>Statistiques des spams recus</h4>
+                <p>Vous aurez en temps et en heure, les statistiques de tous les mails que vous aurez récu et pouvoir bloques ou non les domaines qui les envoient.</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->                      
@@ -342,24 +342,24 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h3 class="title">Client <span class="themecolor">Testimonials</span></h3>            
+            <h3 class="title">Avis des <span class="themecolor">Clients</span></h3>            
           </div> 
           
           <div class="col-md-8 col-md-offset-2 grey">
               <div id="testimonial" class="owl-carousel owl-theme">
                   <div class="item">
-                      <h5>This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</h5>
+                      <h5>Avant, j'étais la cible des pirates ... Depuis que j'utilise cet outil, je ne me soucis même plus pour ma sécurité.</h5>
                       <p><strong>Dean Martin</strong>, CEO Acme Inc.</p>
                   </div>
 
                   <div class="item">
-                      <h5>This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</h5>
-                      <p><strong>Dean Martin</strong>, CEO Acme Inc.</p>
+                      <h5>J'ai fais des économies grâce à cet outil. Plus besoin d'ingénieurs en sécurité.</h5>
+                      <p><strong>Jacques Bonsergent</strong>, Directeur 0DFinders.</p>
                   </div>
 
                   <div class="item">
-                      <h5>This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</h5>
-                      <p><strong>Dean Martin</strong>, CEO Acme Inc.</p>
+                      <h5>This tool is a good one.</h5>
+                      <p><strong>Richard Lenoir</strong>, Administrator Timmxware</p>
                   </div>
               </div>
           </div>
