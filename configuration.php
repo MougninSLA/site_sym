@@ -1,6 +1,6 @@
 <?php
 	// Tout début du code PHP. Situé en haut de la page web
-	 // ini_set("display_errors",0);error_reporting(0);
+	ini_set("display_errors",0);error_reporting(0);
 
 	//Forcer le serveur à pme ramener les pages en UTF-8
 	header('Content-Type: text/html; charset=utf-8');
