@@ -304,7 +304,7 @@
   function add_admin_domain($nom,$adresse,$pays,$ville,$createur)
   {
     //Execution de script
-    exec('sudo /usr/bin/perl /var/www/scripts/add_domain_relay.pl '.$nom.' '.$adresse);
+    exec('sudo /var/www/scripts/add_domain_relay.pl '.$nom.' '.$adresse);
 
     global $bdd;
 
@@ -675,7 +675,7 @@
 
       global $bdd;
       $req = $bdd->prepare("SELECT * FROM domains WHERE adresse_ip = '$domaine'");
-      $req->execute(array("notification"=>$notification));
+      $req->execute(array("domaine"=>$domaine));
       while($results = $req->fetch()){
         $nom_domain = $results["nom_domain"];
         $adresse_ip = $results["adresse_ip"];
@@ -683,7 +683,7 @@
       $req->closeCursor();
 
       //Execution de script
-      exec('sudo /usr/bin/perl /var/www/scripts/add_domain_relay.pl '.$nom_domain.' '.$adresse_ip);
+      exec('sudo /var/www/scripts/add_domain_relay.pl '.$nom_domain.' '.$adresse_ip);
 
       global $bdd;
       $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
