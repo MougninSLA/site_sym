@@ -11,13 +11,13 @@ $whitelist = whitelist($ip);
 
 if($blacklist == "false" && $whitelist == "false"){
 	add_admin_blacklist($nom_domaine,$ip,$pays,$ville,$id_user);
-	$msg = "<h3 style='color:green'>Le whitelist $nom_domaine a bien été ajouté</h3>";
+	$msg = "<h3 style='color:green'>La blacklist $nom_domaine a bien été ajouté</h3>";
 }
 else if($blacklist == "true"){
-	$msg = "<h3 style='color:red'>Le whitelist $nom_domaine existe dans blacklist</h3>";
+	$msg = "<h3 style='color:red'>La blacklist $nom_domaine existe dans blacklist</h3>";
 }
 else if($whitelist == "true"){
-	$msg = "<h3 style='color:red'>Le whitelist $nom_domaine existe dans whitelist</h3>";
+	$msg = "<h3 style='color:red'>La blacklist $nom_domaine existe dans whitelist</h3>";
 }
 
  include("./controller/controller_admin_blacklists.php");

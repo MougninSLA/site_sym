@@ -8,6 +8,6 @@ $ip = $select_domaine['adresse_ip'];
 del_domain($id_domain);
 
 exec('sudo /var/www/scripts/del_domain_relay.sh '.$nom_domain.' '.$ip);
-$msg = "<h3 style='color:green'>Le domaine choisi a bien été supprimer</h3>";
+$msg = "<h3 style='color:green'>Le domaine choisi a bien été supprimé</h3>";
 include("./controller/controller_admin_domaines.php");
 ?>

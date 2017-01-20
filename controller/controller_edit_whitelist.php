@@ -9,7 +9,7 @@ $id_whitelist = $_POST['modifier'];
 
 update_whitelist($nom_whitelist,$ip,$pays,$ville,$id_whitelist);
 
-$msg = "<h3 style='color:green'>Le whitelist choisi a bien été modifier</h3>";
+$msg = "<h3 style='color:green'>La whitelist choisi a bien été modifié</h3>";
 include("./controller/controller_admin_whitelists.php");
 
 ?>
