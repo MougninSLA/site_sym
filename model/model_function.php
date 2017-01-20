@@ -680,7 +680,7 @@ function accept_domain($notification)
   } elseif ($_SESSION['type'] == "Ajout de Whitelist") {
 
     //Execution de script
-    exec("sudo /var/www/scripts/add_whitelist.sh ".$domaine);
+    exec('sudo /var/www/scripts/add_whitelist.sh '.$domaine); 
 
     global $bdd;
     $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
