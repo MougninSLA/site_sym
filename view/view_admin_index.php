@@ -63,7 +63,11 @@
                                 </div>
                               </div>
                               <div class="panel-body text-center">
-                                <h1>51186</h1>
+                                <h1>
+                                	<?php
+                                		count_ip();
+                                	?>
+                                </h1>
                                 <p>Visteurs en ce moment</p>
                                 <hr/>
                               </div>
@@ -82,7 +86,18 @@
                                   </div>
                                 </div>
                                 <div class="panel-body text-center">
-                                  <h1>51181</h1>
+                                  <h1>
+                                  	<?php
+                                  		global $bdd;
+
+										$req = $bdd->query("SELECT COUNT(*) FROM users WHERE affichage = 1");
+
+										$donnees = $req->fetch();
+										$req->closeCursor();
+
+										echo ($donnees[0]);
+                                  	?>
+                                  </h1>
                                   <p>Inscrits</p>
                                   <hr/>
                                 </div>

@@ -970,4 +970,65 @@
     exec('sudo /var/www/scripts/tarpit_time.pl '.$temps);
   }
   //-------------------------------------------------------------------------------------------------------------
+
+
+  //-------------------------------------------------------------------------------------------------------------
+  function add_ip()
+  {
+    global $bdd;
+
+    $adresse = $_SERVER['REMOTE_ADDR'];
+    $temps = time();
+
+    // On stocke dans une variable le timestamp qu'il était il y a 5 minutes :
+    $timestamp_5min = time() - (60 * 5); // 60 * 5 = nombre de secondes écoulées en 5 minutes
+
+    $req = $bdd->query("DELETE FROM connectes WHERE timestamp < $timestamp_5min");
+    $req->closeCursor();
+
+    $retour = $bdd->prepare('SELECT COUNT(*) AS nbre_entrees FROM connectes WHERE ip=:adresse');
+    $retour->execute(array('adresse'=>$adresse));
+    $donnees = $retour->fetch();
+
+    if ($donnees['nbre_entrees'] == 0) // L'IP ne se trouve pas dans la table, on va l'ajouter.
+    {
+      $req = $bdd->prepare('INSERT INTO `connectes` (`ip`,`timestamp`) VALUES (:adresse,:temps)');
+      $req->execute(array(
+        'adresse'=>$adresse,
+        'temps'=>$temps
+      ));
+      $req->closeCursor();
+    }
+    else // L'IP se trouve déjà dans la table, on met juste à jour le timestamp.
+    {
+        $req = $bdd->query("UPDATE connectes SET timestamp='$temps' WHERE ip='$adresse'");
+        $req->closeCursor();
+    }
+
+  }
+  //-------------------------------------------------------------------------------------------------------------
+
+
+  //-------------------------------------------------------------------------------------------------------------
+  function count_ip()
+  {
+    // Connexion à MySQL
+    global $bdd;
+
+    // On stocke dans une variable le timestamp qu'il était il y a 5 minutes :
+    $timestamp_5min = time() - (60 * 5); // 60 * 5 = nombre de secondes écoulées en 5 minutes
+
+    $req = $bdd->query("DELETE FROM connectes WHERE timestamp < $timestamp_5min");
+    $req->closeCursor();
+
+    // On compte le nombre d'IP stockées dans la table. C'est le nombre de visiteurs connectés.
+    $retour = $bdd->prepare('SELECT COUNT(*) AS nbre_entrees FROM connectes');
+    $retour->execute(array());
+    $donnees = $retour->fetch();
+
+
+    // Ouf ! On n'a plus qu'à afficher le nombre de connectés !
+    echo $donnees['nbre_entrees'];
+  }
+  //-------------------------------------------------------------------------------------------------------------
 ?>
