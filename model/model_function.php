@@ -956,4 +956,18 @@
         mail($to, $subject, $message, $headers);
   }
   //-------------------------------------------------------------------------------------------------------------
+
+
+  //-------------------------------------------------------------------------------------------------------------
+  //Fonction modifie le temps du tarpit
+  function update_tarpit($temps)
+  {
+    global $bdd;
+    $req = $bdd->query("UPDATE temps_tarpit SET secondes = $temps WHERE idtemps_tarpit = 0");
+    $req->closeCursor();
+
+    //Execution de script
+    exec('sudo /var/www/scripts/tarpit_time.pl '.$temps);
+  }
+  //-------------------------------------------------------------------------------------------------------------
 ?>

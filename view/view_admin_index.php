@@ -113,17 +113,37 @@
                             <div class="panel box-v2">
                                 <div class="panel-body">
                                   <div class="col-md-12 padding-0 text-center">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                        <h3>2.000</h3>
-                                        <p>Post</p>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                        <h3>2.232</h3>
-                                        <p>share</p>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                        <h3>4.320</h3>
-                                        <p>photos</p>
+                                    <div>
+
+                                    	<?php
+											global $bdd;
+											
+											//REQUETE SUR LA BASE DE DONNEES
+											$connection = 'SELECT * FROM temps_tarpit where idtemps_tarpit = 0';
+
+											try {
+												$requete = $bdd->query($connection);
+												while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+										?>
+
+                                        <h3>Temps de Tarpit</h3>
+                                        <form action="" method="POST">
+											<input type="text" class="form-control" disabled=disabled value="<?php if ($datas['secondes']>=0 && $datas['secondes']<=59) { echo $datas['secondes'].' secondes'; } elseif ($datas['secondes']=='60') { echo '1 minute'; } else { $resultat = floor($datas['secondes'] / 60); $secondes=$datas['secondes'] % 60; echo $resultat.' minutes '.$secondes.' secondes'; } ?>">
+											<div class="input-group" style="width: 100%; height: 100%;">
+												<input type="number" class="form-control" style="width: 70%; height: 100%;" name="temps" value="<?php echo $datas['secondes'] ?>" min="0" max="99999" style="resize:none">
+												<input type="submit" name="modifier_tarpit" class="btn btn-primary" style="width: 30%; height: 100%;" value="Modifier">
+											</div>
+                                        </form>
+
+                                        <?php          
+				                                  }
+				                              } catch (PDOException $error) {
+				                                  echo "<script language=\"javascript\">";
+				                                  echo "alert('ERREUR DE CONNECTION A LA BASE DE DONNéE')";
+				                                  echo "</script>";
+				                              }
+				                        ?>
+
                                     </div>
                                   </div>
                                 </div>
