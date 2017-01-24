@@ -23,8 +23,6 @@
 		include("./model/model_admin_whitelists.php");
 		include("./model/model_admin_blacklists.php");
 		
-		include("./chart/pChart/pData.class");
-		include("./chart/pChart/pChart.class");
 	}
 	
 	//Inclusion de tous les modèles
