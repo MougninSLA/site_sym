@@ -90,12 +90,12 @@
                                   	<?php
                                   		global $bdd;
 
-										$req = $bdd->query("SELECT COUNT(*) FROM users WHERE affichage = 1");
+                  										$req = $bdd->query("SELECT COUNT(*) FROM users WHERE affichage = 1");
 
-										$donnees = $req->fetch();
-										$req->closeCursor();
+                  										$donnees = $req->fetch();
+                  										$req->closeCursor();
 
-										echo ($donnees[0]);
+                  										echo ($donnees[0]);
                                   	?>
                                   </h1>
                                   <p>Inscrits</p>
@@ -112,41 +112,41 @@
                                 <div class="panel-body padding-0">
                                     <div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
                                         <?php #<h2>Checking Your Server!</h2> ?>
-                                        <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                                        <table class="table table-condensed" width="100%" cellspacing="0">
 	                                        <thead>
-						                      <tr>
-						                        <th>Domaines spammers</th>
-						                        <th>Nombre de spams envoyés</th>
-						                      </tr>
-						                    </thead>
+          						                      <tr>
+          						                        <th>Domaines spammers</th>
+          						                        <th>Nombre de spams envoyés</th>
+          						                      </tr>
+          						                    </thead>
 	                                        <tbody>
 	                                        	<?php
-	                          						global $bdd;
+        	                          						global $bdd;
 
-	                              					$x=0;
+        	                              					$x=0;
 
-	                              					//REQUETE SUR LA BASE DE DONNEES
-	                              					$connection = 'SELECT * FROM domains_spamers WHERE nb_spams > 0;';
+        	                              					//REQUETE SUR LA BASE DE DONNEES
+        	                              					$connection = 'SELECT * FROM domains_spamers WHERE nb_spams > 0;';
 
-	                              					try {
-	                                  					$requete = $bdd->query($connection);
-	                                  					while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
-	                                    				$x++;
-	                        					?>
+        	                              					try {
+        	                                  					$requete = $bdd->query($connection);
+        	                                  					while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+        	                                    				$x++;
+        	                        					?>
 
-	                        					<tr>
-	                        						<td><?php echo $datas['nom_spamers']; ?></td>
-	                        						<td><?php echo $datas['nb_spams']; ?></td>
-	                        					</tr>
-	                        					<?php
-	                                    
-	                                  					}
-	                              					} catch (PDOException $error) {
-	                                  					echo "<script language=\"javascript\">";
-	                                  					echo "alert('Erreur de connexion à la base de données')";
-	                                  					echo "</script>";
-	                              					}
-	                        					?>
+        	                        					<tr>
+        	                        						<td><?php echo $datas['nom_spamers']; ?></td>
+        	                        						<td><?php echo $datas['nb_spams']; ?></td>
+        	                        					</tr>
+        	                        					<?php
+        	                                    
+        	                                  					}
+        	                              					} catch (PDOException $error) {
+        	                                  					echo "<script language=\"javascript\">";
+        	                                  					echo "alert('Erreur de connexion à la base de données')";
+        	                                  					echo "</script>";
+        	                              					}
+        	                        					?>
 	                                        </tbody>
                                         </table>
                                     </div>
@@ -165,34 +165,34 @@
                                   <div class="col-md-12 padding-0 text-center">
                                     <div>
 
-                                    	<?php
-											global $bdd;
-											
-											//REQUETE SUR LA BASE DE DONNEES
-											$connection = 'SELECT * FROM temps_tarpit where idtemps_tarpit = 0';
+                                      <?php
+                                        global $bdd;
 
-											try {
-												$requete = $bdd->query($connection);
-												while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
-										?>
+                                        //REQUETE SUR LA BASE DE DONNEES
+                                        $connection = 'SELECT * FROM temps_tarpit where idtemps_tarpit = 0';
 
-                                        <h3>Temps de Tarpit</h3>
-                                        <form action="" method="POST">
-											<input type="text" class="form-control" disabled=disabled value="<?php if ($datas['secondes']>=0 && $datas['secondes']<=59) { echo $datas['secondes'].' secondes'; } elseif ($datas['secondes']=='60') { echo '1 minute'; } else { $resultat = floor($datas['secondes'] / 60); $secondes=$datas['secondes'] % 60; echo $resultat.' minutes '.$secondes.' secondes'; } ?>">
-											<div class="input-group" style="width: 100%; height: 100%;">
-												<input type="number" class="form-control" style="width: 70%; height: 100%;" name="temps" value="<?php echo $datas['secondes'] ?>" min="0" max="99999" style="resize:none">
-												<input type="submit" name="modifier_tarpit" class="btn btn-primary" style="width: 30%; height: 100%;" value="Modifier">
-											</div>
+                                        try {
+                                          $requete = $bdd->query($connection);
+                                          while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+                                      ?>
+
+                                      <h3>Temps de Tarpit</h3>
+                                      <form action="" method="POST">
+                  											<input type="text" class="form-control" disabled=disabled value="<?php if ($datas['secondes']>=0 && $datas['secondes']<=59) { echo $datas['secondes'].' secondes'; } elseif ($datas['secondes']=='60') { echo '1 minute'; } else { $resultat = floor($datas['secondes'] / 60); $secondes=$datas['secondes'] % 60; echo $resultat.' minutes '.$secondes.' secondes'; } ?>">
+                  											<div class="input-group" style="width: 100%; height: 100%;">
+                  												<input type="number" class="form-control" style="width: 70%; height: 100%;" name="temps" value="<?php echo $datas['secondes'] ?>" min="0" max="99999" style="resize:none">
+                  												<input type="submit" name="modifier_tarpit" class="btn btn-primary" style="width: 30%; height: 100%;" value="Modifier">
+                  											</div>
                                         </form>
 
                                         <?php          
-				                                  }
-				                              } catch (PDOException $error) {
-				                                  echo "<script language=\"javascript\">";
-				                                  echo "alert('ERREUR DE CONNECTION A LA BASE DE DONNéE')";
-				                                  echo "</script>";
-				                              }
-				                        ?>
+        				                                  }
+        				                              } catch (PDOException $error) {
+        				                                  echo "<script language=\"javascript\">";
+        				                                  echo "alert('ERREUR DE CONNECTION A LA BASE DE DONNéE')";
+        				                                  echo "</script>";
+        				                              }
+        				                        ?>
 
                                     </div>
                                   </div>
