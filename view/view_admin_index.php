@@ -107,13 +107,48 @@
                         <div class="col-md-12">
                             <div class="panel box-v4">
                                 <div class="panel-heading bg-white border-none">
-                                  <h4><span class="icon-notebook icons"></span> Agenda</h4>
+                                  <h4><span class="icon-notebook icons"></span>Information sur les spammeurs</h4>
                                 </div>
                                 <div class="panel-body padding-0">
                                     <div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
-                                        <h2>Checking Your Server!</h2>
-                                        <p>Daily Check on Server status, mostly looking at servers with alerts/warnings</p>
-                                        <b><span class="icon-clock icons"></span> Today at 15:00</b>
+                                        <?php #<h2>Checking Your Server!</h2> ?>
+                                        <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+	                                        <thead>
+						                      <tr>
+						                        <th>Domaines spammers</th>
+						                        <th>Nombre de spams envoyés</th>
+						                      </tr>
+						                    </thead>
+	                                        <tbody>
+	                                        	<?php
+	                          						global $bdd;
+
+	                              					$x=0;
+
+	                              					//REQUETE SUR LA BASE DE DONNEES
+	                              					$connection = 'SELECT * FROM domains_spamers WHERE nb_spams > 0;';
+
+	                              					try {
+	                                  					$requete = $bdd->query($connection);
+	                                  					while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
+	                                    				$x++;
+	                        					?>
+
+	                        					<tr>
+	                        						<td><?php echo $datas['nom_spamers']; ?></td>
+	                        						<td><?php echo $datas['nb_spams']; ?></td>
+	                        					</tr>
+	                        					<?php
+	                                    
+	                                  					}
+	                              					} catch (PDOException $error) {
+	                                  					echo "<script language=\"javascript\">";
+	                                  					echo "alert('Erreur de connexion à la base de données')";
+	                                  					echo "</script>";
+	                              					}
+	                        					?>
+	                                        </tbody>
+                                        </table>
                                     </div>
                                     <div class="calendar">
                                       
