@@ -1,9 +1,12 @@
-<?php
+﻿<?php
 	//Forcer le serveur à pme ramener les pages en UTF-8
 	header('Content-Type: text/html; charset=utf-8');
 
 	//Appel de la page de configuration
 	require_once'configuration.php';
+	
+	//Compter le nombre de connectés
+	add_ip();
 
 	//Définition de variables de pages et sécurisation de la navigation
 	if(!isset($_GET["index"])){

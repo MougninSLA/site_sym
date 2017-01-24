@@ -304,7 +304,7 @@
   function add_admin_domain($nom,$adresse,$pays,$ville,$createur)
   {
     //Execution de script
-    exec('sudo /usr/bin/perl /var/www/scripts/add_domain_relay.pl '.$nom.' '.$adresse);
+    exec('sudo /var/www/scripts/add_domain_relay.pl '.$nom.' '.$adresse);
 
     global $bdd;
 
@@ -675,7 +675,7 @@
 
       global $bdd;
       $req = $bdd->prepare("SELECT * FROM domains WHERE adresse_ip = '$domaine'");
-      $req->execute(array("notification"=>$notification));
+      $req->execute(array("domaine"=>$domaine));
       while($results = $req->fetch()){
         $nom_domain = $results["nom_domain"];
         $adresse_ip = $results["adresse_ip"];
@@ -683,7 +683,7 @@
       $req->closeCursor();
 
       //Execution de script
-      exec('sudo /usr/bin/perl /var/www/scripts/add_domain_relay.pl '.$nom_domain.' '.$adresse_ip);
+      exec('sudo /var/www/scripts/add_domain_relay.pl '.$nom_domain.' '.$adresse_ip);
 
       global $bdd;
       $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de domaine a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
@@ -954,6 +954,81 @@
         $message = utf8_decode($message);
 
         mail($to, $subject, $message, $headers);
+  }
+  //-------------------------------------------------------------------------------------------------------------
+
+
+  //-------------------------------------------------------------------------------------------------------------
+  //Fonction modifie le temps du tarpit
+  function update_tarpit($temps)
+  {
+    global $bdd;
+    $req = $bdd->query("UPDATE temps_tarpit SET secondes = $temps WHERE idtemps_tarpit = 0");
+    $req->closeCursor();
+
+    //Execution de script
+    exec('sudo /var/www/scripts/tarpit_time.pl '.$temps);
+  }
+  //-------------------------------------------------------------------------------------------------------------
+
+
+  //-------------------------------------------------------------------------------------------------------------
+  function add_ip()
+  {
+    global $bdd;
+
+    $adresse = $_SERVER['REMOTE_ADDR'];
+    $temps = time();
+
+    // On stocke dans une variable le timestamp qu'il était il y a 5 minutes :
+    $timestamp_5min = time() - (60 * 5); // 60 * 5 = nombre de secondes écoulées en 5 minutes
+
+    $req = $bdd->query("DELETE FROM connectes WHERE timestamp < $timestamp_5min");
+    $req->closeCursor();
+
+    $retour = $bdd->prepare('SELECT COUNT(*) AS nbre_entrees FROM connectes WHERE ip=:adresse');
+    $retour->execute(array('adresse'=>$adresse));
+    $donnees = $retour->fetch();
+
+    if ($donnees['nbre_entrees'] == 0) // L'IP ne se trouve pas dans la table, on va l'ajouter.
+    {
+      $req = $bdd->prepare('INSERT INTO `connectes` (`ip`,`timestamp`) VALUES (:adresse,:temps)');
+      $req->execute(array(
+        'adresse'=>$adresse,
+        'temps'=>$temps
+      ));
+      $req->closeCursor();
+    }
+    else // L'IP se trouve déjà dans la table, on met juste à jour le timestamp.
+    {
+        $req = $bdd->query("UPDATE connectes SET timestamp='$temps' WHERE ip='$adresse'");
+        $req->closeCursor();
+    }
+
+  }
+  //-------------------------------------------------------------------------------------------------------------
+
+
+  //-------------------------------------------------------------------------------------------------------------
+  function count_ip()
+  {
+    // Connexion à MySQL
+    global $bdd;
+
+    // On stocke dans une variable le timestamp qu'il était il y a 5 minutes :
+    $timestamp_5min = time() - (60 * 5); // 60 * 5 = nombre de secondes écoulées en 5 minutes
+
+    $req = $bdd->query("DELETE FROM connectes WHERE timestamp < $timestamp_5min");
+    $req->closeCursor();
+
+    // On compte le nombre d'IP stockées dans la table. C'est le nombre de visiteurs connectés.
+    $retour = $bdd->prepare('SELECT COUNT(*) AS nbre_entrees FROM connectes');
+    $retour->execute(array());
+    $donnees = $retour->fetch();
+
+
+    // Ouf ! On n'a plus qu'à afficher le nombre de connectés !
+    echo $donnees['nbre_entrees'];
   }
   //-------------------------------------------------------------------------------------------------------------
 ?>
