@@ -973,11 +973,34 @@
 
 
   //-------------------------------------------------------------------------------------------------------------
+  //Fonction pour récupérer l'adresse IP
+  function get_ip()
+  {
+	// IP si internet partagé
+	if (isset($_SERVER['HTTP_CLIENT_IP']))
+	{
+		return $_SERVER['HTTP_CLIENT_IP'];
+	}
+	// IP derrière un proxy
+	elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+	{
+		return $_SERVER['HTTP_X_FORWARDED_FOR'];
+	}
+	// Sinon : IP normale
+	else
+	{
+		return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
+	}
+  }//-------------------------------------------------------------------------------------------------------------
+
+
+  //-------------------------------------------------------------------------------------------------------------
+  //Fonction pour ajouter un compte connecté
   function add_ip()
   {
     global $bdd;
 
-    $adresse = $_SERVER['REMOTE_ADDR'];
+    $adresse = get_ip();
     $temps = time();
 
     // On stocke dans une variable le timestamp qu'il était il y a 5 minutes :
