@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
 		<?php include("./asset/includes/dashboard_menu.php"); ?>
 
 			<div class="content">
@@ -19,7 +18,7 @@
 								</div>
 								<div class="card-content">
 									<h4 class="title">Nombre de spams recus - quotidiens</h4>
-									<p class="category"><span class="text-success"><i class="fa fa-long-arrow-up"></i> 55%  </span> augmentation.</p>
+								<!--	<p class="category"><span class="text-success"><i class="fa fa-long-arrow-up"></i> 55%  </span> augmentation.</p> -->
 								</div>
 								<div class="card-footer">
 									<div class="stats">
@@ -36,7 +35,7 @@
 								</div>
 								<div class="card-content">
 									<h4 class="title">Nombre de spams recus - mensuel</h4>
-									<p class="category">Decembre</p>
+								<!--	<p class="category">Decembre</p> -->
 								</div>
 								<div class="card-footer">
 									<div class="stats">
@@ -53,8 +52,8 @@
 									<div class="ct-chart" id="completedTasksChart"></div>
 								</div>
 								<div class="card-content">
-									<h4 class="title">Total des messages recus</h4>
-									<p class="category">Pour la journée d'aujourd'hui</p>
+									<h4 class="title">Nombre de spams recus - annuels</h4>
+								<!--	<p class="category">Pour la journée d'aujourd'hui</p> -->
 								</div>
 								<div class="card-footer">
 									<div class="stats">
