@@ -2,10 +2,19 @@
 <html lang="fr">
 <head>
   <?php include"./asset/includes/admin_head.php"; ?>
+  <?php //include("./asset/includes/dashboard_css.php"); ?>
+<!-- <link href="./asset/css/material-dashboard.css" rel="stylesheet"/> -->
+<link href="./graph.css" rel="stylesheet"/>
+
 </head>
 
 <body id="mimin" class="dashboard">
   <?php include"./asset/includes/admin_menu.php"; ?>
+  <?php 
+	include("./function_graph_day.php");
+	include("./function_graph_month.php");
+	include("./function_graph_year.php");
+?>
           <!-- start: content -->
             <div id="content">
 
@@ -49,6 +58,76 @@
                 <div class="col-md-12" style="padding:20px;">
                     <div class="col-md-12 padding-0">
                       <div class="col-md-8 padding-0">
+						<div class="col-md-12">
+                            <div class="panel box-v4">
+                                <div class="panel-heading bg-white border-none">
+                                  <h4><span class="icon-notebook icons"></span> Statistiques des mails et spams reçus</h4>
+                                </div>
+                                <div class="panel-body padding-0">
+                                    <div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
+										<!-- DEBUT GRAPHS -->
+										<div class="row">
+											<div class="col-md-4">
+												<div class="card">
+													<div class="card-header card-chart" data-background-color="green">
+														<div class="ct-chart" id="dailySalesChart"></div>
+													</div>
+													<div class="card-content">
+														<h4 class="title">Les septs derniers jours</h4>
+													<!--	<p class="category"><span class="text-success"><i class="fa fa-long-arrow-up"></i> 55%  </span> augmentation.</p> -->
+													</div>
+													<div class="card-footer">
+														<div class="stats">
+															<i class="fa fa-circle" style="color:#00BCD4";></i> Spams réçus</br>
+															<i class="fa fa-circle" style="color:#F44336";></i> Mails réçus
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card">
+													<div class="card-header card-chart" data-background-color="orange">
+														<div class="ct-chart" id="emailsSubscriptionChart"></div>
+													</div>
+													<div class="card-content">
+														<h4 class="title">Les trois derniers mois</h4>
+													<!--	<p class="category">Decembre</p> -->
+													</div>
+													<div class="card-footer">
+														<div class="stats">
+															<i class="fa fa-circle" style="color:#00BCD4";></i> Spams réçus</br>
+															<i class="fa fa-circle" style="color:#F44336";></i> Mails réçus														</div>
+													</div>
+
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card">
+													<div class="card-header card-chart" data-background-color="red">
+														<div class="ct-chart" id="completedTasksChart"></div>
+													</div>
+													<div class="card-content">
+														<h4 class="title">Les deux dernières années</h4>
+													<!--	<p class="category">Pour la journée d'aujourd'hui</p> -->
+													</div>
+													<div class="card-footer">
+														<div class="stats">
+															<i class="fa fa-circle" style="color:#00BCD4";></i> Spams réçus</br>
+															<i class="fa fa-circle" style="color:#F44336";></i> Mails réçus		
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- FIN GRAPH -->
+                                    </div>
+                                    <div class="calendar">
+                                      
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+						
                         <div class="col-md-12 padding-0">
                           <div class="col-md-6">
                             <div class="panel box-v1">
@@ -104,6 +183,7 @@
                               </div>
                           </div>
                         </div>
+
                         <div class="col-md-12">
                             <div class="panel box-v4">
                                 <div class="panel-heading bg-white border-none">
@@ -256,5 +336,6 @@
           <!-- end: content -->
       </div>
   <?php include"./asset/includes/admin_js.php"; ?>
+  <?php //include"./asset/includes/dashboard_js.php"; ?>
 </body>
 </html>

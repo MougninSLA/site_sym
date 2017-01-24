@@ -13,5 +13,8 @@
  $graph_year = graph_year_spams($date_year);
  $graph_year_1 = graph_year_spams($date_year_1);
 
-$max_year = max($graph_year[0], $graph_year_1[0]);
+ $graph_year_bons = graph_year_bons($date_year);
+ $graph_year_bons_1 = graph_year_bons($date_year_1);
+
+$max_year = max($graph_year[0], $graph_year_1[0], $graph_year_bons[0], $graph_year_bons_1[0]);
 ?>

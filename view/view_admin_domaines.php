@@ -6,6 +6,7 @@
 
 <body id="mimin" class="dashboard">
   <?php include"./asset/includes/admin_menu.php"; ?>
+  <?php include"./admin_function_graph_day.php"; ?>
 
           <!-- start: content -->
           <div id="content">

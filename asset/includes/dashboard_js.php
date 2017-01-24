@@ -1,9 +1,9 @@
 <?php 
-
-include("./function_graph_day.php");
-include("./function_graph_month.php");
-include("./function_graph_year.php");
+	include("./function_graph_day.php");
+	include("./function_graph_month.php");
+	include("./function_graph_year.php");
 ?>
+
 <!--   Core JS Files   -->
 <script src="./asset/js/jquery-3.1.0.min.js" type="text/javascript"></script>
 <script src="./asset/js/bootstrap.min.js" type="text/javascript"></script>
@@ -20,9 +20,6 @@ include("./function_graph_year.php");
 
 <!-- Material Dashboard javascript methods -->
 <script src="./asset/js/material-dashboard.js"></script>
-
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<!-- <script src="./asset/js/demo.js"></script> -->
 
 <script type="text/javascript">
 	 // $(document).ready(function(){

@@ -28,8 +28,8 @@
  $graph_yesterday_4 = graph_day_spams($date_yesterday_4);
  $graph_yesterday_5 = graph_day_spams($date_yesterday_5);
  $graph_yesterday_6 = graph_day_spams($date_yesterday_6);
- $graph_yesterday_7 = graph_day_spams($date_yesterday_7);
-
+ $graph_yesterday_7 = graph_day_spams($date_yesterday_7); 
+ 
  $graph_today_bon = graph_day_bons($date_today);
  $graph_yesterday_bon_1 = graph_day_bons($date_yesterday_1);
  $graph_yesterday_bon_2 = graph_day_bons($date_yesterday_2);

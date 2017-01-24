@@ -16,5 +16,9 @@
  $graph_month_1 = graph_month_spams($date_month_1);
  $graph_month_2 = graph_month_spams($date_month_2);
 
-$max_month = max($graph_month[0], $graph_month_1[0], $graph_month_2[0]);
+ $graph_month_bons = graph_month_bons($date_month);
+ $graph_month_bons_1 = graph_month_bons($date_month_1);
+ $graph_month_bons_2 = graph_month_bons($date_month_2);
+
+$max_month = max($graph_month[0], $graph_month_1[0], $graph_month_2[0], $graph_month_bons[0], $graph_month_bons_1[0], $graph_month_bons_2[0]);
 ?>
