@@ -126,7 +126,7 @@
 	                              					$x=0;
 
 	                              					//REQUETE SUR LA BASE DE DONNEES
-	                              					$connection = 'SELECT * FROM domains_spamers;';
+	                              					$connection = 'SELECT * FROM domains_spamers WHERE nb_spams > 0;';
 
 	                              					try {
 	                                  					$requete = $bdd->query($connection);
