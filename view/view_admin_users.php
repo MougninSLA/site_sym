@@ -200,27 +200,27 @@
 				  </tr>  
 				  <tr>
                     <td>Entreprise</td>
-                    <td><input type="textbox" name="entreprise" required></td>
+                    <td><input type="textbox" name="entreprise" ></td>
                   </tr>                  
 				  <tr>
                     <td>Poste</td>
-                    <td><input type="textbox" name="poste" required></td>
+                    <td><input type="textbox" name="poste" ></td>
                   </tr>                  
 				  <tr>
                     <td>Adresse</td>
-                    <td><input type="textbox" name="adresse" required pattern="[0-9]+\s[a-z\s]{1,30}$"></td>
+                    <td><input type="textbox" name="adresse" ></td>
                   </tr>                  
 				  <tr>
                     <td>Ville</td>
-                    <td><input type="textbox" name="ville" required pattern="[a-zA-Zéè]+[a-zA-Z\s\-]{2,20}"></td>
+                    <td><input type="textbox" name="ville" ></td>
                   </tr>                  
 				  <tr>
                     <td>Pays</td>
-                    <td><input type="textbox" name="pays" required></td>
+                    <td><input type="textbox" name="pays" ></td>
                   </tr>                  
 				  <tr>
                     <td>Code Postal</td>
-                    <td><input type="textbox" name="code_postal" required pattern="[0-9]{5}"></td>
+                    <td><input type="textbox" name="code_postal" ></td>
                   </tr>                  
 				  <tr>
                     <td>A propos</td>
