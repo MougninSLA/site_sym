@@ -54,6 +54,6 @@
 
 	if (isset($_POST['oui'])) {
 		$address_domain = $_POST['address_domain'];
-		del_domain($domaine);
+		del_domain($domaine,$address_domain);
 	}
 ?>
