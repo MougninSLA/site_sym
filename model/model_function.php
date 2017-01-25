@@ -450,7 +450,7 @@
   function del_domain($domain)
   {
     //Execution de script
-    //exec('/var/www/scripts/del_domain_relay.sh $domain');
+    exec('/var/www/scripts/del_domain_relay.sh $domain');
 
     global $bdd;
     $req = $bdd->query("DELETE FROM domains WHERE id_domain = '$domain'");
@@ -463,7 +463,7 @@
   function del_user_domain($id_user)
   {
     //Execution de script
-    //exec('/var/www/scripts/del_domain_relay.sh $domain');
+    exec('/var/www/scripts/del_domain_relay.sh $domain');
 
   	global $bdd;
   	$req = $bdd->query("DELETE FROM domains WHERE id_createur = '$id_user'");
