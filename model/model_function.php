@@ -450,7 +450,7 @@
   function del_domain($domain,$adress_domain)
   {
     //Execution de script
-    exec('/var/www/scripts/del_domain_relay.sh $domain $adress_domain');
+    exec('sudo /var/www/scripts/del_domain_relay.sh $domain $adress_domain');
 
     global $bdd;
     $req = $bdd->query("DELETE FROM domains WHERE id_domain = '$domain'");
