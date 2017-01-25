@@ -4,7 +4,7 @@
   <?php include"./asset/includes/admin_head.php"; ?>
   <?php //include("./asset/includes/dashboard_css.php"); ?>
 <!-- <link href="./asset/css/material-dashboard.css" rel="stylesheet"/> -->
-<link href="./graph.css" rel="stylesheet"/>
+<link href="./asset/css/graph.css" rel="stylesheet"/>
 
 </head>
 
