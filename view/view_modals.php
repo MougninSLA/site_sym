@@ -36,7 +36,7 @@
           </tr>
           <tr>
             <th>
-              <label>Votre mail</label>
+              <label>Votre adresse mail</label>
             </th>
             <th>
               <input type="textbox" name="mail">
@@ -106,9 +106,10 @@
              </th>
           </tr>
           <tr>
+          </tr>
+          <tr>
             <th colspan="2">
-              <input type="checkbox" name="" required="required">&nbsp
-              <label><h5>En cochant cette case, vous acceptez les conditions générales</h5></label>
+              <label><h5>En cochant cette case, vous acceptez les conditions générales de SYM</h5></label>
             </th>
           </tr>
         </table>
@@ -130,7 +131,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <center><h4 class="modal-title" id="myModalLabel"> Ajout de domaine </h4></center>
+        <center><h4 class="modal-title" id="myModalLabel"> Ajout de domaine à rélayer </h4></center>
       </div>
       <div class="modal-body">
         <center>
@@ -146,7 +147,7 @@
           </tr>
           <tr>
             <th>
-              <label>L'adresse de votre domaine</label>
+              <label>L'adresse IP du serveur</label>
             </th>
             <th>
               <input type="textbox" name="adresse">
@@ -154,7 +155,7 @@
           </tr>
           <tr>
             <th>
-              <label>Le pays de votre domaine</label>
+              <label>Le pays où est hébergé votre domaine</label>
             </th>
             <th>
               <input type="textbox" name="pays">
@@ -162,7 +163,7 @@
           </tr>
           <tr>
             <th>
-              <label>La ville de votre domaine</label>
+              <label>La ville où est hébergée votre domaine</label>
             </th>
             <th>
               <input type="textbox" name="ville">
@@ -187,7 +188,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <center><h4 class="modal-title" id="myModalLabel"> Ajout de blacklist </h4></center>
+        <center><h4 class="modal-title" id="myModalLabel"> Ajout d'un domaine dans la blacklist </h4></center>
       </div>
       <div class="modal-body">
         <center>
@@ -195,7 +196,7 @@
         <table width="500">
           <tr>
             <th>
-              <label>Le nom de la blacklist</label>
+              <label>Le nom du domaine</label>
             </th>
             <th>
               <input type="textbox" name="nom">
@@ -203,7 +204,7 @@
           </tr>
           <tr>
             <th>
-              <label>L'adresse de la blacklist</label>
+              <label>L'adresse IP du domaine</label>
             </th>
             <th>
               <input type="textbox" name="adresse">
@@ -211,7 +212,7 @@
           </tr>
           <tr>
             <th>
-              <label>Le pays de la blacklist</label>
+              <label>Le pays où est hébergé le domaine</label>
             </th>
             <th>
               <input type="textbox" name="pays">
@@ -219,7 +220,7 @@
           </tr>
           <tr>
             <th>
-              <label>La ville de la blacklist</label>
+              <label>La ville où est hébergée le domaine</label>
             </th>
             <th>
               <input type="textbox" name="ville">
@@ -244,7 +245,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <center><h4 class="modal-title" id="myModalLabel"> Ajout de whitelist </h4></center>
+        <center><h4 class="modal-title" id="myModalLabel"> Ajout d'un domaine dans la whitelist </h4></center>
       </div>
       <div class="modal-body">
         <center>
@@ -252,7 +253,7 @@
         <table width="500">
           <tr>
             <th>
-              <label>Le nom de la whitelist</label>
+              <label>Le nom du domaine</label>
             </th>
             <th>
               <input type="textbox" name="nom">
@@ -260,7 +261,7 @@
           </tr>
           <tr>
             <th>
-              <label>L'adresse de la whitelist</label>
+              <label>L'adresse ÏP du domaine</label>
             </th>
             <th>
               <input type="textbox" name="adresse">
@@ -268,7 +269,7 @@
           </tr>
           <tr>
             <th>
-              <label>Le pays de la whitelist</label>
+              <label>Le pays où est hébergé le domaine</label>
             </th>
             <th>
               <input type="textbox" name="pays">
@@ -276,7 +277,7 @@
           </tr>
           <tr>
             <th>
-              <label>La ville de la whitelist</label>
+              <label>La ville où est hébergée le domaine</label>
             </th>
             <th>
               <input type="textbox" name="ville">

@@ -40,8 +40,8 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a target="_blank" href="#home" class="page-scroll">Accueil</a></li>
             <li><a target="_blank" href="#one" class="page-scroll">Nos Services</a></li>
-            <li><a target="_blank" href="#two" class="page-scroll">La Team</a></li>
-            <li><a target="_blank" href="#three" class="page-scroll">Statistiques de SYM</a></li>
+            <li><a target="_blank" href="#two" class="page-scroll">Notre Team</a></li>
+            <li><a target="_blank" href="#three" class="page-scroll">Le Livre d'Or</a></li>
             <li><a target="_blank" href="#four" class="page-scroll">Contact</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -56,10 +56,10 @@
                    		<br />
                    		<br />
                    		<br />
-	        			<h1 class="main-heading-title">We are<span class="main-element themecolor" data-elements="Mail Security,Active Wrestlers,Antispam,SYM"></span></h1>
+	        			<h1 class="main-heading-title">We are<span class="main-element themecolor" data-elements="Security,Wrestlers,Antispam,Antivirus,SYM"></span></h1>
 	        			<br />
 	        			<p class="main-heading-text">
-	        				Secure Your Mail (SYM) est un service de sécurisation de Mails.
+	        				Keep away all spammers!
 	        			</p>
 	        			<div class="btn-bar">
 	        				<a target="_blank" href="#mod_connexion" data-toggle="modal" class="btn btn-custom theme_background_color">Connexion</a>
@@ -84,10 +84,10 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
-              <i class="fa fa-check"></i>
+              <i class="fa fa-lock"></i>
               <div class="nim-service-detail">
-                <h4>Antispam</h4>
-                <p>Grâce à nos logiciels de détection de spams que nous avons implémenté, nous vous garantissons la tranquilité vis à vis des spams.</p>
+                <h4>Un Antispam</h4>
+                <p>Grâce à nos logiciels de détection de spams, nous vous garantissons la tranquilité vis à vis des spams.</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->
@@ -96,18 +96,18 @@
             <div class="nim-service margin-bottom">
               <i class="fa fa-shield"></i>
               <div class="nim-service-detail">
-                <h4>Antivirus</h4>
-                <p>Finis les messages infectés ! Grâce à nos antivirus de haute précision, nous vous assurons de filtrer tous vos mails avant que vous les receviez.</p>
+                <h4>Un Antivirus</h4>
+                <p>Finis les messages infectés ! Grâce à notre antivirus de haute précision, nous vous assurons de filtrer tous vos mails avant que vous les receviez.</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->
 
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
-              <i class="fa fa-leaf"></i>
+              <i class="fa fa-user-secret"></i>
               <div class="nim-service-detail">
-                <h4>La tranquilité</h4>
-                <p>Nous vous garantissons la tranquilité grâce à une technologie que nous avons implémenté et qui va faire mal aux spammeurs : Le tarpitting.</p>
+                <h4>Une Prévention</h4>
+                <p>Grâce à un programme (Crawler) developpé en Python3, nous vous fournirons en temps et en heures les statistiques des sites à éviter.</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->
@@ -116,67 +116,34 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
-              <i class="fa fa-truck"></i>
+              <i class="fa fa-paper-plane"></i>
               <div class="nim-service-detail">
-                <h4>Relais</h4>
-                <p>Nous relayons tous vos mails afin qu'ils puissent passer dans tous nos différents filtres. Ainsi, vous êtes sûrs qu'un mail reçu est un mail de confiance.</p>
+                <h4>Le Relais de vos mails</h4>
+                <p>Tous vos mails transitent par nos différents filtres. Ainsi, vous êtes sûrs qu'un mail reçu est "un mail de confiance".</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->       
 
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
-              <i class="fa fa-thumbs-up"></i>
+              <i class="fa fa-pencil-square-o"></i>
               <div class="nim-service-detail">
-                <h4>Whitelist</h4>
-                <p>Vous voulez continuer de recevoir les mails d'un domaine spécifique ? Ajouter le à la whitelist grâce à la gestion univrselle des sites de confiance</p>
+                <h4>Une whitelist & une blacklist</h4>
+                <p>Vous vous méfiez d'un domaine ? Vous voulez recevoir des mails spécifiques ? Grâce à la gestion univrselle des blacklists et whitelists, gérez vos domaines comme vous le souhaitez.</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->
 
           <div class="col-sm-4">
             <div class="nim-service margin-bottom">
-              <i class="fa fa-thumbs-down"></i>
+              <i class="fa fa-bar-chart "></i>
               <div class="nim-service-detail">
-                <h4>Blacklist</h4>
-                <p>Vous ne faites pas confiance en un site ? G^râce à la gestion univrselle des sites qui font du spam. Vous etes en sécurité.</p>
+                <h4>Les Statistiques</h4>
+                <p>Nous fournissons les statistiques completes de l'activité de vos domaines. Chaque jour, des statistiques sur les mails, les spams réçus.</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->         
         </div> <!-- end row -->
-
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-pie-chart"></i>
-              <div class="nim-service-detail">
-                <h4>Statistiques des sites spammeurs</h4>
-                <p>Grâce à un programme (Crawler) developpé en Python3, nous vous fournirons en temps et en heures les statistiques des sites à éviter.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
-
-          <div class="col-sm-4">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-envelope"></i>
-              <div class="nim-service-detail">
-                <h4>Statistiques des mails recus</h4>
-                <p>Vous aurez en temps et en heure, les statistiques de tous les mails que vous aurez récu.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
-
-          <div class="col-sm-4">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-trash"></i>
-              <div class="nim-service-detail">
-                <h4>Statistiques des spams recus</h4>
-                <p>Vous aurez en temps et en heure, les statistiques de tous les mails que vous aurez récu et pouvoir bloques ou non les domaines qui les envoient.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->                      
-        </div> <!-- end row -->
-
       </div>  <!-- container -->
     </section>
 
@@ -204,7 +171,7 @@
               <img src="./asset/images/team-1.png" alt="team-member" class="img-responsive">
               <h4>Serge Mougnin</h4>
               <h5>Web Designer et developpeur</h5>
-              <p>Salut, je suis Serge ! Aidez -moi ! Il n'y a pas un problème de couleur ?</p>
+              <p>Salut, je suis Serge ! Aidez-moi ! Il n'y a pas un problème de couleur ?</p>
               <ul class="list-inline top20">
                 <li><a target="_blank" href="https://www.facebook.com/a.mougnin"><i class="fa fa-facebook"></i></a></li>
                 <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -215,7 +182,7 @@
               <img src="./asset/images/team-2.png" alt="team-member" class="img-responsive">
               <h4>Hassane Sangare</h4>
               <h5>Equipier & Developpeur</h5>
-              <p>Yo les gens ! Ici Hassane. Je developpe très bien en PHP5.</p>
+              <p>Yo les gens ! Ici Hassane à la rescousse pour scripter et automatiser.</p>
               <ul class="list-inline top20">
                 <li><a target="_blank" href="https://www.facebook.com/shassaneibrahim?fref=ts"><i class="fa fa-facebook"></i></a></li>
                 <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -226,7 +193,7 @@
               <img src="./asset/images/team-4.png" alt="team-member" class="img-responsive">
               <h4>Adjevi Koudossou</h4>
               <h5>Enseignant Référant</h5>
-              <p>Hey, Ce site n'est n'est pas assez sexy à mon goût.</p>
+              <p>Hey ! Sexy, ce site n'est n'est pas suffisemment.</p>
               <ul class="list-inline top20">
                 <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
               </ul>
@@ -288,7 +255,7 @@
                               <span class="fa fa-ge"></span>
                           </div>
                           <div class="our-stat-info">
-                              <span class="stats" data-from="4763904" data-to="4764504" data-speed="5000"
+                              <span class="stats" data-from="0" data-to="1052" data-speed="1500"
                                     data-refresh-interval="50"></span>
 
                               <h5>Inscrits</h5>
@@ -301,7 +268,7 @@
                               <span class="fa fa-git-square"></span>
                           </div>
                           <div class="our-stat-info">
-                              <span class="stats" data-from="1" data-to="504" data-speed="5000"
+                              <span class="stats" data-from="0" data-to="504" data-speed="1500"
                                     data-refresh-interval="50"></span>
 
                               <h5>Ajouts et téléchargements</h5>
@@ -314,7 +281,7 @@
                               <span class="fa fa-globe"></span>
                           </div>
                           <div class="our-stat-info">
-                              <span class="stats" data-from="1" data-to="150" data-speed="5000"
+                              <span class="stats" data-from="0" data-to="80" data-speed="1500"
                                     data-refresh-interval="50"></span>
 
                               <h5>Langues détectées</h5>
@@ -327,7 +294,7 @@
                               <span class="fa fa-gears"></span>
                           </div>
                           <div class="our-stat-info">
-                              <span class="stats" data-from="3500" data-to="4700" data-speed="5000"
+                              <span class="stats" data-from="0" data-to="4700" data-speed="1500"
                                     data-refresh-interval="50"></span>
 
                               <h5>Clients heureux</h5>

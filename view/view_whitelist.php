@@ -15,11 +15,11 @@
 	                    <div class="col-md-12">
 	                        <div class="card">
 	                            <div class="card-header" data-background-color="purple">
-	                                <h4 class="title">Mes whitelists</h4>
-										<a target="_blank" href="#add_whitelist" data-toggle="modal" class="btn pull-right" rel="tooltip" title="Ajout de whitelist">
+	                                <h4 class="title">MA WHITELIST</h4>
+										<a target="_blank" href="#add_whitelist" data-toggle="modal" class="btn pull-right" rel="tooltip" title="Ajout d'un domaine à la whitelist">
 											<i class="material-icons">add</i>
 										</a>
-	                                <p class="category">Les whitelists que vous gérez</p>
+	                                <p class="category">Les adresses que vous avez ajoutez à la whitelist</p>
 	                            </div>
 	                            <div class="card-content table-responsive">
 	                                <table class="table">

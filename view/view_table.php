@@ -15,11 +15,11 @@
 	                    <div class="col-md-12">
 	                        <div class="card">
 	                            <div class="card-header" data-background-color="purple">
-	                                <h4 class="title">Mes domaines</h4>
-										<a target="_blank" href="#add_domain" data-toggle="modal" class="btn pull-right" rel="tooltip" title="Ajout domaine">
+	                                <h4 class="title">MES DOMAINES</h4>
+										<a target="_blank" href="#add_domain" data-toggle="modal" class="btn pull-right" rel="tooltip" title="Ajout d'un domaine">
 											<i class="material-icons">add</i>
 										</a>
-	                                <p class="category">Les domaines que vous gérez</p>
+	                                <p class="category">Les domaines que je relaye</p>
 	                            </div>
 	                            <div class="card-content table-responsive">
 	                                <table class="table">

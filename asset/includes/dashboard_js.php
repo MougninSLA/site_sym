@@ -1,9 +1,3 @@
-<?php 
-	include("./function_graph_day.php");
-	include("./function_graph_month.php");
-	include("./function_graph_year.php");
-?>
-
 <!--   Core JS Files   -->
 <script src="./asset/js/jquery-3.1.0.min.js" type="text/javascript"></script>
 <script src="./asset/js/bootstrap.min.js" type="text/javascript"></script>

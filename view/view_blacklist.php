@@ -15,11 +15,11 @@
 	                    <div class="col-md-12">
 	                        <div class="card">
 	                            <div class="card-header" data-background-color="purple">
-	                                <h4 class="title">Mes blacklists</h4>
-										<a target="_blank" href="#add_blacklist" data-toggle="modal" class="btn pull-right" rel="tooltip" title="Ajout de blacklist">
+	                                <h4 class="title">MA BLACKLIST</h4>
+										<a target="_blank" href="#add_blacklist" data-toggle="modal" class="btn pull-right" rel="tooltip" title="Ajout d'un domaine à la blacklist">
 											<i class="material-icons">add</i>
 										</a>
-	                                <p class="category">Les blacklists que vous gérez</p>
+	                                <p class="category">Les adresses que vous avez ajoutez à la blacklist</p>
 	                            </div>
 	                            <div class="card-content table-responsive">
 	                                <table class="table">
