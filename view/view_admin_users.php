@@ -15,7 +15,7 @@
             <div class="panel box-shadow-none content-header">
                 <div class="panel-body">
                   <div class="col-md-12">
-                      <h3 class="animated fadeInLeft">Les utilisateurs</h3>
+                      <h3 class="animated fadeInLeft">LES UTILISATEURS INSCRITS</h3>
 					  <h3><?php if(isset($msg)){echo $msg;} ?></h3>
                   </div>
                 </div>
@@ -34,11 +34,11 @@
                     <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Login</th>
-                        <th>Mail</th>
-                        <th></th>
+                        <th style="width: 20%;">Nom</th>
+                        <th style="width: 20%;">Prenom</th>
+                        <th style="width: 20%;">Login</th>
+                        <th style="width: 20%;">Mail</th>
+                        <th style="width: 20%;"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -58,17 +58,29 @@
                         ?>
 
                         <tr>
-                          <td><?php echo $datas['nom']; ?></td>
-                          <td><?php echo $datas['prenom']; ?></td>
-                          <td><?php echo $datas['login']; ?></td>
-                          <td><?php echo $datas['mail']; ?></td>
-                          <td>
-							<a data-toggle="modal" href="#" data-target="#modal_show_user" class="LienModal" rel="<?php echo $datas['id_user']; ?>"><i class="fa fa-binoculars" aria-hidden="true"></i></a>
-							<a data-toggle="modal" href="#" data-target="#modal_edit" class="LienModale" rel="<?php echo $datas['id_user']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-							<form action="<?php echo INDEX ?>?index=del_user" method="post">
-								<input type="hidden" name="id_user" value="<?php echo $datas['id_user']; ?>">
-								<button type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
-							</form>
+                          <td style="width: 20%;"><?php echo $datas['nom']; ?></td>
+                          <td style="width: 20%;"><?php echo $datas['prenom']; ?></td>
+                          <td style="width: 20%;"><?php echo $datas['login']; ?></td>
+                          <td style="width: 20%;"><?php echo $datas['mail']; ?></td>
+                          <td style="width: 20%;">
+              							<center>
+                              <a data-toggle="modal" style="width: 7%;" data-target="#modal_show_user" class="LienModal" rel="<?php echo $datas['id_user']; ?>">
+                                <button>
+                                  <i class="fa fa-binoculars" aria-hidden="true"></i>
+                                </button>
+                              </a>
+                              &nbsp;
+                              <a data-toggle="modal" style="width: 7%;" data-target="#modal_edit" class="LienModale" rel="<?php echo $datas['id_user']; ?>">
+                                <button>
+                                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </button>
+                              </a>
+                              &nbsp;
+                              <form action="<?php echo INDEX ?>?index=del_user" method="post" style="width: 7%; display: inline;">
+                                <input type="hidden" name="id_user" value="<?php echo $datas['id_user']; ?>">
+                                <button type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash" aria-hidden="true" style="color: red;"></i></button>
+                              </form>       
+                            </center>
                           </td> 
                         </tr>
 
@@ -179,52 +191,52 @@
                 <form action="<?php echo INDEX ?>?index=add_user" method="POST">
                 <table width="300">
                   <tr>
-                    <td>Nom</td>
-                    <td><input type="textbox" placeholder="Nom" name="nom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}"></td>
+                    <td style="width: 20%;">Nom</td>
+                    <td style="width: 20%;"><input type="textbox" placeholder="Nom" name="nom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}"></td>
                   </tr>                  <tr>
-                    <td>Prénom</td>
-                    <td><input type="textbox" placeholder="Prénom" name="prenom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}"></td>
+                    <td style="width: 20%;">Prénom</td>
+                    <td style="width: 20%;"><input type="textbox" placeholder="Prénom" name="prenom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}"></td>
                   </tr>                  
 				  <tr>
-                    <td>Login</td>
-                    <td><input type="textbox" placeholder="Login" name="login" required></td>
+                    <td style="width: 20%;">Login</td>
+                    <td style="width: 20%;"><input type="textbox" placeholder="Login" name="login" required></td>
                   </tr>  
 				  <tr>
-                    <td>Mot de passe</td>
-                    <td><input type="password" name="mdp" id="password" class="password" required>
+                    <td style="width: 20%;">Mot de passe</td>
+                    <td style="width: 20%;"><input type="password" name="mdp" id="password" class="password" required>
 					<button class="unmask" type="button" title="Mask/Unmask password to check content">Unmask</button></td>
                   </tr> 
 				  <tr>
-                    <td>Email</td>
-                    <td><input type="textbox" placeholder="Email" name="mail" required></td>
+                    <td style="width: 20%;">Email</td>
+                    <td style="width: 20%;"><input type="textbox" placeholder="Email" name="mail" required></td>
 				  </tr>  
 				  <tr>
-                    <td>Entreprise</td>
-                    <td><input type="textbox" name="entreprise" ></td>
+                    <td style="width: 20%;">Entreprise</td>
+                    <td style="width: 20%;"><input type="textbox" name="entreprise" ></td>
                   </tr>                  
 				  <tr>
-                    <td>Poste</td>
-                    <td><input type="textbox" name="poste" ></td>
+                    <td style="width: 20%;">Poste</td>
+                    <td style="width: 20%;"><input type="textbox" name="poste" ></td>
                   </tr>                  
 				  <tr>
-                    <td>Adresse</td>
-                    <td><input type="textbox" name="adresse" ></td>
+                    <td style="width: 20%;">Adresse</td>
+                    <td style="width: 20%;"><input type="textbox" name="adresse" ></td>
                   </tr>                  
 				  <tr>
-                    <td>Ville</td>
-                    <td><input type="textbox" name="ville" ></td>
+                    <td style="width: 20%;">Ville</td>
+                    <td style="width: 20%;"><input type="textbox" name="ville" ></td>
                   </tr>                  
 				  <tr>
-                    <td>Pays</td>
-                    <td><input type="textbox" name="pays" ></td>
+                    <td style="width: 20%;">Pays</td>
+                    <td style="width: 20%;"><input type="textbox" name="pays" ></td>
                   </tr>                  
 				  <tr>
-                    <td>Code Postal</td>
-                    <td><input type="textbox" name="code_postal" ></td>
+                    <td style="width: 20%;">Code Postal</td>
+                    <td style="width: 20%;"><input type="textbox" name="code_postal" ></td>
                   </tr>                  
 				  <tr>
-                    <td>A propos</td>
-                    <td><input type="textbox" name="a_propos"></td>
+                    <td style="width: 20%;">A propos</td>
+                    <td style="width: 20%;"><input type="textbox" name="a_propos"></td>
                   </tr>					  
                 </table>
                 </center>

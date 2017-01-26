@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <?php include"./asset/includes/admin_head.php"; ?>
-  <?php //include("./asset/includes/dashboard_css.php"); ?>
-<!-- <link href="./asset/css/material-dashboard.css" rel="stylesheet"/> -->
-<link href="./asset/css/graph.css" rel="stylesheet"/>
-
+  <?php
+  	include"./asset/includes/admin_head.php";
+	include("./model/function_graph_day.php");
+	include("./model/function_graph_month.php");
+	include("./model/function_graph_year.php");
+  ?>
 </head>
 
 <body id="mimin" class="dashboard">
   <?php include"./asset/includes/admin_menu.php"; ?>
-  <?php 
-	include("./function_graph_day.php");
-	include("./function_graph_month.php");
-	include("./function_graph_year.php");
-?>
+
           <!-- start: content -->
             <div id="content">
 
@@ -27,7 +24,7 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="col-md-6 col-sm-6 text-right" style="padding-left:10px;">
                           <h3 style="color:#DDDDDE;"><span class="fa  fa-map-marker"></span> Paris  </h3>
-                          <h1 style="margin-top: -10px;color: #ddd;">30<sup>o</sup></h1>
+                          <h1 style="margin-top: -10px;color: #ddd;">-3<sup>o</sup></h1>
                         </div>
                         <div class="col-md-6 col-sm-6">
                            <div class="wheather">
@@ -61,7 +58,7 @@
 						<div class="col-md-12">
                             <div class="panel box-v4">
                                 <div class="panel-heading bg-white border-none">
-                                  <h4><span class="icon-notebook icons"></span> Statistiques des mails et spams reçus</h4>
+                                  <h4><span class="icon-notebook icons"></span> Les statistiques des mails et spams reçus</h4>
                                 </div>
                                 <div class="panel-body padding-0">
                                     <div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
@@ -74,13 +71,6 @@
 													</div>
 													<div class="card-content">
 														<h4 class="title">Les septs derniers jours</h4>
-													<!--	<p class="category"><span class="text-success"><i class="fa fa-long-arrow-up"></i> 55%  </span> augmentation.</p> -->
-													</div>
-													<div class="card-footer">
-														<div class="stats">
-															<i class="fa fa-circle" style="color:#00BCD4";></i> Spams réçus</br>
-															<i class="fa fa-circle" style="color:#F44336";></i> Mails réçus
-														</div>
 													</div>
 												</div>
 											</div>
@@ -91,14 +81,7 @@
 													</div>
 													<div class="card-content">
 														<h4 class="title">Les trois derniers mois</h4>
-													<!--	<p class="category">Decembre</p> -->
 													</div>
-													<div class="card-footer">
-														<div class="stats">
-															<i class="fa fa-circle" style="color:#00BCD4";></i> Spams réçus</br>
-															<i class="fa fa-circle" style="color:#F44336";></i> Mails réçus														</div>
-													</div>
-
 												</div>
 											</div>
 											<div class="col-md-4">
@@ -108,16 +91,18 @@
 													</div>
 													<div class="card-content">
 														<h4 class="title">Les deux dernières années</h4>
-													<!--	<p class="category">Pour la journée d'aujourd'hui</p> -->
-													</div>
-													<div class="card-footer">
-														<div class="stats">
-															<i class="fa fa-circle" style="color:#00BCD4";></i> Spams réçus</br>
-															<i class="fa fa-circle" style="color:#F44336";></i> Mails réçus		
-														</div>
 													</div>
 												</div>
 											</div>
+										</div>
+										<div class="card-footer">
+											<center>
+												<div class="stats">
+													<i class="fa fa-circle" style="color:#00BCD4";></i> Spams réçus
+													&nbsp;&nbsp;&nbsp;
+													<i class="fa fa-circle" style="color:#F44336";></i> Mails réçus		
+												</div>
+											</center>
 										</div>
 										<!-- FIN GRAPH -->
                                     </div>
@@ -156,7 +141,7 @@
                               <div class="panel box-v1">
                                 <div class="panel-heading bg-white border-none">
                                   <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                    <h4 class="text-left">Utilisateurs</h4>
+                                    <h4 class="text-left">Les utilisateurs</h4>
                                   </div>
                                   <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                                      <h4>
@@ -187,7 +172,7 @@
                         <div class="col-md-12">
                             <div class="panel box-v4">
                                 <div class="panel-heading bg-white border-none">
-                                  <h4><span class="icon-notebook icons"></span>Information sur les spammeurs</h4>
+                                  <h4><span class="icon-notebook icons"></span> Les domaines de spammeurs</h4>
                                 </div>
                                 <div class="panel-body padding-0">
                                     <div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
@@ -256,13 +241,13 @@
                                           while ($datas = $requete->fetch(PDO::FETCH_ASSOC)) {
                                       ?>
 
-                                      <h3>Temps de Tarpit</h3>
-                                      <form action="" method="POST">
-                  											<input type="text" class="form-control" disabled=disabled value="<?php if ($datas['secondes']>=0 && $datas['secondes']<=59) { echo $datas['secondes'].' secondes'; } elseif ($datas['secondes']=='60') { echo '1 minute'; } else { $resultat = floor($datas['secondes'] / 60); $secondes=$datas['secondes'] % 60; echo $resultat.' minutes '.$secondes.' secondes'; } ?>">
-                  											<div class="input-group" style="width: 100%; height: 100%;">
-                  												<input type="number" class="form-control" style="width: 70%; height: 100%;" name="temps" value="<?php echo $datas['secondes'] ?>" min="0" max="99999" style="resize:none">
-                  												<input type="submit" name="modifier_tarpit" class="btn btn-primary" style="width: 30%; height: 100%;" value="Modifier">
-                  											</div>
+                                      <h4>Delais de ralentissement des spams</h4>
+                                      	<form action="" method="POST" style="width: 100%;">
+  											<input  style="width: 100%;" type="text" class="form-control" disabled=disabled value="<?php if ($datas['secondes']>=0 && $datas['secondes']<=59) { echo $datas['secondes'].' secondes'; } elseif ($datas['secondes']=='60') { echo '1 minute'; } else { $resultat = floor($datas['secondes'] / 60); $secondes=$datas['secondes'] % 60; echo $resultat.' minutes '.$secondes.' secondes'; } ?>">
+  											<div class="input-group" style="width: 100%;">
+  												<input type="number" style="width: 65%;" name="temps" value="<?php echo $datas['secondes'] ?>" min="0" max="99999">
+  												<input type="submit" name="modifier_tarpit" class="btn btn-primary" style="width: 30%; height: 100%;" value="Modifier">
+  											</div>
                                         </form>
 
                                         <?php          
@@ -283,7 +268,7 @@
                             <div class="col-md-12 padding-0">
                               <div class="panel box-v3">
                                 <div class="panel-heading bg-white border-none">
-                                  <h4>Report</h4>
+                                  <h4>L'état de mon serveur</h4>
                                 </div>
                                 <div class="panel-body">
                                     
@@ -357,11 +342,6 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="panel-footer bg-white border-none">
-                                    <center>
-                                      <input type="button" value="download as pdf" class="btn btn-danger box-shadow-none"/>
-                                    </center>
-                                </div>
                               </div>
                             </div>
 
@@ -371,6 +351,5 @@
           <!-- end: content -->
       </div>
   <?php include"./asset/includes/admin_js.php"; ?>
-  <?php //include"./asset/includes/dashboard_js.php"; ?>
 </body>
 </html>
