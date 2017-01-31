@@ -11,9 +11,9 @@
 <body id="mimin" class="dashboard">
   <?php include"./asset/includes/admin_menu.php"; ?>
   <?php 
-	include("./function_graph_day.php");
-	include("./function_graph_month.php");
-	include("./function_graph_year.php");
+	include("./model/function_graph_day.php");
+	include("./model/function_graph_month.php");
+	include("./model/function_graph_year.php");
 ?>
           <!-- start: content -->
             <div id="content">
