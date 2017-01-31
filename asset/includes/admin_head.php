@@ -13,7 +13,8 @@
 <link rel="stylesheet" type="text/css" href="./asset/css/plugins/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href="./asset/css/plugins/simple-line-icons.css"/>
 <link rel="stylesheet" type="text/css" href="./asset/css/plugins/animate.min.css"/>
-<link href="./asset/css/style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./asset/css/graph.css"/>
+<link rel="stylesheet" type="text/css" href="./asset/css/style.css"/>
 <!-- end: Css -->
 
 <link rel="shortcut icon" href="./asset/images/logo_bouclier(1).png">

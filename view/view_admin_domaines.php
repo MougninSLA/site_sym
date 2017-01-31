@@ -6,14 +6,13 @@
 
 <body id="mimin" class="dashboard">
   <?php include"./asset/includes/admin_menu.php"; ?>
-  <?php include"./admin_function_graph_day.php"; ?>
 
           <!-- start: content -->
           <div id="content">
              <div class="panel box-shadow-none content-header">
                   <div class="panel-body">
                     <div class="col-md-12">
-                        <h3 class="animated fadeInLeft">Les domaines</h3>
+                        <h3 class="animated fadeInLeft">LES DOMAINES AJOUTES</h3>
 						<h3><?php if(isset($msg)){echo $msg;} ?></h3>
                     </div>
                   </div>
@@ -32,12 +31,12 @@
                     <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                        <th>Nom du domaine</th>
-                        <th>Adresse IP</th>
-                        <th>Pays</th>
-                        <th>Ville</th>
-                        <th>Créateur</th>
-                        <th></th>
+                        <th style="width: 20%;">Nom du domaine</th>
+                        <th style="width: 20%;">Adresse IP</th>
+                        <th style="width: 20%;">Pays</th>
+                        <th style="width: 10%;">Ville</th>
+                        <th style="width: 20%;">Créateur</th>
+                        <th style="width: 10%;"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -68,18 +67,24 @@
                         ?>
 
                         <tr>
-                          <td><?php echo $datas['nom_domain']; ?></td>
-                          <td><?php echo $datas['adresse_ip']; ?></td>
-                          <td><?php echo $datas['pays_domain']; ?></td>
-                          <td><?php echo $datas['ville_domain']; ?></td>
-                          <td><?php echo $_SESSION['nom']; ?></td>
-                          <td>
-							<a data-toggle="modal" href="#" data-target="#modal_edit" class="LienModal" rel="<?php echo $datas['id_domain']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                           <!-- <button name=""><i class="fa fa-trash" aria-hidden="true"></i></button> -->
-							<form action="<?php echo INDEX ?>?index=del_domain" method="post">
-										<input type="hidden" name="id_domain" value="<?php echo $datas['id_domain']; ?>">
-										<button type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
-							</form> 
+                          <td style="width: 20%;"><?php echo $datas['nom_domain']; ?></td>
+                          <td style="width: 20%;"><?php echo $datas['adresse_ip']; ?></td>
+                          <td style="width: 20%;"><?php echo $datas['pays_domain']; ?></td>
+                          <td style="width: 10%;"><?php echo $datas['ville_domain']; ?></td>
+                          <td style="width: 20%;"><?php echo $_SESSION['nom']; ?></td>
+                          <td style="width: 10%;">
+              							<center>
+                              <a data-toggle="modal" style="width: 15%;" data-target="#modal_edit" class="LienModal" rel="<?php echo $datas['id_domain']; ?>">
+                                <button>
+                                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </button>
+                              </a>
+                              <form action="<?php echo INDEX ?>?index=del_domain" method="post" style="width: 15%; display: inline;">
+                                <input type="hidden" name="id_domain" value="<?php echo $datas['id_domain']; ?>">
+                                &nbsp;
+                                <button type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash" aria-hidden="true" style="color: red;"></i></button>
+                              </form>        
+                            </center>
                           </td> 
                         </tr>
 

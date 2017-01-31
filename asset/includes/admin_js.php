@@ -1,8 +1,3 @@
-<?php 
-	include("./model/function_graph_day.php");
-	include("./model/function_graph_month.php");
-	include("./model/function_graph_year.php");
-?>
 <!-- js -->
 <!--   Core JS Files   -->
 <script src="./asset/js/jquery-3.1.0.min.js" type="text/javascript"></script>
@@ -45,7 +40,6 @@
 <script type="text/javascript">
   $(document).ready(function(){
     multiAxesChart();
-
   });
 
   function multiAxesChart(){
