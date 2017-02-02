@@ -240,6 +240,26 @@
   }
   //-------------------------------------------------------------------------------------------------------------
 
+  
+  //-------------------------------------------------------------------------------------------------------------
+  //Fonction qui retrouve une whitelist
+  function select_accept_whitelist($domaine)
+  {
+    global $bdd;
+
+    $req = $bdd->prepare("SELECT * FROM whitelists WHERE whitelists.adresse_whitelist = :whitelist");
+    $req->execute(array("whitelist"=>$whitelist));
+    while($results = $req->fetch()){
+      $donnees= $results["nom_whitelist"];
+    }
+	
+	return $donnees;
+	
+    $req->closeCursor();
+  }
+  //-------------------------------------------------------------------------------------------------------------
+
+  
   //-------------------------------------------------------------------------------------------------------------
   //Fonction qui retrouve une blacklist
   function select_blacklist($blacklist)
@@ -261,6 +281,26 @@
     $req->closeCursor();
   }
   //-------------------------------------------------------------------------------------------------------------
+  
+  
+  //-------------------------------------------------------------------------------------------------------------
+  //Fonction qui retrouve une blacklist
+  function select_admin_blacklist($domaine)
+  {
+    global $bdd;
+    $req = $bdd->prepare("SELECT * FROM blacklists WHERE blacklists.id_blacklist = :blacklist");
+    $req->execute(array("blacklist"=>$blacklist));
+
+    while($results = $req->fetch()){
+      $donnees = $results["nom_blacklist"];
+    }
+	
+	return $donnees;
+	
+    $req->closeCursor();
+  }
+  //-------------------------------------------------------------------------------------------------------------
+  
 
   //-------------------------------------------------------------------------------------------------------------
   //Fonction pour ajouter un utilisateur dans notre BDD
@@ -710,9 +750,11 @@
       send_mail($adresse, $reponse, $nom);
 
     } elseif ($_SESSION['type'] == "Ajout de Whitelist") {
+		
+	  $donnees = select_accept_whitelist($domaine);
 
       //Execution de script
-      exec('sudo /var/www/scripts/add_whitelist.sh '.$domaine); 
+      exec('sudo /var/www/scripts/add_whitelist.sh '.$donnees); 
 
       global $bdd;
       $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de whitelist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
@@ -740,8 +782,10 @@
 
     } elseif ($_SESSION['type'] == "Ajout de Blacklist") {
 
+	  $donnees = select_accept_blacklist($domaine);
+	  
       //Execution de script
-      exec('sudo /var/www/scripts/add_blacklist.sh '.$domaine);
+      exec('sudo /var/www/scripts/add_blacklist.sh '.$donnees);
 
       global $bdd;
       $req = $bdd->query("UPDATE notifications SET contenu_notif='Votre demande d''ajout de Blacklist a été acceptée par l''administrateur',affichage='2' WHERE id_notif_admin='$notification'");
