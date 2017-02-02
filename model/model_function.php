@@ -288,7 +288,7 @@
   function select_accept_blacklist($domaine)
   {
     global $bdd;
-    $req = $bdd->prepare("SELECT * FROM blacklists WHERE blacklists.id_blacklist = :domaine");
+    $req = $bdd->prepare("SELECT * FROM blacklists WHERE blacklists.adresse_blacklist = :domaine");
     $req->execute(array("domaine"=>$domaine));
 
     while($results = $req->fetch()){
