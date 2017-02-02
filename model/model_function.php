@@ -247,8 +247,8 @@
   {
     global $bdd;
 
-    $req = $bdd->prepare("SELECT * FROM whitelists WHERE whitelists.adresse_whitelist = :whitelist");
-    $req->execute(array("whitelist"=>$whitelist));
+    $req = $bdd->prepare("SELECT * FROM whitelists WHERE whitelists.adresse_whitelist = :domaine");
+    $req->execute(array("domaine"=>$domaine));
     while($results = $req->fetch()){
       $donnees= $results["nom_whitelist"];
     }
@@ -285,11 +285,11 @@
   
   //-------------------------------------------------------------------------------------------------------------
   //Fonction qui retrouve une blacklist
-  function select_admin_blacklist($domaine)
+  function select_accept_blacklist($domaine)
   {
     global $bdd;
-    $req = $bdd->prepare("SELECT * FROM blacklists WHERE blacklists.id_blacklist = :blacklist");
-    $req->execute(array("blacklist"=>$blacklist));
+    $req = $bdd->prepare("SELECT * FROM blacklists WHERE blacklists.id_blacklist = :domaine");
+    $req->execute(array("domaine"=>$domaine));
 
     while($results = $req->fetch()){
       $donnees = $results["nom_blacklist"];
