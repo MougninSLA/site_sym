@@ -3,6 +3,7 @@
 <head>
   <?php
   	include"./asset/includes/admin_head.php";
+	include("./model/function_graph_hour.php");
 	include("./model/function_graph_day.php");
 	include("./model/function_graph_month.php");
 	include("./model/function_graph_year.php");
@@ -94,13 +95,33 @@
 													</div>
 												</div>
 											</div>
+											<div class="col-md-4">
+												<div class="card">
+													<div class="card-header card-chart" data-background-color="blue">
+														<div class="ct-chart" id="hour"></div>
+													</div>
+													<div class="card-content">
+														<h4 class="title">Les septs dernières heures</h4>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card">
+													<div class="card-header card-chart" data-background-color="yellow">
+														<div class="ct-chart" id="day"></div>
+													</div>
+													<div class="card-content">
+														<h4 class="title">Aujourd'hui</h4>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="card-footer">
 											<center>
 												<div class="stats">
-													<i class="fa fa-circle" style="color:#00BCD4";></i> Spams réçus
+													<i class="fa fa-circle" style="color:#00BCD4";></i> Mails réçus
 													&nbsp;&nbsp;&nbsp;
-													<i class="fa fa-circle" style="color:#F44336";></i> Mails réçus		
+													<i class="fa fa-circle" style="color:#F44336";></i> Spams réçus		
 												</div>
 											</center>
 										</div>

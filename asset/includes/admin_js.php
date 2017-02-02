@@ -142,14 +142,43 @@ demo = {
     },
 
     initDashboardPageCharts: function(){
+		
+		        /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
+
+        dataCompletedTasksChart = {
+            labels: [<?php echo "'$hour_6', '$hour_5', '$hour_4', '$hour_3', '$hour_2', '$hour_1', '$hour'"; ?>],
+            series: [
+                [<?php echo "$graph_hour_bon_6[0], $graph_hour_bon_5[0], $graph_hour_bon_4[0], $graph_hour_bon_3[0], $graph_hour_bon_2[0], $graph_hour_bon_1[0], $graph_hour_bon[0]"; ?>],
+		[<?php echo "$graph_hour_6[0], $graph_hour_5[0], $graph_hour_4[0], $graph_hour_3[0], $graph_hour_2[0], $graph_hour_1[0], $graph_hour[0]"; ?>]
+            ]
+        };
+
+        optionsCompletedTasksChart = {
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            low: 0,
+            high: <?php echo $max_hour; ?>, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
+        }
+
+        var hour = new Chartist.Line('#hour', dataCompletedTasksChart, optionsCompletedTasksChart);
+
+        // start animation for the Completed Tasks Chart - Line Chart
+        md.startAnimationForLineChart(hour);
+		
+
+
+
+
 
         /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
         dataDailySalesChart = {
-            labels: [<?php echo "'$date_yesterday_6_d', '$date_yesterday_5_d', '$date_yesterday_4_d', '$date_yesterday_3_d', '$date_yesterday_2_d', '$date_yesterday_1_d', '$date_today_d'"; ?>],
+            labels: [<?php echo "'$date_yesterday_7_d', '$date_yesterday_6_d', '$date_yesterday_5_d', '$date_yesterday_4_d', '$date_yesterday_3_d', '$date_yesterday_2_d', '$date_yesterday_1_d'"; ?>],
             series: [
-                [<?php echo "$graph_yesterday_6[0], $graph_yesterday_5[0], $graph_yesterday_4[0], $graph_yesterday_3[0], $graph_yesterday_2[0], $graph_yesterday_1[0], $graph_today[0]";?>],
-                [<?php echo "$graph_yesterday_bon_6[0], $graph_yesterday_bon_5[0], $graph_yesterday_bon_4[0], $graph_yesterday_bon_3[0], $graph_yesterday_bon_2[0], $graph_yesterday_bon_1[0], $graph_today_bon[0]";?>]
+			    [<?php echo "$graph_yesterday_bon_7[0], $graph_yesterday_bon_6[0], $graph_yesterday_bon_5[0], $graph_yesterday_bon_4[0], $graph_yesterday_bon_3[0], $graph_yesterday_bon_2[0], $graph_yesterday_bon_1[0]";?>],
+                [<?php echo "$graph_yesterday_7[0], $graph_yesterday_6[0], $graph_yesterday_5[0], $graph_yesterday_4[0], $graph_yesterday_3[0], $graph_yesterday_2[0], $graph_yesterday_1[0]";?>]
             ]
         };
 
@@ -158,7 +187,7 @@ demo = {
                 tension: 0
             }),
             low: 0,
-            high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            high: <?php echo 0?>, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
         }
 
@@ -225,7 +254,41 @@ demo = {
         var emailsSubscriptionChart = Chartist.Bar('#emailsSubscriptionChart', dataEmailsSubscriptionChart, optionsEmailsSubscriptionChart, responsiveOptions);
 
         //start animation for the Emails Subscription Chart
-        md.startAnimationForBarChart(emailsSubscriptionChart);
+        md.startAnimationForBarChart(emailsSubscriptionChart);       
+
+
+		/* ----------==========     Emails Subscription Chart initialization    ==========---------- */
+
+        var dataEmailsSubscriptionChart = {
+          labels: [<?php echo "'$date_today'";?>],
+          series: [
+            [<?php echo "$graph_today_bon[0]";?>],
+            [<?php echo "$graph_today[0]";?>]
+
+          ]
+        };
+        var optionsEmailsSubscriptionChart = {
+            axisX: {
+                showGrid: false
+            },
+            low: 0,
+            high: <?php echo $max_day; ?>,
+            chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
+        };
+        var responsiveOptions = [
+          ['screen and (max-width: 640px)', {
+            seriesBarDistance: 5,
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0];
+              }
+            }
+          }]
+        ];
+        var day = Chartist.Bar('#day', dataEmailsSubscriptionChart, optionsEmailsSubscriptionChart, responsiveOptions);
+
+        //start animation for the Emails Subscription Chart
+        md.startAnimationForBarChart(day);
 
     },
 

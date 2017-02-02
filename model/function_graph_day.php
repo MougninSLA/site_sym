@@ -38,4 +38,7 @@
  $graph_yesterday_bon_5 = graph_day_bons($date_yesterday_5);
  $graph_yesterday_bon_6 = graph_day_bons($date_yesterday_6);
  $graph_yesterday_bon_7 = graph_day_bons($date_yesterday_7);
+ 
+ $max_week = max($graph_yesterday_1[0], $graph_yesterday_2[0], $graph_yesterday_3[0], $graph_yesterday_4[0], $graph_yesterday_5[0], $graph_yesterday_6[0], $graph_yesterday_7[0], $graph_yesterday_bon_1[0], $graph_yesterday_bon_2[0], $graph_yesterday_bon_3[0], $graph_yesterday_bon_4[0], $graph_yesterday_bon_5[0],$graph_yesterday_bon_6[0], $graph_yesterday_bon_7[0]);
+ $max_day = max($graph_today[0], $graph_today_bon[0]);
 ?>

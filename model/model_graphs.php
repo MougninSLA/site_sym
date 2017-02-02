@@ -1,5 +1,25 @@
 <?php
 
+function graph_hour_spams($date){
+	global $bdd;
+	
+	$req = $bdd->query("SELECT spam_mails FROM mails_heure WHERE heure LIKE '$date'");
+	$donnees = $req->fetch();
+	
+	return $donnees;
+	
+}
+
+function graph_hour_bons($date){
+	global $bdd;
+	
+	$req = $bdd->query("SELECT bon_mails FROM mails_heure WHERE heure LIKE '$date'");
+	$donnees = $req->fetch();
+	
+	return $donnees;
+	
+}
+
 function graph_day_spams($date){
 	global $bdd;
 	
