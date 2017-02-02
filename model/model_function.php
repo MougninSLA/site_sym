@@ -288,7 +288,7 @@
   function select_accept_blacklist($domaine)
   {
     global $bdd;
-    $req = $bdd->prepare("SELECT * FROM blacklists WHERE blacklists.adresse_blacklist = :domaine");
+    $req = $bdd->prepare("SELECT * FROM blacklists WHERE blacklists._blacklist = :domaine");
     $req->execute(array("domaine"=>$domaine));
 
     while($results = $req->fetch()){
@@ -516,15 +516,15 @@
   function del_blacklist($blacklist)
   {
     global $bdd;
-    $req = $bdd->prepare("SELECT adresse_blacklist FROM blacklists WHERE id_blacklist = '$blacklist'");
+    $req = $bdd->prepare("SELECT nom_blacklist FROM blacklists WHERE id_blacklist = '$blacklist'");
     $req->execute(array("blacklist"=>$blacklist));
     while($results = $req->fetch()){
-      $adresse_blacklist = $results["adresse_blacklist"];
+      $nom_blacklist = $results["nom_blacklist"];
     }
     $req->closeCursor();
 
     //Execution de script
-    exec('sudo /var/www/scripts/rm_blacklist.sh '.$adresse_blacklist);
+    exec('sudo /var/www/scripts/rm_blacklist.sh '.$nom_blacklist);
 
     global $bdd;
     $req = $bdd->query("DELETE FROM blacklists WHERE id_blacklist = '$blacklist'");
@@ -534,18 +534,18 @@
 
   //-------------------------------------------------------------------------------------------------------------
   //Fonction delete user blacklist
-  function del_user_blacklist($id_user)
+  function del_user_blacklist($blacklist)
   {
     global $bdd;
-    $req = $bdd->prepare("SELECT adresse_blacklist FROM blacklists WHERE id_blacklist = '$blacklist'");
+    $req = $bdd->prepare("SELECT nom_blacklist FROM blacklists WHERE id_blacklist = '$blacklist'");
     $req->execute(array("blacklist"=>$blacklist));
     while($results = $req->fetch()){
-      $adresse_blacklist = $results["adresse_blacklist"];
+      $nom_blacklist = $results["nom_blacklist"];
     }
     $req->closeCursor();
 
     //Execution de script
-    exec('sudo /var/www/scripts/rm_blacklist.sh '.$adresse_blacklist);
+    exec('sudo /var/www/scripts/rm_blacklist.sh '.$nom_blacklist);
 
     global $bdd;
     $req = $bdd->query("DELETE FROM blacklists WHERE id_blacklist = '$blacklist'");
@@ -558,15 +558,15 @@
   function del_whitelist($whitelist)
   {
     global $bdd;
-    $req = $bdd->prepare("SELECT adresse_whitelist FROM whitelists WHERE id_whitelist = '$whitelist'");
+    $req = $bdd->prepare("SELECT nom_whitelist FROM whitelists WHERE id_whitelist = '$whitelist'");
     $req->execute(array("whitelist"=>$whitelist));
     while($results = $req->fetch()){
-      $adresse_whitelist = $results["adresse_whitelist"];
+      $nom_whitelist = $results["nom_whitelist"];
     }
     $req->closeCursor();
 
     //Execution de script
-    exec('sudo /var/www/scripts/rm_whitelist.sh '.$adresse_whitelist);
+    exec('sudo /var/www/scripts/rm_whitelist.sh '.$nom_whitelist);
 
     global $bdd;
     $req = $bdd->query("DELETE FROM whitelists WHERE id_whitelist = '$whitelist'");
@@ -576,18 +576,18 @@
 
   //-------------------------------------------------------------------------------------------------------------
   //Fonction delete user whitelist
-  function del_user_whitelist($id_user)
+  function del_user_whitelist($whitelist)
   {
     global $bdd;
-    $req = $bdd->prepare("SELECT adresse_whitelist FROM whitelists WHERE id_whitelist = '$whitelist'");
+    $req = $bdd->prepare("SELECT nom_whitelist FROM whitelists WHERE id_whitelist = '$whitelist'");
     $req->execute(array("whitelist"=>$whitelist));
     while($results = $req->fetch()){
-      $adresse_whitelist = $results["adresse_whitelist"];
+      $adresse_whitelist = $results["nom_whitelist"];
     }
     $req->closeCursor();
 
     //Execution de script
-    exec('sudo /var/www/scripts/rm_whitelist.sh '.$adresse_whitelist);
+    exec('sudo /var/www/scripts/rm_whitelist.sh '.$nom_whitelist);
 
     global $bdd;
     $req = $bdd->query("DELETE FROM whitelists WHERE id_whitelist = '$whitelist'");
