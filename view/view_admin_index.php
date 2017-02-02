@@ -67,6 +67,26 @@
 										<div class="row">
 											<div class="col-md-4">
 												<div class="card">
+													<div class="card-header card-chart" data-background-color="blue">
+														<div class="ct-chart" id="hour"></div>
+													</div>
+													<div class="card-content">
+														<h4 class="title">Les septs dernières heures</h4>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card">
+													<div class="card-header card-chart" data-background-color="yellow">
+														<div class="ct-chart" id="day"></div>
+													</div>
+													<div class="card-content">
+														<h4 class="title">Aujourd'hui</h4>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card">
 													<div class="card-header card-chart" data-background-color="green">
 														<div class="ct-chart" id="dailySalesChart"></div>
 													</div>
@@ -92,26 +112,6 @@
 													</div>
 													<div class="card-content">
 														<h4 class="title">Les deux dernières années</h4>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card">
-													<div class="card-header card-chart" data-background-color="blue">
-														<div class="ct-chart" id="hour"></div>
-													</div>
-													<div class="card-content">
-														<h4 class="title">Les septs dernières heures</h4>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card">
-													<div class="card-header card-chart" data-background-color="yellow">
-														<div class="ct-chart" id="day"></div>
-													</div>
-													<div class="card-content">
-														<h4 class="title">Aujourd'hui</h4>
 													</div>
 												</div>
 											</div>
