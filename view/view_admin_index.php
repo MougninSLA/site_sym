@@ -28,7 +28,7 @@
                           <h1 style="margin-top: -10px;color: #ddd;">10<sup>o</sup></h1>
                         </div>
                         <div class="col-md-6 col-sm-6">
-						<img src="./asset/images/sun.png" style="width: 25%; margin-top : auto; margin-top : 16px; margin-top : 14%;">
+						<img src="/asset/images/sun.png" style="width: 25%; margin-top : auto; margin-top : 16px; margin-top : 14%;">
                            <div class="wheather">
                             <div class="stormy rainy animated pulse infinite">
                               <div class="shadow">
