@@ -109,7 +109,7 @@
           </tr>
           <tr>
             <th colspan="2">
-              <label><h5>En cochant cette case, vous acceptez les conditions générales de SYM</h5></label>
+              <label><h5>En vous connectant, vous acceptez les conditions générales de SYM</h5></label>
             </th>
           </tr>
         </table>
