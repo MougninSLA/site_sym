@@ -202,8 +202,8 @@ demo = {
         dataCompletedTasksChart = {
             labels: [<?php echo "'$date_year_1_d', '$date_year_d'"; ?>],
             series: [
-                [<?php echo "$graph_year_1[0], $graph_year[0]"; ?>],
-                [<?php echo "$graph_year_bons_1[0], $graph_year_bons[0]"; ?>]
+                [<?php echo "$graph_year_bons_1[0], $graph_year_bons[0]"; ?>],
+                [<?php echo "$graph_year_1[0], $graph_year[0]"; ?>]
             ]
         };
 
@@ -228,8 +228,8 @@ demo = {
         var dataEmailsSubscriptionChart = {
           labels: [<?php echo "'$date_month_2_d', '$date_month_1_d', '$date_month_d'";?>],
           series: [
+            [<?php echo "$graph_month_bons_2[0], $graph_month_bons_1[0], $graph_month_bons[0]";?>],
             [<?php echo "$graph_month_2[0], $graph_month_1[0], $graph_month[0]";?>],
-            [<?php echo "$graph_month_bons_2[0], $graph_month_bons_1[0], $graph_month_bons[0]";?>]
 
           ]
         };
